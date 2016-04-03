@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>
+    AngularJS+Bootstrap Simple Chat Directive Sample
+  </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../styles/tempinbox.css">
+   <link rel="stylesheet" href="../../styles/style.css">
+  <link
+    rel="stylesheet"
+    href="../src/css/style.css">
+
+    <link
+    rel="stylesheet"
+    href="../bower_components/angular-bootstrap-simple-chat/src/css/themes.css">
+
+  <link
+    rel="stylesheet"
+    href="style.css">
+  <link href="../../styles/userprofile.css" rel="stylesheet">
+</head>
+<body ng-controller="Shell as vm">
+    <nav class="navbar navbar-default" style="background-color: white;margin-bottom: 0px;">
+    <div class="container-fluid clearfix">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6">
+      <div class="navbar-header" style="margin-left: 70px;">
+        <a class="navbar-brand" href="#">Split'n'Save</a>
+      </div>
+      </div>
+  <div class="col-xs-5 col-sm-3 col-md-4">
+    <div class="options pull-right">
+      <button type="button" class="btn navbar-btn" style="display:inline-block;background-color: white;color:black;">Post an Ad</button>
+    </div>
+  </div>
+  <div class="col-xs-7 col-sm-3 col-md-2">
+    <div class="options pull-left">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="display:inline-block"><span class="glyphicon glyphicon-user"></span><span > UserName </span><!--<span class="caret"></span>--></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">My Profile</a></li>
+                <li><a href="#">My Posts</a></li>
+                <li><a href="#">Transaction History</a></li>
+                <li><a href="#">Messages</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Settings</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Sign Out<OUTPUT></OUTPUT></a></li>
+              </ul>
+            </li>
+          </ul>
+          
+  </div>
+  </div>
+  </div>
+    </div>
+  </nav>
+
+    <nav class="navbar navbar-default navbar-inverse" style="background-color: black;margin-top: 0px;">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" style="font-size: 15px;">
+          <ul class="nav navbar-nav" style="padding-left: 50px;">
+            <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Inbox</a></li>
+            <li><a href="#">My Posts</a></li>
+            <li><a href="#">Transactions</a></li>
+            <li><a href="#">Profile</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container clearfix" ng-model="bool" ng-model="vm.messages" ng-model="vm.username">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 pull-left" style="width:40%;display:block" id="contact-list">
+            <div class="panel panel-default" style="max-height:600px;overflow-y:scroll;overflow-x:hidden">
+                <div class="panel-heading c-list">
+                    <span class="title">Contacts</span>
+                    <ul class="pull-right c-controls">
+                        <li><a href="#cant-do-all-the-work-for-you" data-toggle="tooltip" data-placement="top" title="Add Contact"><i class="glyphicon glyphicon-plus"></i></a></li>
+                        <li><a href="#" class="hide-search" data-command="toggle-search" data-toggle="tooltip" data-placement="top" title="Toggle Search"><i class="fa fa-ellipsis-v"></i></a></li>
+                    </ul>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="input-group c-search">
+                            <input type="text" class="form-control" id="contact-list-search" ng-model="searchText" placeholder="Search Name">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search text-muted"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <ul class="list-group" id="contact-list" ng-model="userid">
+                    <li class="list-group-item" data-target="" data-toggle="modal"  ng-click="cambiaridioma($index)" ng-repeat="user in Users | filter:search" ng-class="{red: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
+                        <div class="col-xs-12 col-sm-4 md-6">
+                            <img ng-src="{{user.Image_Link}}" alt="Scott Stevens"  class="img-responsive img-circle" />
+                        </div>
+                        <div class="col-xs-12 col-sm-8 md-6">
+                            <span class="name">{{user.First_Name}} {{user.Last_Name}}</span><br/>
+                            <span class="time pull-right" style="margin-top:40px">{{displayDay(user.Date)}}</span>
+                        </div>
+                         <div class="clearfix"></div>
+                    </li>
+                </ul>
+        </div>
+        </div>
+        <div class="col-sm-6 col-md-8 chat-container pull-right"  style="width:60%;display:inline;height:600px" id="chat-container" ng-model="messages" ng-model="username" ng-model="userid">
+            <irontec-simple-chat
+                messages="vm.messages"
+                username="vm.username"
+                input-placeholder-text="You can write here"
+                submit-button-text="Send your message"
+                title="Super Awesome Chat"
+                theme="material"
+                submit-function="vm.sendMessage"
+                visible="true">
+              </irontec-simple-chat>
+        </div>
+      </div>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+             <irontec-simple-chat
+                messages="vm.messages"
+                username="vm.username"
+                input-placeholder-text="You can write here"
+                submit-button-text="Send your message"
+                title="Super Awesome Chat"
+                theme="material"
+                submit-function="vm.sendMessage"
+                visible="true">
+              </irontec-simple-chat>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+     <nav class="navbar navbar-default navbar-fixed-bottom" id="footer" ng-include="'../../footer.html'">
+    </nav>
+    <script>
+    window.setInterval(function() {
+  var elem = document.getElementById('chat-container');
+  elem.scrollTop = elem.scrollHeight;
+}, 5000);
+    </script>
+
+
+
+
+  <script src="../bower_components/lodash/dist/lodash.js"></script>
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+
+  <script src="../src/scripts/index.js"></script>
+ <script src="../src/scripts/templates.js"></script>
+  <script src="../../scripts/bootstrap.min.js"></script>
+  <script src="app.js"></script>
+  
+</body>
+</html>

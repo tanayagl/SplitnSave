@@ -39,11 +39,15 @@ p {
         font-size: 20px;
         line-height: 1.6;
     }
-    #footer {
+     #footer {
         margin-top: 10px;
        position:relative;
        bottom: 0%;
     }
+     #footer .join{
+       text-align:right;
+    }
+   
 }
 @media(max-width:768px) {
     #footer {
@@ -51,8 +55,15 @@ p {
        position:relative;
        bottom: 0%;
     }
+     .thumbnail{
+       padding:10px;
+    }
 }
-
+@media(min-width:1170px) {
+    #footer .join{
+        text-align:right;
+    }
+}
 
 
 a {
@@ -122,3 +133,6 @@ a:focus {
 	float: right;
 }
 input[type="text"]:disabled{background-color:white;}
+.red {
+  background-color: #B8B8B8 ;
+}

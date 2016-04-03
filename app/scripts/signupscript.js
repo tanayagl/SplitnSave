@@ -115,6 +115,16 @@ myapp.controller("Main",function($scope){
 	$scope.onMouseLeave_Re_Password_Result="";
 	}
     };
+     $scope.onMouseChange_Re_Password = function ($event) {
+	if(input['Re_Password']=="")
+	{
+	$scope.onMouseLeave_Re_Password_Result = "Confirm Password is required";
+	}
+	else
+	{
+	$scope.onMouseLeave_Re_Password_Result="";
+	}
+    };
     $scope.onMouseLeave_CityName = function ($event) {
 	if(input['CityName']=="")
 	{

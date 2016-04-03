@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Split'n'Save</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/userprofile.css" rel="stylesheet">
+     <link href="styles/style.css" rel="stylesheet">
+    <script type="text/javascript" src="scripts/angular.js"></script>
+    <script type="text/javascript" src="scripts/userprofile.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-controller="Main">
+    
+ <nav class="navbar navbar-default" style="background-color: white;margin-bottom: 0px;">
+    <div class="container-fluid clearfix">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6">
+      <div class="navbar-header" style="margin-left: 70px;">
+        <a class="navbar-brand" href="#">Split'n'Save</a>
+      </div>
+      </div>
+  <div class="col-xs-5 col-sm-3 col-md-4">
+    <div class="options pull-right">
+      <button type="button" class="btn navbar-btn" style="display:inline-block;background-color: white;color:black;">Post an Ad</button>
+    </div>
+  </div>
+  <div class="col-xs-7 col-sm-3 col-md-2">
+    <div class="options pull-left">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="display:inline-block"><span class="glyphicon glyphicon-user"></span><span > UserName </span><!--<span class="caret"></span>--></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">My Profile</a></li>
+                <li><a href="#">My Posts</a></li>
+                <li><a href="#">Transaction History</a></li>
+                <li><a href="#">Messages</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Settings</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Sign Out<OUTPUT></OUTPUT></a></li>
+              </ul>
+            </li>
+          </ul>
+          
+  </div>
+  </div>
+  </div>
+    </div>
+  </nav>
+
+    <nav class="navbar navbar-default navbar-inverse" style="background-color: black;margin-top: 0px;">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" style="font-size: 15px;">
+          <ul class="nav navbar-nav" style="padding-left: 50px;">
+            <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Inbox</a></li>
+            <li><a href="#">My Posts</a></li>
+            <li><a href="#">Transactions</a></li>
+            <li><a href="#">Profile</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" style="padding-top: 50px;color: black;margin: 0 auto;" ng-model="user">
+      <div class="row clearfix">
+        <div class="col-sm-3 col-md-3" style="border-style: solid 5px;">
+            <div class="row">
+              <div class="col-xs-3 col-sm-1 col-md-3">
+              </div>
+              <div class="col-xs-6 col-sm-9 col-md-6">
+                <h3 style="margin: 10px auto;">{{user.First_Name}}</h3>
+              </div>
+              <div class="col-xs-3 col-sm-2 col-md-3">
+              </div>
+            </div>
+            <div class="row">
+            <a href="#" class="thumbnail">
+              <img ng-src="{{user.Image_Link}}" alt="profile picture" class="img-responsive img-circle">
+            </a>
+            </div>
+            <div class="row" style="margin-top:10px">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                <h3>Rating</h3>
+                </div>
+                <div class="col-md-2">
+                </div>
+            </div>
+            <span class="rating">
+                <input id="rating5" type="radio" name="rating" value="5" ng-checked="expression(5)">
+                <label for="rating5">5</label>
+                <input id="rating4" type="radio" name="rating" value="4" ng-checked="expression(4)">
+                <label for="rating4">4</label>
+                <input id="rating3" type="radio" name="rating" value="3" ng-checked="expression(3)">
+                <label for="rating3">3</label>
+                <input id="rating2" type="radio" name="rating" value="2" ng-checked="expression(2)">
+                <label for="rating2">2</label>
+                <input id="rating1" type="radio" name="rating" value="1" ng-checked="expression(1)">
+                <label for="rating1">1</label>
+            </span>
+            
+        </div>
+        <div class="col-xs-12 col-sm-9 col-md-9">
+         <div class="row" style="margin-bottom: 10px">
+          <div class="col-md-2">
+              <!--<h5 style="margin: 0 auto;color: black;">Date of birth</h5>-->
+              <label for="exampleInputFile">Email</label>
+          </div>
+          <div class="form-group col-md-8">
+              <!--<label for="exampleInputPassword1">Email Address</label>-->
+              
+              <input type="text" class="form-control" id="Email" disabled value="{{user.Email}}">
+              
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 10px">
+          <div class="col-md-2">
+              <!--<h5 style="margin: 0 auto;color: black;">Date of birth</h5>-->
+              <label for="exampleInputFile">Contact No</label>
+          </div>
+          <div class="form-group col-md-8">
+              <!--<label for="exampleInputPassword1">Email Address</label>-->
+              
+              <input type="text" class="form-control" id="Contact_No" disabled value="{{user.ContactNumber}}">
+              
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 10px">
+          <div class="col-md-2">
+              <!--<h5 style="margin: 0 auto;color: black;">Date of birth</h5>-->
+              <label for="exampleInputFile">Gender</label>
+          </div>
+          <div class="form-group col-md-8">
+              <!--<label for="exampleInputPassword1">Email Address</label>-->
+              
+              <input type="text" class="form-control" id="Gender" disabled value="{{user.Gender}}">
+              
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 10px">
+          <div class="col-md-2">
+              <!--<h5 style="margin: 0 auto;color: black;">Date of birth</h5>-->
+              <label for="exampleInputFile">Location</label>
+          </div>
+          <div class="form-group col-md-8">
+              <!--<label for="exampleInputPassword1">Email Address</label>-->
+              
+              <input type="text" class="form-control" id="Location" disabled value="{{user.CityName}}">
+              
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 10px">
+          <div class="col-md-2">
+              <!--<h5 style="margin: 0 auto;color: black;">Date of birth</h5>-->
+              <label for="exampleInputFile">Profession</label>
+          </div>
+          <div class="form-group col-md-8">
+              <!--<label for="exampleInputPassword1">Email Address</label>-->
+              
+              <input type="text" class="form-control" id="Profession" disabled value="{{user.Profession_Name}}">
+              
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 10px">
+          <div class="col-md-2">
+              <!--<h5 style="margin: 0 auto;color: black;">Date of birth</h5>-->
+              <label for="exampleInputFile">Institute</label>
+          </div>
+          <div class="form-group col-md-8">
+              <!--<label for="exampleInputPassword1">Email Address</label>-->
+              
+              <input type="text" class="form-control" id="Institute" disabled value="{{user.Institute_Name}}">
+              
+          </div>
+        </div>
+
+        </div>
+        
+        </div>
+      </div>
+      <nav class="navbar navbar-default navbar-fixed-bottom" id="footer" ng-include="'footer.html'">
+      </nav>
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="scripts/bootstrap.min.js"></script>
+  </body>
+</html>

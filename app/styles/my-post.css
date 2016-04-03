@@ -1,0 +1,28 @@
+
+@media(max-width:768px) {
+    .editbutton{
+      margin-top: 20px;
+    }
+    #footer {
+       margin-top: 200px;
+       position:relative;
+    }
+}
+@media(min-width:768px) {
+    #footer {
+       margin-top: 320px;
+       position:relative;
+    }
+}
+@media(min-width:1170px) {
+    #footer {
+       margin-top: 460px;
+       position:relative;
+    }
+    .editbutton{
+      margin-top:-30px;
+    }
+}
+
+
+
