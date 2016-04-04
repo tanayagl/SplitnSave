@@ -10,9 +10,9 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <script type="text/javascript" src="angular.js"></script>
-    <script type="text/javascript" src="signupscript.js"></script>
+    <link href="styles/style.css" rel="stylesheet">
+    <script type="text/javascript" src="scripts/angular.js"></script>
+    <script type="text/javascript" src="scripts/signupscript.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -70,7 +70,7 @@
           <div class="col-md-2"></div>
             <div class="form-group col-md-8">
               <!--<label for="exampleInputPassword1">Confirm Password</label>-->
-              <input type="password" class="form-control" id="Re_Password" placeholder="Confirm Password"  ng-model="user.Re_Password" ng-blur="onMouseLeave_Re_Password($event)" ng-change="onMouseLeave_Re_Password($event)">
+              <input type="password" class="form-control" id="Re_Password" placeholder="Confirm Password"  ng-model="user.Re_Password" ng-blur="onMouseLeave_Re_Password($event)" ng-change="onMouseChange_Re_Password($event)">
                <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Re_Password_Result}}</div>
             </div>
           </div>
@@ -188,23 +188,11 @@
       </form>
   </div>
 
-    <nav class="navbar navbar-default navbar-fixed-bottom" id="footer">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Split'n'Save</a>
-            </div>
-            <div class="join">
-                <span style="padding: 10px;">Join Us On</span>
-                <span style="font-size:2em;padding: 2px;"><i class="fa fa-facebook-square"></i></span>
-                <span style="font-size:2em;padding: 2px;"><i class="fa fa-twitter-square"></i></span>
-                <span style="font-size:2em;padding: 2px;"><i class="fa fa-google-plus"></i></span>
-                <span style="font-size:2em;padding: 2px;"><i class="fa fa-youtube-square"></i></span>
-            </div>
-        </div>
-  </nav>    
+    <nav class="navbar navbar-default navbar-fixed-bottom" id="footer" ng-include="'footer.html'">
+    </nav>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
   </body>
 </html>

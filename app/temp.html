@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<input type="email" name="email" id="email" />
+<button type="submit" form="form1" value="Submit" id="submit">Submit</button>
+</body>
+<script>
+var Email;
+$(document).ready(function() {
+$(document).on("click", "#submit", function(e) {
+alert(msg);
+$.post("splitnsave.pythonanywhere.com/api/signupcheck",{Email:Email},function(msg){
+});
+});
+});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</html>
