@@ -1,4 +1,4 @@
-var myapp = angular.module("myModule",[]);
+var myapp = angular.module("splitnSaveApp");
 var input={
 		First_Name:"Chaitanya",
 		Last_Name:"Shah",
@@ -15,7 +15,7 @@ var dob;
 var Day;
 var Month;
 var Year;
-myapp.controller("Main",function($scope){
+myapp.controller("EditProfileCtrl",function($scope){
 	dob=input['Birthdate'].split("/");
 	Day=dob[0];
 	Month=dob[1];

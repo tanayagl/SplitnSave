@@ -25,6 +25,7 @@
         </div>
     </div>
 </nav>
+<!-- ______________________________Login Modal__________________________ -->
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -32,30 +33,30 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">Login</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" ng-model="user">
                 <ul>
                     <label for="usr">Username:</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="usr" ng-model="username">
+                        <input type="text" class="form-control" id="usr" ng-model="user.username">
                     </div>
                     <label for="pwd">Password:</label>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="pwd" ng-model="password">
+                        <input type="password" class="form-control" id="pwd" ng-model="user.password">
                     </div>
-                    <div  style="text-align:center">
-                        <button type="submit" class="btn btn-danger" style="width:90%">Login</button>
+                    <div style="text-align:center">
+                        <button type="submit" ng-click="login_check(user.username,user.password)" class="btn btn-danger" style="width:90%">Login</button>
                     </div>
                 </ul>
             </div>
         </div>
     </div>
 </div>
-</div>
+
 <div class="container search-container">
     <div class="col-md-2"></div>
     <div class="intro-text input-group col-md-8">
         <div class="col-md-8 search-bar">
-            <input class="form-control search-field" type="text" ng-model="searchText">
+            <input class="form-control search-field" type="text" ng-model="searchText" placeholder="Search Author or Book Title ....">
         </div>
         <div class="col-md-4 search-bar">
             <button type="button" class="search-btn btn btn-danger"><span class="glyphicon glyphicon-search" style="margin:4px"></span> Search</button>

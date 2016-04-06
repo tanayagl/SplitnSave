@@ -1,13 +1,4 @@
 'use strict';
-
-/**
- * @ngdoc overview
- * @name splitnSaveApp
- * @description
- * # splitnSaveApp
- *
- * Main module of the application.
- */
 angular
     .module('splitnSaveApp', [
         'ngAnimate',
@@ -41,6 +32,17 @@ angular
                 // controller:'BooksCtrlList',
                 // controllerAs:'books',
             })
+            .when('/post_product', {
+                templateUrl:'views/post_product.html',
+                controller:'PostProductCtrl',
+                controllerAs:'product',
+            })
+            .when('/edit_profile', {
+                templateUrl:'views/edit_profile.html',
+                controller:'EditProfileCtrl',
+                controllerAs:'EditProfileCtrlå',
+            })
+
             .otherwise({
                 redirectTo: '/'
             });
