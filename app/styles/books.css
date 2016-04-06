@@ -1,7 +1,81 @@
-.panel-body img
+.search-bar {
+    padding: 0px;
+}
+
+.search-container .intro-text {
+    top: 50%;
+}
+
+.search-container {
+    padding-bottom: 50px;
+}
+
+.search-btn,
+.search-field,
+.search-dropdown {
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 40px;
+}
+
+.search-dropdown {
+    width: 100%;
+    border-right: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.search-field {
+    width: 100%;
+    height: 40px;
+}
+
+.search-btn {
+    float: left;
+    width: 80%;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.search-container {
+    height: 100px;
+    margin-top: 50px;
+}
+
+.panel-body img {
+    float: left;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.product-card ul {
+    list-style: none;
+}
+
+.product-card .panel {
+    height: 200px;
+    min-height: 200px;
+}
+
+.product-details {
+    margin-top: 5px;
+}
+
+.product-title {
+    height: 100px;
+}
+
+.navbar-inverse
 {
-	float:left;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
+	padding-right: 5px;
+}
+
+.modal-dialog
+{
+	width:40%;
+	/* padding-left: 50px; */
+ /*	padding-right: 50px; */
 }

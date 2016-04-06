@@ -1,4 +1,6 @@
-<nav class="navbar navbar-fixed-top">
+<link rel="stylesheet" href="styles/books.css">
+<script src="scripts/controllers/books.js"></script>
+<nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="cotainer-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navlinks" aria-exapanded="false">
@@ -15,31 +17,79 @@
                 <li><a href="#/apartments">Apartments</a></li>
                 <li><a href="#/laundry">Laundry</a></li>
             </ul>
-            <ul class="nav navbar-right">
-                <li><span class="glyphicon glyphicon-user">Sign Up</span></li>
-                <li><span class="glyphicon glyphicon-log-in">Log In</span></li>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li data-toggle="modal" data-target=".bs-example-modal-sm"><a href=""><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
+                <li></li>
             </ul>
         </div>
     </div>
 </nav>
-<br>
-<br>
-<div class="row">
-    <div class="col-md-4 ">
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Login</h4>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <label for="usr">Username:</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="usr" ng-model="username">
+                    </div>
+                    <label for="pwd">Password:</label>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="pwd" ng-model="password">
+                    </div>
+                    <div  style="text-align:center">
+                        <button type="submit" class="btn btn-danger" style="width:90%">Login</button>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="container search-container">
+    <div class="col-md-2"></div>
+    <div class="intro-text input-group col-md-8">
+        <div class="col-md-8 search-bar">
+            <input class="form-control search-field" type="text" ng-model="searchText">
+        </div>
+        <div class="col-md-4 search-bar">
+            <button type="button" class="search-btn btn btn-danger"><span class="glyphicon glyphicon-search" style="margin:4px"></span> Search</button>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<div class="container" ng-controller="BooksCtrlList">
+    <div ng-repeat="book in books | filter:search" class="col-md-4 product-card">
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="col-md-5">
-                    <img src="../images/books_01.jpg"></img>
+                    <img src="../images/books_01.jpg" class="img-responsive thumbnail"></img>
                 </div>
-                <div class="col-md-7">
-                    <h4> Title</h4>
-                    <h5> Author</h5>
+                <div class="col-md-7 product-title">
+                    <h4> {{book.name}}</h4>
+                    <h6> {{book.title}}</h6>
                 </div>
-                <div class="col-md-12">
-                    <ul>
-                        <li>COST</li>
-                        <li>LOCATION</li>
-                    </ul>
+                <div class="row">
+                    <div class="col-md-4 product-details text-nowrap">
+                        <ul>
+                            <li><b>COST :</b> </li>
+                            <li><b>LOCATION :</b></li>
+                            <li><b>POSTED BY : </b></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 product-details text-nowrap">
+                        <ul>
+                            <li>Rs 500</li>
+                            <li>Ahmedabad</li>
+                            <li>SplitnSave</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4"></div>
                 </div>
             </div>
         </div>

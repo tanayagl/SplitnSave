@@ -23,8 +23,8 @@ angular
         $routeProvider
             .when('/', {
                 templateUrl: 'views/homepage.html',
-                controller: 'HomepageCtrl',
-                controllerAs: 'homepage'
+                controller: '',
+                controllerAs: ''
             })
             .when('/about', {
                 templateUrl: 'views/about.html',
@@ -33,8 +33,13 @@ angular
             })
             .when('/books', {
                 templateUrl:'views/books.html',
-                controller:'BooksCtrl',
+                controller:'BooksCtrlList',
                 controllerAs:'books',
+            })
+            .when('/login', {
+                templateUrl:'views/login_modal.html',
+                // controller:'BooksCtrlList',
+                // controllerAs:'books',
             })
             .otherwise({
                 redirectTo: '/'
