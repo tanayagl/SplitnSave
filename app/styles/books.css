@@ -79,3 +79,7 @@
 	/* padding-left: 50px; */
  /*	padding-right: 50px; */
 }
+.dropdown-mega .dropdown-menu
+{
+    min-width: 300px;
+}

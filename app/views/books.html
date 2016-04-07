@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="styles/books.css">
+<link rel="stylesheet" href="styles/sidebar.css">
+<!-- <link rel="stylesheet" href="styles/side_bar_full.css"> -->
 <script src="scripts/controllers/books.js"></script>
 <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="cotainer-fluid">
@@ -20,6 +22,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li ng-show="!if_logged_in()"><a href="#/signup"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
                 <li ng-show="!if_logged_in()" data-toggle="modal" data-target=".bs-example-modal-sm"><a href=""><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
+                <!--USER DROPDOWN  -->
                 <li ng-show="if_logged_in()">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:red">{{user.Email}}</a>
                     <ul class="dropdown-menu">
@@ -33,6 +36,7 @@
                         <li><a href="#">Sign Out<OUTPUT></OUTPUT></a></li>
                     </ul>
                 </li>
+                <!--_____-->
             </ul>
         </div>
     </div>
@@ -76,7 +80,29 @@
             <button type="button" class="search-btn btn btn-danger"><span class="glyphicon glyphicon-search" style="margin:4px"></span> Search</button>
         </div>
     </div>
-    <div class="col-md-2 col-sm-1"></div>
+    <div class="col-md-2 col-sm-1">
+        <button class="btn btn-default dropdown-mega" data-toggle="dropdown">Filter</button>
+        <ul class="dropdown-menu col-md-4">
+            <li><a href="#">My Profile</a></li>
+            <li><a href="#">My Posts</a></li>
+            <li><a href="#">Transaction History</a></li>
+            <li><a href="#">Messages</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Settings</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Sign Out<OUTPUT></OUTPUT></a></li>
+        </ul>
+        <ul class="dropdown-menu col-md-4">
+            <li><a href="#">My Profile</a></li>
+            <li><a href="#">My Posts</a></li>
+            <li><a href="#">Transaction History</a></li>
+            <li><a href="#">Messages</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Settings</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Sign Out<OUTPUT></OUTPUT></a></li>
+        </ul>
+    </div>
 </div>
 <!--______________________ PANEL__________________________________ -->
 <div class="container" ng-controller="BooksCtrlList">
@@ -104,3 +130,4 @@
         </div>
     </div>
 </div>
+<!-- Panel End-->
