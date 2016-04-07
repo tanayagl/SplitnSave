@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myModule">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +10,9 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
+   <!-- <link href="../styles/style.css" rel="stylesheet">-->
+    <script src="../scripts/angular.js"></script>
+    <script src="../scripts/postproduct.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,7 +20,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body ng-controller="Main">
     
   <nav class="navbar navbar-default" style="background-color: white;margin-bottom: 0px;">
     <div class="container-fluid">
@@ -33,149 +34,319 @@
       <h1 style="margin-top:20px;text-align:center;color: black;">---</h1>
 
       <form>
-          <div class="row" style="margin-bottom: 15px;">
+          <div class="row" style="margin-bottom: 10px;">
             <div class="form-group">
-              <div class="col-md-4"></div>
-              <div class="col-md-4">
+              <div class="col-md-4 col-sm-3"></div>
+              <div class="col-md-4 col-sm-6">
                 <!--<label for="exampleInputEmail1">First Name</label>-->
-                <select class="form-control">
-                  <option>Select Category</option>
-                  <option>Apartments</option>
-                  <option>Cabs</option>
-                  <option>Books</option>
-                  <option>Laundry</option>
+                <select class="form-control" ng-model="category.Category" ng-change="onSelectcategory($event)">
+                  <option value="">Select Category</option>
+                  <option value="1">Apartments</option>
+                  <option value="2">Cabs</option>
+                  <option value="3">Books</option>
+                  <option value="4">Laundry</option>
+                </select>
+                <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Category_Result}}</div>
+              </div>
+          </div>
+          </div>
+          <div class="row" style="margin-bottom: 10px;">
+          <div class="form-group">
+               <div class="col-md-4 col-sm-3"></div>
+              <div class="col-md-4 col-sm-6">
+                <!--<label for="exampleInputEmail1">Last Name</label>-->
+                <input type="text" class="form-control" id="Text input" placeholder="Title" ng-model="product.Title">
+                <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Title_Result}}</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-4 col-sm-3"></div>
+            <div class="col-md-4 col-sm-6">
+              <!--<label for="exampleInputPassword1">Email Address</label>-->
+             <textarea rows="4" placeholder="Description" style="width:100%" ng-model="product.Description"></textarea>
+             <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Description_Result}}</div>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom: 10px;">
+           <div class="col-md-4 col-sm-3"></div>
+           <div class="form-group col-md-4 col-sm-6">
+              <!--<label for="exampleInputPassword1">Password</label>-->
+              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Price (Rs.)" ng-model="product.Price">
+              <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Price_Result}}</div>
+            </div>
+          </div> 
+          <div class="row">
+           <div class="col-md-4 col-sm-3"></div>
+              <div class="form-group col-md-4 col-sm-6">
+              <label for="exampleInputFile">Profile Picture</label>
+              <input type="file" id="exampleInputFile" ng-model="product.Image_Link">
+              <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Profile_Result}}</div>
+            </div>
+          </div>
+        <div class="row" style="margin-bottom: 10px;">
+          <div class="col-md-3 sm-2"></div>
+            <!-- <div class="col-md-2">
+              <h5 style="margin: 0 auto;color: black;">Date of birth</h5>
+              <label for="exampleInputFile">No. of sharers</label>
+            </div> -->
+            <div class="col-md-3 sm-3" style="margin-bottom:10px">
+              <input type="number" min="0" class="form-control" id="exampleInputPassword1" placeholder="Number of Sharer" ng-model="product.Sharers">
+              <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Sharers_Result}}</div>
+            </div>
+            <div class="col-md-3 sm-5">
+              <select class="form-control" ng-model="product.Geneder">
+                <option value="">Gender preference</option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">None</option>
+              </select>
+            </div>
+          </div>
+          <div id="Apartments" ng-show="checkApartments()">
+            <div class="row" style="margin-bottom: 10px;">
+              <div class="col-md-4 col-sm-3"></div>
+              <div class="col-md-4 col-sm-6">
+                <!--<label for="exampleInputPassword1">Location</label>-->
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Location" ng-model="product.Location">
+                <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Location_Result}}</div>
+              </div>
+            </div>
+            <div class="row" style="margin-bottom:10px">
+              <div class="col-md-3 col-sm-2"></div>
+              <div class="col-md-2 col-sm-3" style="margin-bottom:10px">
+                <input type="number" min="0" class="form-control" id="Text input" placeholder="No of Rooms" ng-model="product.Rooms">
+              </div>
+              <div class="col-md-2 col-sm-3" style="margin-bottom:10px">
+                <input type="number" min="0" class="form-control" id="Text input" placeholder="No of Bed-Rooms" ng-model="product.Bed_Rooms">
+              </div>
+              <div class="col-md-2 col-sm-3">
+                <input type="number" min="0" class="form-control" id="Text input" placeholder="No of Bath-Rooms" ng-model="product.Bath_Rooms">
+              </div>
+              <div class="col-md-3 col-sm-1"></div>
+            </div>
+            <div class="row" style="margin-bottom:10px">
+              <div class="col-md-3 col-sm-2"></div>
+              <div class="col-md-2 col-sm-3" style="margin-bottom:10px">
+                <select class="form-control" ng-model="product.BathRoom_Type">
+                  <option value="">BathRoom Type</option>
+                  <option value="1">Joint</option>
+                  <option value="2">Seprate</option>
                 </select>
               </div>
-          </div>
-          </div>
-          <div class="row" style="margin-bottom: 15px;">
-          <div class="form-group">
-              <div class="col-md-4"></div>
-              <div class="col-md-4">
-                <!--<label for="exampleInputEmail1">Last Name</label>-->
-                <input type="text" class="form-control" id="Text input" placeholder="Title">
+              <div class="col-md-2 col-sm-3" style="margin-bottom:10px">
+                <div class="row clearfix">
+                  <div class="col-md-6 col-sm-6 col-xs-5">
+                   <input type="time" class="form-control" id="Text input" placeholder="InTime" ng-model="product.IN_Time_Value">
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-9">
+                    <select class="form-control pull-left" ng-model="product.IN_Time_Type">
+                      <option value="1" selected>PM</option>
+                      <option value="2">AM</option>
+                    </select>
+                 </div>
+                </div>
               </div>
+              <div class="col-md-2 col-sm-3">
+                <div class="row clearfix">
+                  <div class="col-md-6 col-sm-6 col-xs-5">
+                   <input type="time" class="form-control" id="Text input" placeholder="OutTime" ng-model="product.Out_Time_Value">
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-9">
+                    <select class="form-control pull-left" ng-model="product.Out_Time_Type">
+                      <option value="1">AM</option>
+                      <option value="2">PM</option>
+                    </select>
+                 </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-1"></div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <!--<label for="exampleInputPassword1">Location</label>-->
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Location">
+          <div id="Cabs" ng-show="checkCabs()">
+            <div class="row" style="margin-bottom: 10px;">
+              <div class="col-md-3 sm-3"></div>
+              <div class="col-md-6 sm-6">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Location" ng-model="product.Location">
+              </div>
+              <div class="col-md-3 sm-3"></div>
+            </div>
+             <div class="row" style="margin-bottom: 10px;">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="row">
+                  <div class="col-md-3 sm-3 xs-6">
+                    <input type='text' class="form-control" placeholder="Start Date" ng-model="product.Start_Date"/>
+                  </div>
+                  <div class="col-md-3 sm-3 xs-6">
+                    <input type='text' class="form-control" placeholder="Start Time" ng-model="product.Start_Time"/>
+                  </div>
+                  <div class="col-md-3 sm-3 xs-6">
+                    <input type='text' class="form-control" placeholder="End Date" ng-model="product.End_Date"/>
+                  </div>
+                   <div class="col-md-3 sm-3 xs-6">
+                    <input type='text' class="form-control" placeholder="End Time" ng-model="product.End_Time"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+             </div>
+             <div class="row" style="margin-bottom: 10px">
+              <div class="col-md-3 sm-2"></div>
+                <div class="col-md-2 col-sm-3">
+                  <select class="form-control" style="margin-bottom: 10px" ng-model="product.CarService">
+                    <option value="">Car Service</option>
+                    <option value="1">Uber</option>
+                    <option value="2">Ola</option>
+                    <option value="3">Others</option>
+                  </select>
+                </div>
+                <div class="col-md-2 col-sm-3">
+                  <select class="form-control" style="margin-bottom: 10px" ng-model="product.CarType">
+                    <option value="">Car Type</option>
+                    <option value="1">Large</option>
+                    <option value="2">Medium</option>
+                    <option value="3">Small</option>
+                  </select>
+                </div>
+                <div class="col-md-2 col-sm-3">
+                  <select class="form-control" ng-model="product.CarName">
+                    <option value="">Car Name</option>
+                    <option value="1">Nano</option>
+                    <option value="2">Fronti</option>
+                    <option value="3">Others</option>
+                  </select>
+                </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <!--<label for="exampleInputPassword1">Email Address</label>-->
-              <input type="text" class="form-control" id="Text input" placeholder="Description">
+          <div id="Books" ng-show="checkBooks()">
+             <div class="row" style="margin-bottom: 10px">
+              <div class="col-md-3 col-sm-2" style="margin-bottom: 10px"></div>
+              <div class="col-md-3 col-sm-4">    
+              <input type='text' class="form-control" placeholder="Author's First Name" ng-model="product.Author_First_Name"/>
+              </div>
+              <div class="col-md-3 col-sm-4">    
+              <input type='text' class="form-control" placeholder="Author's Last Name" ng-model="product.Author_Last_Name"/>
+              </div>
+              <div class="col-md-3 col-sm-2"></div>
             </div>
-          </div>
-          <div class="row">
-          <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <!--<label for="exampleInputPassword1">Password</label>-->
-              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Price (Rs.)">
-            </div>
-          </div>
-          <div class="row">
-              <div class="col-md-4"></div>
-              <div class="col-md-4">
+            <div class="row" style="margin-bottom: 10px">
+              <div class="col-md-3 col-sm-2"></div>
+              <div class="col-md-3 col-sm-4" style="margin-bottom: 10px">
                   <div class="form-group">
                       <div class='input-group date' id='datetimepicker1'>
-                          <input type='text' class="form-control" />
+                          <input type='text' class="form-control" placeholder="Start Date" ng-model="product.Start_Date"/>
                           <span class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                           </span>
                       </div>
                   </div>
               </div>
-              <script type="text/javascript">
-                  $(function () {
-                      $('#datetimepicker1').datetimepicker();
-                  });
-              </script>
-          </div>  
+              <div class="col-md-3 col-sm-4">
+                  <div class="form-group">
+                      <div class='input-group date' id='datetimepicker1'>
+                          <input type='text' class="form-control" placeholder="End Date" ng-model="product.End_Date"/>
+                          <span class="input-group-addon">
+                              <span class="glyphicon glyphicon-calendar"></span>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3 col-sm-2"></div>
+            </div>
+            <div class="row" style="margin-bottom: 10px;">
+              <div class="col-md-3 col-sm-2"></div>
+               <div class="col-md-6 col-sm-8">
+                <div class="row">
+                  <div class="col-md-4 col-sm-4" style="margin-bottom: 10px;">
+                    <!--<label for="exampleInputPassword1">Location</label>-->
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="City Name" ng-model="product.Location">
+                  </div>
+                  <div class="col-md-4 col-sm-4" style="margin-bottom: 10px;">
+                    <!--<label for="exampleInputPassword1">Location</label>-->
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="College Name" ng-model="product.College">
+                  </div>
+                  <div class="col-md-4 col-sm-4">
+                    <select class="form-control" ng-model="product.Sharing_Type">
+                      <option value="">Type</option>
+                      <option value="1">Strict</option>
+                      <option value="2">Feasible</option>
+                    </select>
+                  </div>
+                </div>
+                </div>
+              <div class="col-md-3 col-sm-2"></div>
+            </div>
+            <div class="row" style="margin-bottom: 10px">
+            <div class="col-md-3 sm-2"></div>
+              <div class="col-md-2 col-sm-3">
+                <select class="form-control" style="margin-bottom: 10px" ng-model="product.Tag1">
+                  <option value="">Tag 1</option>
+                  <option value="1">01</option>
+                  <option value="2">02</option>
+                  <option value="3">03</option>
+                </select>
+              </div>
+              <div class="col-md-2 col-sm-3">
+                <select class="form-control" style="margin-bottom: 10px" ng-model="product.Tag2">
+                  <option value="">Tag 2</option>
+                  <option value="1">01</option>
+                  <option value="2">02</option>
+                  <option value="3">03</option>
+                </select>
+              </div>
+              <div class="col-md-2 col-sm-3">
+                <select class="form-control" ng-model="product.Tag3">
+                  <option value="">Tag 3</option>
+                  <option value="1">01</option>
+                  <option value="2">02</option>
+                  <option value="3">03</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div id="laundry" ng-show="checkLaundry()">
+             <div class="row" style="margin-bottom: 10px;">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="row">
+                  <div class="col-md-3 sm-3 xs-6" style="margin-bottom: 10px;">
+                    <input type='text' class="form-control" placeholder="Start Date" ng-model="product.Start_Date"/>
+                  </div>
+                  <div class="col-md-3 sm-3 xs-6"style="margin-bottom: 10px;">
+                    <input type='text' class="form-control" placeholder="Start Time" ng-model="product.Start_Time"/>
+                  </div>
+                  <div class="col-md-3 sm-3 xs-6">
+                    <input type='text' class="form-control" placeholder="End Date" ng-model="product.End_Date"/>
+                  </div>
+                   <div class="col-md-3 sm-3 xs-6">
+                    <input type='text' class="form-control" placeholder="End Time" ng-model="product.End_Time"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+             </div>
+             <div class="row" style="margin-bottom: 10px;">
+              <div class="col-md-3 sm-3"></div>
+              <div class="col-md-6 sm-6">
+                <input type="number" class="form-control"  placeholder="Number weights in K.G" ng-model="product.Weights">
+              </div>
+              <div class="col-md-3 sm-3"></div>
+             </div>
+          </div>
           <div class="row">
-          <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-              <label for="exampleInputFile">Profile Picture</label>
-              <input type="file" id="exampleInputFile">
+            <div class="col-md-2 col-sm-1"></div>
+            <div class="col-md-8 col-sm-10">
+              <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="opt in Option">
+                <label>
+                  <input type="checkbox" id="blankCheckbox" ng-model="opt.Option_Value" ng-true-value="1" ng-false-value="0" aria-label="Kitchen">{{opt.Option_Name}}
+                </label>
+              </div>
             </div>
+            <div class="col-md-2 col-sm-1"></div>
           </div>
-        <div class="row" style="margin-bottom: 10px;">
-          <div class="col-md-4"></div>
-            <!-- <div class="col-md-2">
-              <h5 style="margin: 0 auto;color: black;">Date of birth</h5>
-              <label for="exampleInputFile">No. of sharers</label>
-            </div> -->
-            <div class="col-md-2">
-              <select class="form-control">
-                <option>No. of sharers</option>
-                <option>01</option>
-                <option>02</option>
-              </select>
-            </div>
-            <div class="col-md-2">
-              <select class="form-control">
-                <option>Gender preference</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>None</option>
-              </select>
-            </div>
-          </div>
-          <div class="row" style="margin-bottom: 10px;margin-top: 10px;">
-          <div class="col-md-3"></div>
-            <!-- <div class="col-md-2">
-              <h5 style="margin: 0 auto;color: black;">Date of birth</h5>
-              <label for="exampleInputFile">No. of sharers</label>
-            </div> -->
-            <div class="col-md-2">
-              <select class="form-control">
-                <option>Tag 1</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-              </select>
-            </div>
-            <div class="col-md-2">
-              <select class="form-control">
-                <option>Tag 2</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-              </select>
-            </div>
-            <div class="col-md-2">
-              <select class="form-control">
-                <option>Tag 3</option>
-                <option>01</option>
-                <option>02</option>
-                <option>03</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="checkbox col-md-3"></div>
-            <div class="checkbox col-md-2">
-              <label>
-                <input type="checkbox" id="blankCheckbox" value="option1" aria-label="Kitchen">Kitchen
-              </label>
-            </div>
-            <div class="checkbox col-md-2">
-              <label>
-                <input type="checkbox" id="blankCheckbox" value="option1" aria-label="Internet">Internet
-              </label>
-            </div>
-            <div class="checkbox col-md-2">
-              <label>
-                <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">Television
-              </label>
-            </div>
-            
-          </div>
-          <div class="row">
+        <!--  <div class="row">
             <div class="checkbox col-md-3"></div>
             <div class="checkbox col-md-2">
               <label>
@@ -256,34 +427,21 @@
                 <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">First-aid kit
               </label>
             </div>
-          </div>
+          </div>-->
           
           
           <div class="row">
           <div class="col-md-5"></div>
-            <button type="submit" class="btn btn-default" style="background-color: black;color: white;width: 150px;">Submit</button>  
+            <button type="submit" class="btn btn-default" style="background-color: black;color: white;width: 150px;" ng-click="onMouseLeave_Submit($event)">Submit</button>  
           </div>
           
       </form>
   </div>
 
-    <nav class="navbar navbar-default navbar-fixed-bottom" id="footer">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Split'n'Save</a>
-            </div>
-            <div class="join">
-                <span style="padding: 10px;">Join Us On</span>
-                <span style="font-size:2em;padding: 2px;"><i class="fa fa-facebook-square"></i></span>
-                <span style="font-size:2em;padding: 2px;"><i class="fa fa-twitter-square"></i></span>
-                <span style="font-size:2em;padding: 2px;"><i class="fa fa-google-plus"></i></span>
-                <span style="font-size:2em;padding: 2px;"><i class="fa fa-youtube-square"></i></span>
-            </div>
-        </div>
-  </nav>    
+   
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../scripts/bootstrap.min.js"></script>
   </body>
 </html>
