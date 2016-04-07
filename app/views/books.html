@@ -18,9 +18,21 @@
                 <li><a href="#/laundry">Laundry</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li data-toggle="modal" data-target=".bs-example-modal-sm"><a href=""><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
-                <li></li>
+                <li ng-show="!if_logged_in()"><a href="#/signup"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                <li ng-show="!if_logged_in()" data-toggle="modal" data-target=".bs-example-modal-sm"><a href=""><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
+                <li ng-show="if_logged_in()">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:red">{{user.Email}}</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">My Profile</a></li>
+                        <li><a href="#">My Posts</a></li>
+                        <li><a href="#">Transaction History</a></li>
+                        <li><a href="#">Messages</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Settings</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Sign Out<OUTPUT></OUTPUT></a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -35,62 +47,58 @@
             </div>
             <div class="modal-body" ng-model="user">
                 <ul>
-                    <label for="usr">Username:</label>
+                    <label for="usr">Email:</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="usr" ng-model="user.username">
+                        <input type="text" class="form-control" id="usr" ng-model="user.Email" ng-blur="onMouseLeave_Email($event)" ng-change="onMouseLeave_Email($event)">
+                        <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Email_Result}}</div>
                     </div>
                     <label for="pwd">Password:</label>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="pwd" ng-model="user.password">
+                        <input type="password" class="form-control" id="pwd" ng-model="user.Password" ng-blur="onMouseLeave_Password($event)" ng-change="onMouseLeave_Password($event)">
+                        <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Password_Result}}</div>
                     </div>
                     <div style="text-align:center">
-                        <button type="submit" ng-click="login_check(user.username,user.password)" class="btn btn-danger" style="width:90%">Login</button>
+                        <button type="submit" ng-click="login_check($event)" class="btn btn-danger" style="width:90%">Login</button>
                     </div>
                 </ul>
             </div>
         </div>
     </div>
 </div>
-
+<!--___________________SEARCH BAR_________________________________  -->
 <div class="container search-container">
-    <div class="col-md-2"></div>
-    <div class="intro-text input-group col-md-8">
-        <div class="col-md-8 search-bar">
+    <div class="col-md-2 col-sm-1"></div>
+    <div class="intro-text input-group col-md-8 col-sm-10 col-xs-12">
+        <div class="col-md-8 search-bar col-sm-8 col-xs-8">
             <input class="form-control search-field" type="text" ng-model="searchText" placeholder="Search Author or Book Title ....">
         </div>
-        <div class="col-md-4 search-bar">
+        <div class="col-md-4 search-bar col-sm-4 col-xs-4">
             <button type="button" class="search-btn btn btn-danger"><span class="glyphicon glyphicon-search" style="margin:4px"></span> Search</button>
         </div>
     </div>
-    <div class="col-md-2"></div>
+    <div class="col-md-2 col-sm-1"></div>
 </div>
+<!--______________________ PANEL__________________________________ -->
 <div class="container" ng-controller="BooksCtrlList">
     <div ng-repeat="book in books | filter:search" class="col-md-4 product-card">
         <div class="panel panel-default">
             <div class="panel-body">
-                <div class="col-md-5">
+                <div class="col-md-5 col-sm-6 col-xs-7">
                     <img src="../images/books_01.jpg" class="img-responsive thumbnail"></img>
                 </div>
-                <div class="col-md-7 product-title">
+                <div class="col-md-7 col-sm-6 col-xs-5 product-title">
                     <h4> {{book.name}}</h4>
                     <h6> {{book.title}}</h6>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 product-details text-nowrap">
+                    <div class="col-md-8 col-sm-8 col-xs-12 product-details text-nowrap">
                         <ul>
-                            <li><b>COST :</b> </li>
-                            <li><b>LOCATION :</b></li>
-                            <li><b>POSTED BY : </b></li>
+                            <li><b>COST :</b> Rs {{book.price}}</li>
+                            <li><b>LOCATION :</b> {{book.location}} </li>
+                            <li><b>POSTED BY : </b> {{book.host}}</li>
                         </ul>
                     </div>
-                    <div class="col-md-4 product-details text-nowrap">
-                        <ul>
-                            <li>Rs 500</li>
-                            <li>Ahmedabad</li>
-                            <li>SplitnSave</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4"></div>
+                    <div class="col-md-4 col-sm-8"></div>
                 </div>
             </div>
         </div>

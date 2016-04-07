@@ -40,14 +40,7 @@ angular
             .when('/edit_profile', {
                 templateUrl:'views/edit_profile.html',
                 controller:'EditProfileCtrl',
-                controllerAs:'EditProfileCtrl',
-
-            })
-            .when('/setting', {
-                templateUrl:'views/account_settings.html',
-                controller:'SettingCtrl',
-                controllerAs:'EditProfileCtrl',
-                
+                controllerAs:'EditProfileCtrlå',
             })
 
             .otherwise({

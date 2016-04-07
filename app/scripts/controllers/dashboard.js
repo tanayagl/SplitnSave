@@ -1,4 +1,4 @@
-var myapp = angular.module("myModule",[]);
+var myapp = angular.module("splitnSaveApp");
 var Users=[{
 		First_Name:"Chaitanya",
 		Last_Name:"Shah",
@@ -85,7 +85,7 @@ var input={
 	User_Id:'3',
 	Image_Link:"http://simpleicon.com/wp-content/uploads/user1.png"
 };
-myapp.controller("Main",function($scope){
+myapp.controller("DashbsoardCtrl",function($scope){
 $scope.Users = Users;
 $scope.input=input;
 $scope.Notifications= Notifications;

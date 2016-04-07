@@ -1,9 +1,9 @@
-var myapp = angular.module("myModule",[]);
+var myapp = angular.module("splitnSaveApp");
 var user={
 		Old_Password:"123456",
 		New_Password:"",
 	  };
-myapp.controller("Main",function($scope){
+myapp.controller("SettingsCtrl",function($scope){
 	user['Type_Password']="";
 	user['Confirm_Password']="";
 	$scope.user=user;
