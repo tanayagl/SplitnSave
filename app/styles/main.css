@@ -96,7 +96,54 @@ textarea {
    ========================================================================== */
 
 
+.options {
+    float: right;
+}
+.list-group .list-group-item {
+    font-size: 15px;
+    padding: 5px;
+}
 
+#footer {
+    background-color: #000;
+}
+
+#footer .join {
+    float: right;
+}
+input[type="text"]:disabled{background-color:white;}
+
+@media(min-width:768px) {
+    /* p {
+        margin: 0 0 35px;
+        font-size: 20px;
+        line-height: 1.6;
+    } */
+     #footer {
+        margin-top: 10px;
+       position:relative;
+       bottom: 0%;
+    }
+     #footer .join{
+       text-align:right;
+    }
+   
+}
+@media(max-width:768px) {
+    #footer {
+        margin-top: 10px;
+       position:relative;
+       bottom: 0%;
+    }
+     .thumbnail{
+       padding:10px;
+    }
+}
+@media(min-width:1170px) {
+    #footer .join{
+        text-align:right;
+    }
+}
 
 
 
@@ -280,3 +327,4 @@ textarea {
         page-break-after: avoid;
     }
 }
+
