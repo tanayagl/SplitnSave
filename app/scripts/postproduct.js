@@ -124,8 +124,8 @@ var Apartments={
 	BathRoom_Type:"",
 	IN_Time_Value:"",
 	IN_Time_Type:"1",
-	Out_Time_Type:"1",
-	IN_Time_Value:"",
+	Out_Time_Type:"2",
+	Out_Time_Value:"",
 	Location:""
 };
 var Cabs={
@@ -143,8 +143,7 @@ var Books={
 	Author_Last_Name:"",
 	Start_Date:"",
 	End_Date:"",
-	Out_Time_Type:"1",
-	IN_Time_Value:"",
+	Sharing_Type="",
 	Location:"",
 	College:"",
 	Tag1:"",
