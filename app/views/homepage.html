@@ -30,16 +30,16 @@
     </div>
 </nav>
 <header>
-    <div class="container" ng-controller="BooksCtrlList">
+    <div class="container">
         <div class="col-md-2 col-sm-1"></div>
         <div class="intro-text input-group col-md-8 col-sm-10 col-xs-12">
             <div class="input-group-button col-md-3 search-bar col-sm-3 col-xs-3">
-                <button type="button" class="btn btn-default dropdown-toggle search-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category<span class="caret"></span></button>
+                <button type="button" class="btn btn-default dropdown-toggle search-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="True">Category<span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li ng-click="loadsearch('Search By Book\'s Title or Author ')"><a>Books</a></li>
-                    <li ng-click="loadsearch('Search By Destination')"><a>Cabs</a></li>
-                    <li ng-click="loadsearch('Search By Location ')"> <a>Apartments</a></li>
-                    <li ng-click="loadsearch('Search By Weights ')"><a>Laundry</a></li>
+                    <li ng-click="loadsearch('Search By Book\'s Title or Author.... ')"><a>Books</a></li>
+                    <li ng-click="loadsearch('Search By Destination...')"><a>Cabs</a></li>
+                    <li ng-click="loadsearch('Search By Location ...')"> <a>Apartments</a></li>
+                    <li ng-click="loadsearch('Search By Weights ...')"><a>Laundry</a></li>
                 </ul>
             </div>
             <div class="col-md-5 search-bar col-sm-6 col-xs-6">
@@ -60,31 +60,25 @@
     <div class="col-md-4"></div>
 </div>
 <div class="row clearfix">
-    
-        <div class="col-md-3 col-sm-6 col-xs-12 categories books" style="background-image:url(images/books_01.jpg);margin-bottom:10px">
-             <a href="#/books">           
-                <span><h2>Books</h2></span>
-            </a>
-        </div>
-    
-        <div class="col-md-3 col-sm-6 col-xs-12 categories cabs pull-right" style="background-image:url(images/cabs_01.jpg);margin-bottom:10px">
-             <a href="#/books">
+    <div class="col-md-3 col-sm-6 col-xs-12 categories books" style="background-image:url(images/books_01.jpg);margin-bottom:10px">
+        <a href="#/books">
+            <span><h2>Books</h2></span>
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 categories cabs pull-right" style="background-image:url(images/cabs_01.jpg);margin-bottom:10px">
+        <a href="#/books">
             <span><h2>Cabs</h2></span>
-            </a>
-        </div>
-  
-           <div class="col-md-3 col-sm-6 col-xs-12 categories laundry" style="background-image:url(images/laundry_01.jpg);margin-bottom:10px">
-            <a href="#/books">
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 categories laundry" style="background-image:url(images/laundry_01.jpg);margin-bottom:10px">
+        <a href="#/books">
             <span><h2>laundry</h2></span>
-            </a>
-        </div>
-    
-   
-        <div class="col-md-3 col-sm-6 col-xs-12 categories apartments pull-right" style="background-image:url(images/apartments_01.jpg);margin-bottom:10px">
-             <a href="#/books">
+        </a>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 categories apartments pull-right" style="background-image:url(images/apartments_01.jpg);margin-bottom:10px">
+        <a href="#/books">
             <span><h2>apartments</h2></span>
-             </a>
-        </div>
-   
+        </a>
+    </div>
 </div>
 <script type="js/homepage.js"></script>
