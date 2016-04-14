@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Split'n'Save</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+     <link href="styles/style.css" rel="stylesheet">
+     <link href="styles/transcation.css" rel="stylesheet">
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script type="text/javascript" src="scripts/angular.js"></script>
+    <script type="text/javascript" src="scripts/angularcookies.js"></script>
+    <script type="text/javascript" src="scripts/transaction.js"></script>
+    <script type="text/javascript" src="scripts/header.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 suport of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-controller="Main" ng-show="show" data-ng-init="init()">
+  <div class="header" style="margin-bottom:100px" ng-include="'header.html'">
+  </div>
+  <div class="header" style="margin-bottom:100px" ng-include="'header.html'"  ng-controller="Header">
+  </div>
+  <div class="search-container row">
+    <div class="col-md-3 col-sm-1">
+    </div>
+    <div class="intro-text input-group col-md-7 col-sm-10 col-xs-12">
+       <div class="col-md-3 search-bar col-sm-5 col-xs-4">
+            <button type="button" class="search-btn btn btn-info">Transaction History</button>
+        </div>
+        <div class="col-md-7 search-bar col-sm-6 col-xs-6" >
+         <input class="form-control search-field" type="text" ng-model="searchText" placeholder="Search By Title">
+        </div>
+    </div>
+    <div class="col-md-2 col-sm-1">
+    </div>
+    </div>
+    <div class="container clearfix" style="padding-bottom: 10px;padding-top: 10px;max-height:1000px;overflow-y: scroll" >
+       <div class="row" style="border:solid;border-color:#B8B8B8;border-width:0.5px;margin-bottom: 10px;padding-top: 10px;" ng-repeat="product in Products">
+          <div class="col-xs-12 col-sm-12 col-md-12" style="color:black;margin-bottom: 10px;">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-2 pull-left"> 
+                  <a href="#" class="thumbnail" style="height:120px;width:140px">
+                    <img ng-src="{{product.Product_Image}}" alt="product picture" style="height:100px;width:100px">
+                  </a>
+                  <h4>{{product.Product_Name}}</h4>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-5 pull-left">
+                  <div class="row">
+                    <div class="col-md-3">
+            
+                      <label for="exampleInputFile">Location</label>
+                    </div>
+                    <div class="form-group col-md-9">
+            
+                      <input type="text" class="form-control" id="Location" disabled value="{{product.Location}}">  
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+          
+                      <label for="exampleInputFile">Date of Confirmation</label>
+                    </div>
+                    <div class="form-group col-md-9">
+              
+                      <input type="text" class="form-control" id="Location" disabled value="{{product.Confirm_Date}}">  
+                    </div>
+                  </div> 
+                   <div class="row">
+                    <div class="col-md-3">
+           
+                      <label for="exampleInputFile">Price</label>
+                    </div>
+                    <div class="form-group col-md-9">
+             
+                      <input type="text" class="form-control" id="Price" disabled value="{{product.Price}}">  
+                    </div>
+
+                  </div>
+                </div>
+                
+        <div class="col-xs-12 col-sm-12 col-md-5">
+          <div class="panel panel-default">
+            <div class="panel-heading">Sharer</div>
+           <div class="panel-body" style="max-height:600px;overflow-y: scroll;">
+            <ul style="list-style-type:none">
+              <li ng-repeat="sharer in product.Sharer">
+                <div class="row">
+                  <div class="col-xs-3 col-sm-3 col-md-3" ng-click="moveProfile(sharer.User_Id)">
+                    <img ng-src="{{sharer.User_Image}}" style="height:40px">
+                  </div>
+                   <div class="col-xs-9 col-sm-4 col-md-4 pull-left" style="margin-top:10px" ng-click="moveProfile(sharer.User_Id)">
+                  <span style="cursor:default">{{sharer.First_Name}} {{sharer.Last_Name}}</span>
+                  </div>
+                  <div class="col-xs-9 col-sm-5 col-md-5 pull-left" style="margin-top:10px">
+                    <div fundoo-rating rating-value="sharer.Rating" max="5" ng-click="saveRatingToServer(sharer,product)" ></div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+        </div>
+
+            </div>
+        </div>
+        </div>
+        
+        
+        </div>
+
+        
+    
+   <!-- <nav class="navbar navbar-default navbar-fixed-bottom" id="footer" ng-include="'footer.html'">
+    </nav> -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="scripts/bootstrap.min.js"></script>
+  </body>
+</html>

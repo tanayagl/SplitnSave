@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Split'n'Save</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/setting.css" rel="stylesheet">
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script type="text/javascript" src="scripts/angular.js"></script>
+    <script type="text/javascript" src="scripts/angularcookies.js"></script>
+    <script type="text/javascript" src="scripts/setting.js"></script>
+    <script type="text/javascript" src="scripts/header.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-controller="Main" ng-show="show"  data-ng-init="init()">
+  <div class="header" style="margin-bottom:100px" ng-include="'header.html'" ng-controller="Header">
+  
+  </div>
+
+    <div class="container clearfix" style="margin-top: 80px;">
+      <nav class="panel panel-default">
+        <div class="container-fluid row">
+        <div class="col-md-7">
+          <div class="col-md-2">
+          </div>
+          <div class="panel-heading col-md-10" style="color: #606060">
+              <h3 >Change Password</h3>
+          </div>
+          <div class="panel-body">
+              <div class="row" style="margin-bottom:10px">
+                <div class="col-sm-6 col-md-7">
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon1">Old Password </span>
+                      <input type="password" class="form-control" ng-blur="onMouseLeave_Type_Password($event)" ng-change="onMouseChange_Type_Password($event)" ng-model="user.Type_Password" aria-describedby="sizing-addon1">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-5">
+                   <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Type_Password_Result}}</div>
+              </div>
+              </div>
+              <div class="row" style="margin-bottom:10px">
+                <div class="col-sm-6 col-md-7">
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon1">New Password </span>
+                      <input type="password" class="form-control" ng-blur="onMouseLeave_New_Password($event)" ng-change="onMouseChange_New_Password($event)" ng-model="user.New_Password" aria-describedby="sizing-addon1">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-5">
+                   <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_New_Password_Result}}</div>
+                </div>
+              </div>
+             <div class="row" style="margin-bottom:10px">
+                <div class="col-sm-6 col-md-7">
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon1">Confirm Password </span>
+                      <input type="password" class="form-control"ng-blur="onMouseLeave_Confirm_Password($event)" ng-change="onMouseChange_Confirm_Password($event)" ng-model="user.Confirm_Password" aria-describedby="sizing-addon1">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-5">
+                   <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Confirm_Password_Result}}</div>
+                </div>
+              </div>
+              <div class="row" style="margin-bottom:10px">
+                <div class="col-md-2">
+                </div>
+                <div class="col-sm-8 col-md-10">
+                    <div class="input-group">
+                      <button type="button" class="btn btn-default save-button" ng-click="onMouseClick_Changes($event)">Update Password</button>
+                    </div>
+                </div>
+              </div>
+          </div>
+      </div>
+     <div class="col-md-5">
+          <div class="panel-heading col-md-9" style="color: #606060">
+              <h3 >Delete Account</h3>
+          </div>
+          <div class="col-sm-8 col-md-9">
+                     <div class="input-group" style="margin-bottom:10px">
+                      <span class="input-group-addon" id="basic-addon1">Password </span>
+                      <input type="password" class="form-control" ng-blur="onMouseLeave_Type_Delete_Password($event)" ng-change="onMouseChange_Type_Delete_Password($event)" ng-model="user.Delete_Type_Password" aria-describedby="sizing-addon1">
+                    </div>
+                    <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Password_Result}}</div>
+                    <div class="input-group">
+                      <button type="button" class="btn btn-default save-button" ng-click="onMouseClick_Delete($event)">Delete Account</button>
+                    </div>
+          </div>
+      </div>
+        </div>
+      </nav>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="scripts/bootstrap.min.js"></script>
+  </body>
+</html>

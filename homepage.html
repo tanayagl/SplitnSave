@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Split'n'Save</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/homepage.css">
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script type="text/javascript" src="scripts/angular.js"></script>
+    <script type="text/javascript" src="scripts/angularcookies.js"></script>
+    <script type="text/javascript" src="scripts/homepage.js"></script>
+    <script type="text/javascript" src="scripts/header.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 suport of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body ng-controller="Main" data-ng-init="init()">
+    <div class="header" ng-include="'header.html'" ng-controller="Header">
+    </div>
+    <header class="search-bg">
+        <div class="container">
+            <div class="row" style="margin-top:150px">
+                <div class="col-md-2 col-sm-1"></div>
+                <div class="intro-text input-group col-md-8 col-sm-10 col-xs-12">
+                    <div class="input-group-button col-md-3 search-bar col-sm-3 col-xs-2">
+                        <button type="button" class="btn btn-default dropdown-toggle search-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{Category}}<span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li ng-click="loadsearch('Search By Book Name or Author Name ','Books')"><a>Books</a></li>
+                            <li ng-click="loadsearch('Search By Destination or Departure Location','Cabs')"><a>Cabs</a></li>
+                            <li ng-click="loadsearch('Search By Apartment Name or Location','Apartments')"> <a>Apartments</a></li>
+                            <li ng-click="loadsearch('Search Name or Location','Laundry')"><a>Laundry</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5 search-bar col-sm-6 col-xs-10" style="margin-bottom:10px">
+                        <input class="form-control search-field" type="text" placeholder="{{Search}}" ng-model="searchText">
+                    </div>
+                    <div class="col-md-4 search-bar col-sm-3 col-xs-3">
+                        <button type="button" class="search-btn btn btn-danger" ng-click="search()"><span class="glyphicon glyphicon-search" style="margin:4px"></span> Search</button>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-1"></div>
+            </div>
+        </div>
+    </header>
+    <div class="login" ng-include="'login.html'">
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 categories-text">
+            <h2>Categories</h2>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <div class="row clearfix">
+        <a href="books.html">
+            <div class="col-md-3 col-sm-6 col-xs-12 categories books" style="background-image:url(images/books_01.jpg);margin-bottom:10px">
+                <span><h2>Books</h2></span>
+            </div>
+        </a>
+        <a href="cabs.html">
+            <div class="col-md-3 col-sm-6 col-xs-12 categories cabs" style="background-image:url(images/cabs_01.jpg);margin-bottom:10px">
+                <span><h2>Cabs</h2></span>
+            </div>
+        </a>
+        <a href="laundry.html">
+            <div class="col-md-3 col-sm-6 col-xs-12 categories laundry" style="background-image:url(images/laundry_01.jpg);margin-bottom:10px">
+                <span><h2>Laundry</h2></span>
+            </div>
+        </a>
+        <a href="apartments.html">
+            <div class="col-md-3 col-sm-6 col-xs-12 categories apartments" style="background-image:url(images/apartments_01.jpg);margin-bottom:10px">
+                <span><h2>Apartments</h2></span>
+            </div>
+        </a>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="scripts/bootstrap.min.js"></script>
+</body>
+
+</html>

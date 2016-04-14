@@ -1,0 +1,60 @@
+/************************************************/
+@media(min-width:768px) {
+   .rating {
+    margin-left: -40px;
+   }
+   
+}
+@media(max-width:768px) {
+   .rating {
+    margin-left: -30px;
+   }
+   
+}
+
+@media(min-width:1170px) {
+    #footer {
+        margin-top: 60px;
+       position:relative;
+    }
+     .rating {
+    margin-left: 10px;
+   }
+
+   
+}
+.red {
+  background-color: #B8B8B8 ;
+}
+.rating{
+                overflow: hidden;
+                vertical-align: bottom;
+                display: inline-block;
+                width: 180px;
+                height: 30px;
+            }
+            .rating > input{
+                opacity: 0;
+                margin-right: -100%;
+            }
+            .rating > label{
+                position: relative;
+                display: block;
+                float: right;
+                background: url('../images/star-off-big.png');
+                background-size: 30px 30px;
+            }
+            .rating > label:before{
+                display: block;
+                opacity: 0;
+                content: '';
+                width: 30px;
+                height: 30px;
+                background: url('../images/star-on-big.png');
+                background-size: 30px 30px;
+                transition: opacity 0.2s linear;
+            }
+            .rating > :checked ~ label:before{
+                opacity: 1;
+            }
+input[type="text"]:disabled{background-color:white;}

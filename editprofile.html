@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Split'n'Save</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+     <link href="styles/style.css" rel="stylesheet">
+    
+     
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <script type="text/javascript" src="scripts/angular.js"></script>
+      <script type="text/javascript" src="scripts/angularcookies.js"></script>
+      <script type="text/javascript" src="scripts/editprofilescript.js"></script>
+      <script type="text/javascript" src="scripts/header.js"></script>
+  </head>
+  <body class="clearfix" ng-controller="Main" ng-show="show" ng-model="user">
+  <body ng-controller="Main" ng-show="show" data-ng-init="init()">
+  <div class="header" style="margin-bottom:100px" ng-include="'header.html'"  ng-controller="Header">
+  </div>
+    <div class="container" style="margin-top:50px;overflow-y:auto;height:auto">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3 col-md-3" style="border-style: solid 5px;">
+            <a href="#" class="thumbnail">
+              <img ng-src="{{user.Image_Link}}" alt="profile picture">
+            </a>
+        </div>
+
+        <div class="col-xs-12 col-sm-9 col-md-9">
+          <div class="details">
+            <div class="row" style="margin-bottom:10px">
+              <div class="col-xs-12 col-sm-6 col-md-5"  style="margin-bottom:10px">
+                <div class="input-group">
+                  <span class="input-group-addon" style="width: 120px;" id="basic-addon1">First Name</span>
+                  <input type="text" class="form-control" ng-model="user.First_Name" ng-blur="onMouseLeave_First_Name($event)" ng-change="onMouseLeave_First_Name($event)"  aria-describedby="sizing-addon1" >
+                </div>
+                <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_First_Name_Result}}</div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-5">
+                <div class="input-group">
+                  <span class="input-group-addon" style="width: 120px;" id="basic-addon1">Last Name</span>
+                  <input type="text" class="form-control" ng-model="user.Last_Name" aria-describedby="sizing-addon1" ng-blur="onMouseLeave_Last_Name($event)" ng-change="onMouseLeave_Last_Name($event)">
+                </div>
+                <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Last_Name_Result}}</div>
+              </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 10px;">
+              <div class="col-md-10">
+                <div class="input-group">
+                  <span class="input-group-addon" style="width: 120px;" id="basic-addon1">Phone Number</span>
+                  <input type="text" class="form-control" ng-model="user.ContactNumber" aria-describedby="sizing-addon1" ng-blur="onMouseLeave_ContactNumber($event)" ng-change="onMouseLeave_ContactNumber($event)">
+                </div>
+                <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_ContactNumber_Result}}</div>
+              </div>
+            </div>
+
+            <div class="row" style="margin-bottom:10px">
+              <div class="col-md-10">
+                <div class="input-group">
+                    <span class="input-group-addon" style="width: 120px;" id="basic-addon1">Location</span>
+                    <input type="text" class="form-control Location" aria-label="..." ng-model="user.CityName"  disabled>
+                    <div class="input-group-btn location">
+                        <ul class="dropdown-menu">
+                            <li><a href="">Gandhinagar</a></li>
+                            <li><a href="">Ahmedabad</a></li>
+                            <li><a href="">Other</a></li>
+                        </ul>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+                    </div>
+                </div>
+              </div>
+            </div>
+              <div class="row" style="margin-bottom: 10px;">
+              <div class="col-md-10">
+                <div class="input-group">
+                    <span class="input-group-addon" style="width: 120px;" id="basic-addon1">Gender</span>
+                    <input type="text" class="form-control Gender" aria-label="..." ng-model="user.Gender"  disabled>
+                    <div class="input-group-btn gender">
+                        <ul class="dropdown-menu">
+                            <li><a href="">Male</a></li>
+                            <li><a href="">Female</a></li>
+                        </ul>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+                    </div>
+                </div>
+              </div>
+            </div>
+         
+           <div class="row" style="margin-bottom:10px">
+              <div class="col-md-10">
+                <div class="input-group">
+                  <span class="input-group-addon" style="width: 120px;" id="basic-addon1">Birthdate</span>
+                  <input type="text" class="form-control" ng-model="user.Birthdate" aria-describedby="sizing-addon1" ng-blur="onMouseChange_DOB($event)" ng-change="onMouseChange_DOB($event)">
+                </div>
+                <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_DOB_Result}}</div>
+              </div>
+            </div>
+          <div class="row" style="margin-bottom:10px">
+              <div class="col-xs-12 col-sm-6 col-md-10" >
+                <div class="input-group">
+                    <span class="input-group-addon" style="width: 120px;" id="basic-addon1">Profession</span>
+                    <input type="text" class="form-control Profession" aria-label="..." ng-model="user.Profession_Name"  disabled>
+                    <div class="input-group-btn profession">
+                        <ul class="dropdown-menu">
+                            <li><a href="">Student</a></li>
+                            <li><a href="">Faculty</a></li>
+                            <li><a href="">Others</a></li>
+                        </ul>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+                    </div>
+                </div>
+              </div>
+            </div>        
+              <div class="row" style="margin-bottom: 50px;">
+                <div class="col-xs-12 col-sm-6 col-md-10">
+                  <div class="input-group">
+                    <span class="input-group-addon" style="width: 120px;" id="basic-addon1">Institute</span>
+                    <input type="text" class="form-control Institute" aria-label="..." ng-model="user.Institute_Name"  disabled>
+                    <div class="input-group-btn institute">
+                        <ul class="dropdown-menu">
+                            <li><a href="">DA-IICT</a></li>
+                            <li><a href="">NIFT</a></li>
+                            <li><a href="">Other</a></li>
+                        </ul>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+                    </div>
+                    </div>
+                </div>  
+              </div> 
+               </div>
+                <div class="row save" ng-click="onMouseClick_Changes($event)">
+                  <button type="button" class="btn btn-info save-button">Save Changes</button>
+                </div>
+            </div>
+            
+          </div>
+          
+        </div>     
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="scripts/bootstrap.min.js"></script>
+  </body>
+</html>

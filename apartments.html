@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Split'n'Save</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/books.css">
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script type="text/javascript" src="scripts/angular.js"></script>
+    <script type="text/javascript" src="scripts/angularcookies.js"></script>
+    <script type="text/javascript" src="scripts/apartments.js"></script>
+    <script type="text/javascript" src="scripts/header.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 suport of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body ng-controller="Main" ng-show="show" data-ng-init="init()">
+    <div class="header" ng-include="'header.html'" ng-controller="Header">
+    </div>
+    <!-- ______________________________Login Modal__________________________ -->
+    <div class="login" ng-include="'login.html'">
+    </div>
+    <!--___________________SEARCH BAR_________________________________ -->
+    <div class="search-container row">
+        <div class="col-md-3 col-sm-1">
+        </div>
+        <div class="intro-text input-group col-md-8 col-sm-10 col-xs-12">
+            <div class="col-md-3 search-bar col-sm-5 col-xs-4">
+                <button type="button" class="search-btn btn btn-danger">Apartments</button>
+            </div>
+            <div class="col-md-6 search-bar col-sm-8 col-xs-8">
+                <input class="form-control search-field" type="text" ng-model="searchText" placeholder="Search Name or Location">
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-1">
+        </div>
+    </div>
+    <!-- _______________Search Keyword, Filters and order by________________________-->
+    <div class="row filter-row">
+        <ul class="dropdown-menu">
+        </ul>
+        <div class="filter container">
+            <div class="dropdown dropdown-large clearfix">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="true" aria-haspopup="true">Filters<span class="glyphicon glyphicon-filter"></span></button>
+                <ul class="dropdown-menu dropdown-menu-large col-md-12">
+                    <li class="col-md-3">
+                        <ul>
+                            <li class="dropdown-header">Sort By</li>
+                            <li>
+                                <a class="btn btn-sm btn-default" ng-click="sorting('+product.Price')">Price ↑</a>
+                                <a class="btn btn-sm btn-default" ng-click="sorting('-product.Price')">Price ↓</a>
+                            </li>
+                            <li role="sepearator" class="divider"></li>
+                            <li>
+                                <a class="btn btn-sm btn-default" ng-click="sorting('+product.Date')">Date ↑</a>
+                                <a class="btn btn-sm btn-default" ng-click="sorting('-product.Date')">Date ↓</a>
+                            </li>
+                            <li role="sepearator" class="divider"></li>
+                            <li>
+                                <a class="btn btn-sm btn-default" ng-click="sorting('+product.Rating')">Rating ↑</a>
+                                <a class="btn btn-sm btn-default" ng-click="sorting('-product.Rating')">Rating ↓</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="col-md-5">
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <h5>Ammenities</h5>
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
+                        <div class="row" style="padding-top:10px">
+                            <div class="checkbox col-md-4" ng-repeat="option in options">
+                                <label>
+                                    <input type="checkbox" id="blankCheckbox" ng-true-value="1" ng-false-value="0" aria-label="Kitchen" ng-model="option.Option_Value">{{option.Option_Name}}
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-md-4">
+                        <ul>
+                            <li class="dropdown-header">No of Sharers</li>
+                            <li>
+                                <input type="number" min="1" ng-model="optionsharer" />
+                            </li>
+                            <li role="sepearator" class="divider"></li>
+                            <li role="sepearator" class="divider"></li>
+                            <li>
+                                <p>Gender Preference:</p>
+                                <form role="form">
+                                    <label class="radio-inline">
+                                        <input type="radio" ng-model="genderoption" value='Male'>Male
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" ng-model="genderoption" value='Female'>Female
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" ng-model="genderoption" value=0>Any one
+                                    </label>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-5"></div>
+    </div>
+    <!--______________________ PANEL__________________________________ -->
+    <div class="container">
+        <div ng-repeat="product in products | filter:search | filter:gender | filter:animity | filter:sharer | orderBy:sortconstant" class="col-md-4 product-card">
+            <div class="panel panel-default" ng-click="gotoproduct(product.product.Product_Id)" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-class="{red: hover}">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-6 col-xs-12">
+                            <img src="https://s22.postimg.org/4a6fip2jl/unnamed.jpg" class="img-responsive thumbnail"></img>
+                        </div>
+                        <div class="col-md-7 col-sm-6 col-xs-12 product-title">
+                            <h4> {{product.product.Title}}</h4>
+                            <h6> {{product.product.Description}}</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 product-details text-nowrap">
+                            <ul>
+                                <li><b>COST :</b> Rs {{product.product.Price}}</li>
+                                <li><b>LOCATION :</b> {{product.product.Location}} </li>
+                                <li><b>POSTED BY : </b> {{product.product.Hosted}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="scripts/bootstrap.min.js"></script>
+</body>
+
+</html>
+<!-- Panel End-->

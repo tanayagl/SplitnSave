@@ -1,0 +1,45 @@
+<nav class="navbar navbar-fixed-top navbar-inverse" style="margin-bottom:10px">
+    <div class="cotainer-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navlinks" aria-exapanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="">Split n Save</a>
+        </div>
+
+      <!--<button type="button" class="btn navbar-btn" style="display:inline-block;background-color: white;color:black;">Post an Ad</button>-->
+          
+        <div class="collapse navbar-collapse" id="navlinks">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Books</a></li>
+                <li><a href="#/cabs">Cabs</a></li>
+                <li><a href="#/apartments">Apartments</a></li>
+                <li><a href="#/laundry">Laundry</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-show="!if_logged_in()"><a href="" ng-click="signup()"  ng-controller="Main"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                <li ng-show="!if_logged_in()" data-toggle="modal" data-target=".bs-example-modal-sm"><a href=""><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
+                <!--USER DROPDOWN  -->
+                <li ng-show="if_logged_in()">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" style="margin-right:5px"></span><span style="margin-right:10px">{{username}}</span><!--<span class="caret"></span>--></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">My Profile</a></li>
+                        <li><a href="#">My Posts</a></li>
+                        <li><a href="#">Transaction History</a></li>
+                        <li><a href="#">Messages</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Settings</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="" ng-click="signout()">Sign Out<OUTPUT></OUTPUT></a></li>
+                    </ul>
+                </li>
+                <li class="options">
+                <button type="button" class="btn navbar-btn" style="margin-right:10px;margin-left:10px;background-color: white;color:black;" ng-click="postad()">Post an Ad</button>
+                </li>
+                <!--_____-->
+            </ul>
+        </div>
+    </div>
+</nav>
