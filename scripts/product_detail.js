@@ -329,7 +329,7 @@ var loginerrorcallback = function(reason){
 	};
 	$scope.showrequest = function()
 	{
-		if(input.Email==$cookies.get('Email'))
+		if(input.Email==$cookies.get('Email') || product.Sharers_Left==0)
 		{
 			return false;
 		}

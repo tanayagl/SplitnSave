@@ -126,6 +126,8 @@ $scope.send = function()
         data:JSON.stringify(send),
        })
               .then(sendsuccesscallback,senderrorcallback);
+              var elem = document.getElementById('data');
+  elem.scrollTop = elem.scrollHeight+10;
   }
   $scope.sendmessage="";
  
