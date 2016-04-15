@@ -54,49 +54,7 @@
               </div>
             </div>
         </div>
-        <div class="col-sm-5 col-md-5">
-          <div class="panel panel-default">
-            <div class="panel-heading">Notifications</div>
-            <div class="panel-body" style="max-height:370px;overflow-y: scroll;">
-               <ul style="list-style-type:none" ng-repeat="notification in Requested">
-                <li ng-click="gotorequest(notification)">
-                <div class="row">
-                  <div class="col-xs-1 col-sm-2 col-md-1">
-                  <i ng-class="changeGlyphicon(notification.Type)"></i>
-                  </div>
-                  <div class="col-xs-8 col-sm-7 col-md-9">
-                  {{notification.Message}}
-                  </div>
-                 </div>
-                </li>
-              </ul>
-               <ul style="list-style-type:none" ng-repeat="notification in Accepted">
-                <li ng-click="gotoaccept(notification)">
-                <div class="row">
-                  <div class="col-xs-1 col-sm-2 col-md-1">
-                  <i ng-class="changeGlyphicon(notification.Type)"></i>
-                  </div>
-                  <div class="col-xs-8 col-sm-7 col-md-9">
-                  {{notification.Message}}
-                  </div>
-                 </div>
-                </li>
-              </ul>
-              <ul style="list-style-type:none" ng-repeat="notification in Confirmed">
-                <li ng-click="gotoconfirm(notification)">
-                <div class="row">
-                  <div class="col-xs-1 col-sm-2 col-md-1">
-                  <i ng-class="changeGlyphicon(notification.Type)"></i>
-                  </div>
-                  <div class="col-xs-8 col-sm-7 col-md-9">
-                  {{notification.Message}}
-                  </div>
-                 </div>
-                </li>
-              </ul>
-            </div>
-            </div>
-        </div>
+        
         
         <div class="col-sm-4 col-md-4">
           <div class="panel panel-default">

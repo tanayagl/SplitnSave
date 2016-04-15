@@ -90,7 +90,7 @@ $scope.show=false;
 		var Email={
                     Email: $cookies.get('Email'),
                    };
-		 $http({
+		/* $http({
 		  method:'POST',
 		  url:'https://splitnsave.pythonanywhere.com/api/dashboard',
 		  data:JSON.stringify(Email),
@@ -101,7 +101,7 @@ $scope.show=false;
 		  url:'https://splitnsave.pythonanywhere.com/api/notifications',
 		  data:JSON.stringify(Email),
 		 })
-            .then(successnotification,errornotification);
+            .then(successnotification,errornotification);*/
          }
 
   
