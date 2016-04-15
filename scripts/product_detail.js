@@ -183,7 +183,6 @@ var loginsuccesscallback = function (response) {
 				product=response.data.product;
 				$scope.product=product;
 				a=response.data.Category_Id;
-				alert(input['Rating']);
 				//alert(a);
 				//alert(input['Status_Confirm']+" "+input['Status_Report']);
             	};
@@ -210,7 +209,7 @@ var loginerrorcallback = function(reason){
 	//$scope.input=input;
 	$scope.expression = function(id)
 	{
-		if(id==Math.round(input['Rating']))
+		if(id==Math.round(input['rating']))
 		{
 			return true;
 		}
