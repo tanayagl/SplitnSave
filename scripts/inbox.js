@@ -126,6 +126,7 @@ var senderrorcallback = function(reason){
             alert("Try Again");
             $log.info(reason);
             };
+myLoop();
 var i = 1;                     //  set your counter to 1
 
 function myLoop () {           //  create a loop function
