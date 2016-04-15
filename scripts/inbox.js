@@ -98,7 +98,7 @@ $("#theInputToTest").trigger(e);
 window.setInterval(function() {
   $http({
         method:'POST',
-        url:'https://splitnsave.pythonanywhere.com/api/getchat',
+        url:'https://splitnsave.pythonanywhere.com/api/getchats',
         data:JSON.stringify(send),
        })
               .then(sendsuccesscallback,senderrorcallback);
