@@ -150,6 +150,15 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	$scope.onMouseLeave_Password_Result="";
 	}
     };
+    $scope.onMouseChange_Password = function ($event) {
+	if(input['Password']=="")
+	{
+	}
+	else
+	{
+	$scope.onMouseLeave_Password_Result="";
+	}
+    };
     $scope.onMouseLeave_Re_Password = function ($event) {
 	if(input['Re_Password']=="")
 	{
@@ -268,6 +277,10 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
     	$scope.onMouseLeave_Password_Result = "Password required";
     	success=0;
     }
+    else if((input['Password'].length<6))
+	{
+	$scope.onMouseLeave_Password_Result = "Password length must be at least 6.";
+	}
     if(input['Re_Password']=="")
     {
     	$scope.onMouseLeave_Re_Password_Result = "Confirm Password required";

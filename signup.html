@@ -88,7 +88,7 @@
             <div class="form-group col-md-8">
               <!--<label for="exampleInputPassword1">Password</label>-->
               <input type="password" class="form-control" id="Password" placeholder="Password"  ng-model="user.Password" 
-              ng-blur="onMouseLeave_Password($event)" ng-change="onMouseLeave_Password($event)">
+              ng-blur="onMouseLeave_Password($event)" ng-change="onMouseChange_Password($event)">
                <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Password_Result}}</div>
             </div>
           </div>
