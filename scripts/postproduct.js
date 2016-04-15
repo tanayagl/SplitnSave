@@ -700,7 +700,7 @@ $scope.onMouseLeave_Submit=function($event)
                     subproduct: $scope.product,
                     options:$scope.Option,
                    };
-                   alert(Details.product.End_Time);
+                   //alert(Details.product.End_Time);
 		 $http({
 		  method:'POST',
 		  url:'https://splitnsave.pythonanywhere.com/api/createpost',
