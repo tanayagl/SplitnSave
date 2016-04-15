@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myModule">
-<head>
 
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>Shop Item - Start Bootstrap Template</title>
-
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -19,29 +17,26 @@
     <script type="text/javascript" src="scripts/angular.js"></script>
     <script type="text/javascript" src="scripts/angularcookies.js"></script>
     <script type="text/javascript" src="scripts/product_detail.js"></script>
-   <script type="text/javascript" src="scripts/header.js"></script>
+    <script type="text/javascript" src="scripts/header.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 
 <body ng-controller="Main" ng-show="show" data-ng-init="init()">
-<div class="header" style="margin-bottom:100px" ng-include="'header.html'" ng-controller="Header">
-  
-</div>
-<div class="login" ng-include="'login.html'">
-</div>
+    <div class="header" style="margin-bottom:100px" ng-include="'header.html'" ng-controller="Header">
+    </div>
+    <div class="login" ng-include="'login.html'">
+    </div>
     <div class="container clearfix" ng-model="input">
-
         <div class="row">
             <div class="col-md-4">
                 <p class="lead" ng-click="gotoprofile(input.User_Id)" style="cursor:pointer">{{input.First_Name}}</p>
-                <img ng-src="{{input.Image_Link}}" alt="Scott Stevens"  class="img-responsive img-circle" style="height:200px;width:200px;cursor:pointer" ng-click="gotoprofile(input.User_Id)" />
-                <span class="rating">
+                <img ng-src="{{input.Image_Link}}" alt="Scott Stevens" class="img-responsive img-circle" style="height:200px;width:200px;cursor:pointer" ng-click="gotoprofile(input.User_Id)" />
+                <span class="rating" style="padding-top:5px">
                 <input id="rating5" type="radio" name="rating" value="5" ng-checked="expression(5)" disabled>
                 <label for="rating5">5</label>
                 <input id="rating4" type="radio" name="rating" value="4" ng-checked="expression(4)" disabled>
@@ -54,360 +49,354 @@
                 <label for="rating1">1</label>
                 </span>
             </div>
-
             <div class="col-md-8">
-
                 <div class="thumbnail">
                     <img class="img-responsive" ng-src="{{product.Image_Link}}" alt="">
                 </div>
             </div>
         </div>
         <div class="row">
-                <div class="caption-full">
-                    <h4 class="pull-right">Rs {{product.Price}}</h4>
-                    <div class="row">
-                      <div class="col-md-2">
-                        <a class="btn btn-sm btn-success" style="margin-bottom:10px;" ng-click="addrequest(input.Status_Confirm)" ng-show="showrequest()">{{requesttext(input.Status_Confirm)}}</a>
-                      </div>
-                      <div class="col-md-2">
+            <div class="caption-full">
+                <h4 class="pull-right">Rs {{product.Price}}</h4>
+                <div class="row">
+                    <div class="col-md-2">
+                        <a class="btn btn-sm btn-success" style="margin-bottom:10px;margin-top:10px;width:50%;" ng-click="addrequest(input.Status_Confirm)" ng-show="showrequest()">{{requesttext(input.Status_Confirm)}}</a>
+                    </div>
+                    <div class="col-md-2">
                         <a class="btn btn-sm btn-danger" ng-click="addreport(input.Status_Report)" ng-show="showreport()">{{reporttext(input.Status_Report)}}</a>
-                      </div>
                     </div>
-                    <h4><a href="#">{{product.Title}}</a>
+                </div>
+                <h4><a href="#">{{product.Title}}</a>
                     </h4>
-                    <p>{{product.Description}}</p>
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="panel panel-info">
-                          <div class="panel-heading">
+                <p>{{product.Description}}</p>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
                             <h4 class="panel-title">No of Sharers</h4>
-                          </div>
-                          <div class="panel-body">
+                        </div>
+                        <div class="panel-body">
                             {{product.Sharers}}
-                          </div>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <div class="panel panel-info">
-                          <div class="panel-heading">
+                </div>
+                <div class="col-md-2">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
                             <h4 class="panel-title">No of Sharers Left</h4>
-                          </div>
-                          <div class="panel-body">
+                        </div>
+                        <div class="panel-body">
                             {{product.Sharers_Left}}
-                          </div>
                         </div>
                     </div>
-                    <div class="col-md-2" ng-show="checkproduct(product.Gender)">
-                        <div class="panel panel-info">
-                          <div class="panel-heading">
+                </div>
+                <div class="col-md-2" ng-show="checkproduct(product.Gender)">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
                             <h4 class="panel-title">Gender Preference</h4>
-                          </div>
-                          <div class="panel-body">
+                        </div>
+                        <div class="panel-body">
                             {{product.Gender}}
-                          </div>
                         </div>
                     </div>
-                    <div id="Apartments" ng-show="checkApartments()">
-                      <div class="col-md-2" ng-show="checkproduct(product.IN_Time_Value)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">In Time</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.IN_Time_Value}} {{timingtype(IN_Time_Type)}}
-                                  </div>
+                </div>
+                <div id="Apartments" ng-show="checkApartments()">
+                    <div class="col-md-2" ng-show="checkproduct(product.IN_Time_Value)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">In Time</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.IN_Time_Value}} {{timingtype(IN_Time_Type)}}
                             </div>
                         </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.OUT_Time_Value)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Out Time</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Out_Time_Value}} {{timingtype(OUT_Time_Type)}}
-                                  </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.OUT_Time_Value)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Out Time</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Out_Time_Value}} {{timingtype(OUT_Time_Type)}}
                             </div>
                         </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.Start_Date)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Start Date</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Start_Date}}
-                                  </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.Start_Date)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Start Date</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Start_Date}}
                             </div>
                         </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.End_Date)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Duration</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.End_Date}} Months
-                                  </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.End_Date)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Duration</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.End_Date}} Months
                             </div>
                         </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.Rooms)">
-                            <div class="panel panel-info">
-                              <div class="panel-heading">
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.Rooms)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
                                 <h4 class="panel-title">Location</h4>
-                              </div>
-                              <div class="panel-body">
+                            </div>
+                            <div class="panel-body">
                                 {{product.Location}}
-                              </div>
                             </div>
                         </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.Rooms)">
-                            <div class="panel panel-info">
-                              <div class="panel-heading">
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.Rooms)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
                                 <h4 class="panel-title">No of Rooms</h4>
-                              </div>
-                              <div class="panel-body">
+                            </div>
+                            <div class="panel-body">
                                 {{product.Rooms}}
-                              </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.Bed_Rooms)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">No of Bed Rooms</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Bed_Rooms}}
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.Bath_Rooms)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">No of Bath Rooms</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Bath_Rooms}}
-                                  </div>
-                            </div>
-                        </div>
-                         <div class="col-md-2" ng-show="checkproduct(product.BathRoom_Type)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Bath Room Type</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.BathRoom_Type}}
-                                  </div>
-                            </div>
-                        </div> 
-                        <div class="col-md-12" ng-show="checkproduct(product.Address)">
-                          <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Address</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Address}}
-                                  </div>
                             </div>
                         </div>
                     </div>
-                    <div id="Cabs" ng-show="checkCabs()">
-                        <div class="col-md-2" ng-show="checkproduct(product.CarService)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Car Service</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.CarService}}
-                                  </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.Bed_Rooms)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">No of Bed Rooms</h4>
                             </div>
-                        </div> 
-                        <div class="col-md-2" ng-show="checkproduct(product.CarName)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Car Name</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.CarName}}
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.CarType)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Car Type</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.CarType}}
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.Start_Date)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Departure Date</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Start_Date}}
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.Location)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Departure Location</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Location}}
-                                  </div>
-                            </div>
-                        </div> 
-                    </div>
-                    <div id="Books" ng-show="checkBooks()">
-                       <div class="col-md-2" ng-show="checkproduct(product.Location)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Location</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Location}}
-                                  </div>
-                            </div>
-                        </div> 
-                         <div class="col-md-2" ng-show="checkproduct(product.College)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">College</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.College}}
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.Author_First_Name)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Author's First Name</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Author_First_Name}}
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.Author_Last_Name)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Author's Last Name</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Author_Last_Name}}
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.Start_Date)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Start Date</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Start_Date}}
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.End_Date)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Duration</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.End_Date}} Months
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.Tag1)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Tag1</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Tag1}}
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.Tag2)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Tag2</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Tag2}}
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.Tag3)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Tag3</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Tag3}}
-                                  </div>
+                            <div class="panel-body">
+                                {{product.Bed_Rooms}}
                             </div>
                         </div>
                     </div>
-                    <div id="Laundry" ng-show="checkLaundry()">
-                      <div class="col-md-2" ng-show="checkproduct(product.Start_Date)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Day of Washing</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Start_Date}}
-                                  </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.Bath_Rooms)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">No of Bath Rooms</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Bath_Rooms}}
                             </div>
                         </div>
-                        <div class="col-md-2" ng-show="checkproduct(product.Start_Time)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Convenient Time</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Start_Time}}
-                                  </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.BathRoom_Type)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Bath Room Type</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.BathRoom_Type}}
                             </div>
                         </div>
-                         <div class="col-md-2" ng-show="checkproduct(product.Weights)">
-                            <div class="panel panel-info">
-                                  <div class="panel-heading">
-                                    <h4 class="panel-title">Minimum Required Weight (in kg)</h4>
-                                  </div>
-                                  <div class="panel-body">
-                                    {{product.Weights}}
-                                  </div>
+                    </div>
+                    <div class="col-md-12" ng-show="checkproduct(product.Address)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Address</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Address}}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                  <h2 style="text-align:center">{{Amenities}}</h2>
-                </div>
-                <div class="row">
-                	<div class="col-md-3" ng-repeat="option in Options" ng-show="checkoption(option.Option_Value)">
-                    <div class="panel panel-danger">
-                      <div class="panel-heading">
-                        <h4 class="panel-title" style="text-align:center">{{option.Option_Name}}</h4>
-                      </div>
+                <div id="Cabs" ng-show="checkCabs()">
+                    <div class="col-md-2" ng-show="checkproduct(product.CarService)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Car Service</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.CarService}}
+                            </div>
+                        </div>
                     </div>
-                  </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.CarName)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Car Name</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.CarName}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.CarType)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Car Type</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.CarType}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.Start_Date)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Departure Date</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Start_Date}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.Location)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Departure Location</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Location}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Books" ng-show="checkBooks()">
+                    <div class="col-md-2" ng-show="checkproduct(product.Location)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Location</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Location}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.College)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">College</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.College}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.Author_First_Name)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Author's First Name</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Author_First_Name}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.Author_Last_Name)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Author's Last Name</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Author_Last_Name}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.Start_Date)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Start Date</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Start_Date}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.End_Date)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Duration</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.End_Date}} Months
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.Tag1)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Tag1</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Tag1}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.Tag2)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Tag2</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Tag2}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.Tag3)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Tag3</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Tag3}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Laundry" ng-show="checkLaundry()">
+                    <div class="col-md-2" ng-show="checkproduct(product.Start_Date)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Day of Washing</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Start_Date}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.Start_Time)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Convenient Time</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Start_Time}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.Weights)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Minimum Required Weight (in kg)</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Weights}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-                
-
+            <div class="row">
+                <h2 style="text-align:center">{{Amenities}}</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-3" ng-repeat="option in Options" ng-show="checkoption(option.Option_Value)">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h4 class="panel-title" style="text-align:center">{{option.Option_Name}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="scripts/bootstrap.min.js"></script>
-
 </body>
 
 </html>
