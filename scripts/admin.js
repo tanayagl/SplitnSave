@@ -20,7 +20,6 @@ $scope.show = false;
             $http({
             method:'POST',
             url:'https://splitnsave.pythonanywhere.com/api/admin',
-            data:JSON.stringify(input),
            })
                   .then(adminsuccesscallback,adminerrorcallback);
         }
@@ -73,7 +72,7 @@ $scope.show = false;
         {
             return true;
         }
-    }
+    };
     $scope.removeuser = function(user)
     {
         var index = $scope.Users.indexOf(user);
