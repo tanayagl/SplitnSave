@@ -29,7 +29,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
         }
 
     };
-    if($cookies.get('usermsg')!=null)
+   /* if($cookies.get('usermsg')!=null)
         {
           input['Email']=$cookies.get('Email');
           input['User_Id']=$cookies.get('usermsg')
@@ -40,7 +40,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
                 data:JSON.stringify(input),
                })
                       .then(chatsuccesscallback,chaterrorcallback);
-        }
+        }*/
     var chat = function (response) {
               $log.info(response);
               $scope.Users=response.data.Users;
@@ -96,7 +96,9 @@ e.which = 13; //choose the one you want
 e.keyCode = 13;
 $("#theInputToTest").trigger(e);
 window.setInterval(function() {
-   input['Email']=$cookies.get('Email');
+  if($cookies.get('usermsg')!=null)
+        {
+  input['Email']=$cookies.get('Email');
   input['User_Id']=$cookies.get('usermsg');
   $http({
         method:'POST',
@@ -104,6 +106,7 @@ window.setInterval(function() {
         data:JSON.stringify(input),
        })
               .then(sendsuccesscallback,senderrorcallback);
+          }
 }, 10000);
 $scope.send = function()
 {
