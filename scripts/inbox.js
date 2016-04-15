@@ -164,4 +164,4 @@ $scope.search = function (item) {
             };
 });
 
-  <a href="http://www.beyondsecurity.com/vulnerability-scanner-verification/splitnsave.in"><img src="https://seal.beyondsecurity.com/verification-images/splitnsave.in/vulnerability-scanner-2.gif" alt="Website Security Test" border="0" /></a>
+  
