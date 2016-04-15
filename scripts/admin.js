@@ -1,5 +1,5 @@
 
-var post=[];
+var post={};
 var myapp = angular.module("myModule",['ngCookies']);
 
 myapp.controller("Main",function($scope,$cookies,$http,$log){
