@@ -107,26 +107,26 @@ $scope.send = function()
   send['Email']=$cookies.get('Email');
   send['User_Id']=$cookies.get('usermsg');
   send['Message']=$scope.sendmessage;
-  alert($cookies.get('Email'));
-   $http({
+  //alert($cookies.get('Email'));
+   /*$http({
         method:'POST',
         url:'https://splitnsave.pythonanywhere.com/api/addchat',
         data:JSON.stringify(send),
        })
-              .then(sendsuccesscallback,senderrorcallback);
+              .then(sendsuccesscallback,senderrorcallback);*/
   }
   $scope.sendmessage="";
+  myLoop ();
 }
 var sendsuccesscallback = function (response) {
               $log.info(response);
-              myLoop();
             };
     
 var senderrorcallback = function(reason){
             alert("Try Again");
             $log.info(reason);
             };
-myLoop();
+
 var i = 1;                     //  set your counter to 1
 
 function myLoop () {           //  create a loop function
