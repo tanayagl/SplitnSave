@@ -1,4 +1,3 @@
-var input=[];
 
 var post=[];
 var myapp = angular.module("myModule",['ngCookies']);
@@ -58,7 +57,7 @@ $scope.show = false;
                 return true;
             } else {
                 if (post.Title.toLowerCase()
-                    .indexOf($scope.searchUser.toLowerCase()) != -1) {
+                    .indexOf($scope.searchPost.toLowerCase()) != -1) {
                     return true;
                 }
             }
@@ -75,4 +74,43 @@ $scope.show = false;
             return true;
         }
     }
+    $scope.removeuser = function(user)
+    {
+        var index = $scope.Users.indexOf(user);
+        $scope.Users.splice(index, 1);
+        post['User_Id']=user.User_Id;
+        $http({
+              method:'POST',
+              url:'https://splitnsave.pythonanywhere.com/api/deleteuser',
+              data:JSON.stringify(post),
+             })
+            .then(usersuccesscallback,usererrorcallback);
+    };
+    var usersuccesscallback = function (response) {
+                $log.info(response);
+              };
+    var usererrorcallback = function(reason){
+        alert("Reload Again");
+        $log.info(reason);
+        };
+    $scope.removepost = function(post)
+    {
+        var index = $scope.Posts.indexOf(post);
+        $scope.Posts.splice(index, 1);
+        post['Product_Id']=post.Product_Id;
+        $http({
+              method:'POST',
+              url:'https://splitnsave.pythonanywhere.com/api/deletepost',
+              data:JSON.stringify(post),
+             })
+            .then(postsuccesscallback,posterrorcallback);
+    };
+    var postsuccesscallback = function (response) {
+                $log.info(response);
+              };
+    var posterrorcallback = function(reason){
+        alert("Reload Again");
+        $log.info(reason);
+        };
+
 });

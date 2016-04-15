@@ -64,7 +64,7 @@
                               	<div class="row">
                               		<div class="col-md-6">
 				                              <button class="btn btn-primary col-md-9" type="button">
-											  		Reports <span class="badge">{{user.Report_Number}}</span>
+											  		Reports <span class="badge">{{users}}</span>
 											  </button>
 									  	</div>
 									  	<div class="col-md-6">
@@ -110,11 +110,11 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                               <button class="btn btn-primary col-md-9" type="button">
-                                                    Reports <span class="badge">{{post.Report_Number}}</span>
+                                                    Reports <span class="badge">{{post.Reports}}</span>
                                               </button>
                                         </div>
                                         <div class="col-md-6">
-                                            <a class="btn btn-danger btn-md" ng-click="removepost(user)"><span class="glyphicon glyphicon-remove">&nbsp;Remove</span></a>
+                                            <a class="btn btn-danger btn-md" ng-click="removepost(post)"><span class="glyphicon glyphicon-remove">&nbsp;Remove</span></a>
                                         </div>
                                     </div>
                                 </div>
