@@ -72,7 +72,7 @@ $scope.cambiaridioma=function(userid)
             };
     
     var chaterrorcallback = function(reason){
-            alert("Try Again");
+           // alert("Try Again");
             $log.info(reason);
             };
 //$scope.messages=messages;
@@ -119,12 +119,31 @@ $scope.send = function()
 }
 var sendsuccesscallback = function (response) {
               $log.info(response);
+              myLoop();
             };
     
 var senderrorcallback = function(reason){
             alert("Try Again");
             $log.info(reason);
             };
+var i = 1;                     //  set your counter to 1
+
+function myLoop () {           //  create a loop function
+   setTimeout(function () {    //  call a 3s setTimeout when the loop is called
+  input['Email']=$cookies.get('Email');
+  input['User_Id']=$cookies.get('usermsg');
+  $http({
+        method:'POST',
+        url:'https://splitnsave.pythonanywhere.com/api/getchats',
+        data:JSON.stringify(input),
+       })
+              .then(chatsuccesscallback,chaterrorcallback);          //  your code here
+      i++;                     //  increment the counter
+      if (i < 10) {            //  if the counter < 10, call the loop function
+         myLoop();             //  ..  again which will trigger another 
+      }                        //  ..  setTimeout()
+   }, 5000)
+}
 $scope.search = function (item) {
                 if ($scope.searchText == undefined) {
                     return true;
