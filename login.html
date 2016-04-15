@@ -31,7 +31,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Forget Password</h4>
+                <h4 class="modal-title" id="myModalLabel">Forgot Password</h4>
             </div>
             <div class="modal-body" ng-model="user">
                 <ul>
@@ -40,7 +40,7 @@
                         <input type="text" class="form-control" id="usr" ng-model="user.Email" ng-blur="onMouseLeave_Email($event)" ng-change="onMouseLeave_Email($event)">
                         <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Email_Result}}</div>
                     </div>
-                    <p> We send new password to your Email</p>
+                    <p> New password will be sent to your Email ...</p>
                     <div style="text-align:center">
                         <button type="submit" ng-click="forget_check($event)" class="btn btn-danger" style="width:90%">Submit</button>
                     </div>
