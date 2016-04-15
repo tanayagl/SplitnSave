@@ -56,12 +56,12 @@ $scope.cambiaridioma=function(userid)
   input['Email']=$cookies.get('Email');
   input['User_Id']=userid;
   $cookies.put('usermsg',userid);
-  /*$http({
+  $http({
         method:'POST',
         url:'https://splitnsave.pythonanywhere.com/api/getchats',
         data:JSON.stringify(input),
        })
-              .then(chatsuccesscallback,chaterrorcallback);*/
+              .then(chatsuccesscallback,chaterrorcallback);
 
   
 }
