@@ -58,7 +58,7 @@ $scope.cambiaridioma=function(userid)
   $cookies.put('usermsg',userid);
   $http({
         method:'POST',
-        url:'https://splitnsave.pythonanywhere.com/api/getusers',
+        url:'https://splitnsave.pythonanywhere.com/api/getchats',
         data:JSON.stringify(input),
        })
               .then(chatsuccesscallback,chaterrorcallback);
@@ -66,7 +66,7 @@ $scope.cambiaridioma=function(userid)
 }
    var chatsuccesscallback = function (response) {
               $log.info(response);
-              $scope.Users=response.data.Users;
+              //$scope.Users=response.data.Users;
               //messages=response.data.Chats;
               $scope.messages=response.data.Chats;
             };
