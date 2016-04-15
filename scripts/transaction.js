@@ -103,8 +103,13 @@ var successcallback = function (response) {
   {
     //$cookies.put('otheruserid',userid);
     $cookies.put('otheruserid',userid);
-    window.location.replace("userprofile.html");
+    window.location.href="userprofile.html";
   };
+  $scope.gotoproduct = function(productid)
+  {
+    $cookies.put('productid',productid);
+    window.location.href="product_detail.html";
+  }
 }).directive('fundooRating', function () {
     return {
       restrict: 'A',

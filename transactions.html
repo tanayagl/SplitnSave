@@ -50,9 +50,9 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-2 pull-left"> 
                   <a href="#" class="thumbnail" style="height:120px;width:140px">
-                    <img ng-src="{{product.Product_Image}}" alt="product picture" style="height:100px;width:100px">
+                    <img ng-src="{{product.Product_Image}}" alt="product picture" style="height:100px;width:100px" ng-click="gotoproduct(product.Product_Id)">
                   </a>
-                  <h4>{{product.Product_Name}}</h4>
+                  <h4 ng-click="gotoproduct(product.Product_Id)">{{product.Product_Name}}</h4>
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-5 pull-left">
                   <div class="row">
