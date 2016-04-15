@@ -32,7 +32,7 @@ $scope.show = false;
               $log.info(response);
               $scope.show=true;
               $scope.Users=response.data.Users;
-              $scope.Posts=response.data.Posts;
+              $scope.Posts=response.data.Products;
             };
     
     var adminerrorcallback = function(reason){
@@ -64,4 +64,15 @@ $scope.show = false;
             }
             return false;
         };
+    $scope.showuser = function(user)
+    {
+        if(user.First_Name=='admin')
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 });

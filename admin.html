@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <ul class="list-group" id="contact-list">
-                    <li class="list-group-item" data-target="" data-toggle="modal" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-repeat="user in Users | filter:searchuser" ng-class="{red: hover}">
+                    <li class="list-group-item" data-target="" data-toggle="modal" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-repeat="user in Users | filter:searchuser" ng-class="{red: hover}" ng-show="showuser(user)">
                         <div class="col-xs-12 col-sm-4 md-6">
                             <img ng-src="{{user.Image_Link}}" alt="Scott Stevens"  class="img-responsive img-circle" />
                         </div>
