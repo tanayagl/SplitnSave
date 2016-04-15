@@ -84,9 +84,9 @@ $scope.pressforget = function(event)
 }
 $scope.signout = function()
 {
+    alert("Hey");
     $cookies.remove('Email');
     $cookies.remove('username');
-    $cookies.remove('otheruserid');
     location.reload();
 };
 $scope.postad = function()
