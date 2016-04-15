@@ -29,18 +29,18 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
         }
 
     };
-    /*if($cookies.get('usermsg')!=null)
+    if($cookies.get('usermsg')!=null)
         {
           input['Email']=$cookies.get('Email');
           input['User_Id']=$cookies.get('usermsg')
          // $cookies.put('usermsg',userid);
           $http({
                 method:'POST',
-                url:'https://splitnsave.pythonanywhere.com/api/getusers',
+                url:'https://splitnsave.pythonanywhere.com/api/getchats',
                 data:JSON.stringify(input),
                })
                       .then(chatsuccesscallback,chaterrorcallback);
-        }*/
+        }
     var chat = function (response) {
               $log.info(response);
               $scope.Users=response.data.Users;
