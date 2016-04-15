@@ -27,7 +27,20 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
        })
               .then(chatusercallback,chatusercallback);
         }
+
     };
+    if($cookies.get('usermsg')!=null)
+        {
+          input['Email']=$cookies.get('Email');
+          input['User_Id']=userid;
+          $cookies.put('usermsg',userid);
+          $http({
+                method:'POST',
+                url:'https://splitnsave.pythonanywhere.com/api/getusers',
+                data:JSON.stringify(input),
+               })
+                      .then(chatsuccesscallback,chaterrorcallback);
+        }
     var chatusercallback = function (response) {
               $log.info(response);
               $scope.Users=response.data.Users;
@@ -38,6 +51,19 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
             alert("Try Again");
             $log.info(reason);
             };
+$scope.cambiaridioma=function(userid)
+{
+  input['Email']=$cookies.get('Email');
+  input['User_Id']=userid;
+  $cookies.put('usermsg',userid);
+  $http({
+        method:'POST',
+        url:'https://splitnsave.pythonanywhere.com/api/getusers',
+        data:JSON.stringify(input),
+       })
+              .then(chatsuccesscallback,chaterrorcallback);
+
+}
    var chatsuccesscallback = function (response) {
               $log.info(response);
               $scope.Users=response.data.Users;

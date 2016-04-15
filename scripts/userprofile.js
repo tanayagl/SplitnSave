@@ -132,6 +132,11 @@ var successcallback = function (response) {
         }
         return age;
     }
+    $scope.goto = function()
+    {
+        $cookies.put("usermsg",$cookies.get('otheruserid'));
+        window.location.href="inboxtemp.html";
+    }
     var reportsuccesscallback = function (response) {
                	$log.info(response);
             	};

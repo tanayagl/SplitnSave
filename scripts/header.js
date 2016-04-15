@@ -20,9 +20,7 @@ var Email={
         };
         $scope.onMouseLeave_Password = function($event) {
             if (user['Password'] == "") {
-                $scope.onMouseLeave_Password_Result = "Password is required";
-            } else if ((user['Password'].length < 6)) {
-                $scope.onMouseLeave_Password_Result = "Password length must be at least 6.";
+                
             } else {
                 $scope.onMouseLeave_Password_Result = "";
             }
@@ -33,6 +31,10 @@ var Email={
             }
             if (user['Password'] == "") {
                 $scope.onMouseLeave_Password_Result = "Password is required";
+            }
+            else if((user['Password'].length < 6))
+            {
+                 $scope.onMouseLeave_Password_Result = "Password length must be at least 6.";
             }
             if ($scope.onMouseLeave_Email_Result == "" && $scope.onMouseLeave_Password_Result == "") {
                 $http({
