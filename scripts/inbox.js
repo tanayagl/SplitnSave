@@ -32,8 +32,8 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
     if($cookies.get('usermsg')!=null)
         {
           input['Email']=$cookies.get('Email');
-          input['User_Id']=userid;
-          $cookies.put('usermsg',userid);
+          input['User_Id']=$cookies.get('usermsg')
+         // $cookies.put('usermsg',userid);
           $http({
                 method:'POST',
                 url:'https://splitnsave.pythonanywhere.com/api/getusers',
