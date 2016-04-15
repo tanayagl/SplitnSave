@@ -244,7 +244,7 @@ var loginerrorcallback = function(reason){
 	{
 		$scope.Amenities="";
 	}
-	else if(a=4)
+	else if(a==4)
 	{
 		$scope.Amenities="Suitable Clothes and Service";
 	}
