@@ -264,14 +264,14 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 		{
 			$scope.product=product;
 			$scope.Option=[];
-			$scope.onMouseLeave_Category_Result="Category is required";
+			$scope.onMouseLeave_Category_Result="Category required";
 		}
 	}
 	$scope.onMouseLeave_Title=function($event)
 	{
 		if($scope.rootproduct['Title']=="")
     	{
-    	$scope.onMouseLeave_Title_Result = "Title is required";
+    	$scope.onMouseLeave_Title_Result = "Title required";
     	}
 	    else
 	    {
@@ -282,7 +282,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 	{
 		if($scope.rootproduct['Price']=="")
     	{
-    	$scope.onMouseLeave_Price_Result = "Price is required";
+    	$scope.onMouseLeave_Price_Result = "Price required";
     	}
     	else if(!(isNumber(product['Price'])))
 	    {
@@ -297,7 +297,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 	{
 		if(product['Location']=="")
     	{
-    		$scope.onMouseLeave_CityName_Result = "Location is required";
+    		$scope.onMouseLeave_CityName_Result = "Location required";
     	}
 	    else
 	    {
@@ -324,7 +324,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 	{
 			if($scope.product['Address']=="")
 			{
-				$scope.onMouseLeave_AAddress_Result="Address is required";
+				$scope.onMouseLeave_AAddress_Result="Address required";
 			}
 			else
 			{
@@ -335,9 +335,9 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 	{
 			if($scope.product['Start_Date']=="")
 			{
-				$scope.onMouseLeave_AStart_Date_Result="Start Date is required";
-				$scope.onMouseLeave_BStart_Date_Result="Start Date is required";
-				$scope.onMouseLeave_CStart_Date_Result="Start Date is required";
+				$scope.onMouseLeave_AStart_Date_Result="Start Date required";
+				$scope.onMouseLeave_BStart_Date_Result="Start Date required";
+				$scope.onMouseLeave_CStart_Date_Result="Start Date required";
 			}
 			else if ((birthdayvalidation($scope.product['Start_Date'])))
 			{
@@ -358,8 +358,8 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 	{
 		if($scope.product['Location']=="")
 	    	{
-	    		$scope.onMouseLeave_ACityName_Result = "Location is required";
-	    		$scope.onMouseLeave_BCityName_Result = "Location is required";	
+	    		$scope.onMouseLeave_ACityName_Result = "Location required";
+	    		$scope.onMouseLeave_BCityName_Result = "Location required";	
 	    	}
 		    else
 		    {
@@ -388,7 +388,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 		{
 			if($scope.product['Address']=="")
 			{
-				$scope.onMouseLeave_AAddress_Result="Address is required";
+				$scope.onMouseLeave_AAddress_Result="Address required";
 			}
 			else
 			{
@@ -399,7 +399,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 		{
 			if($scope.product['Start_Date']=="")
 			{
-				$scope.onMouseLeave_AStart_Date_Result="Start Date is required";
+				$scope.onMouseLeave_AStart_Date_Result="Start Date required";
 				
 			}
 			else
@@ -413,7 +413,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 		{
 			if($scope.product['Location']=="")
 	    	{
-	    		$scope.onMouseLeave_ACityName_Result = "Location is required";
+	    		$scope.onMouseLeave_ACityName_Result = "Location required";
 	    	}
 		    else
 		    {
@@ -427,7 +427,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 		{
 			if($scope.product['Location']=="")
 	    	{
-	    		$scope.onMouseLeave_BCityName_Result = "Location is required";
+	    		$scope.onMouseLeave_BCityName_Result = "Location required";
 	    	}
 		    else
 		    {
@@ -438,7 +438,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 		{
 			if($scope.product['Start_Date']=="")
 			{
-				$scope.onMouseLeave_BStart_Date_Result="Start Date is required";
+				$scope.onMouseLeave_BStart_Date_Result="Start Date required";
 				
 			}
 			else
@@ -453,7 +453,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 		{
 			if($scope.product['Start_Date']=="")
 			{
-				$scope.onMouseLeave_CStart_Date_Result="Start Date is required";
+				$scope.onMouseLeave_CStart_Date_Result="Start Date required";
 				
 			}
 			else
@@ -480,7 +480,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 	{
 		if($scope.product['End_Date']=="")
 		{
-			$scope.onMouseLeave_End_Date_Result="End Date is required";
+			$scope.onMouseLeave_End_Date_Result="End Date required";
 		}
 		else
 		{
@@ -524,7 +524,7 @@ $scope.onMouseLeave_Submit=function($event)
 	b=0;
 	if(category['Category']=="")
     {
-    	$scope.onMouseLeave_Category_Result = "Category is required";
+    	$scope.onMouseLeave_Category_Result = "Category required";
     	b=1;
     }
     else
@@ -533,7 +533,7 @@ $scope.onMouseLeave_Submit=function($event)
     }
     if($scope.rootproduct['Title']=="")
     {
-    	$scope.onMouseLeave_Title_Result = "Title is required";
+    	$scope.onMouseLeave_Title_Result = "Title required";
     	b=1;	
     }
     else
@@ -542,7 +542,7 @@ $scope.onMouseLeave_Submit=function($event)
     }
     if($scope.rootproduct['Price']=="")
     {
-    	$scope.onMouseLeave_Price_Result = "Price is required";
+    	$scope.onMouseLeave_Price_Result = "Price required";
     	b=1;
     	
     }
@@ -574,7 +574,7 @@ $scope.onMouseLeave_Submit=function($event)
     {
 	    if($scope.product['Location']=="")
 	    	{
-	    		$scope.onMouseLeave_ACityName_Result="City Name is required";
+	    		$scope.onMouseLeave_ACityName_Result="City Name required";
 	    		b=1;
 	    	}
 	    else
@@ -583,7 +583,7 @@ $scope.onMouseLeave_Submit=function($event)
 	    	}
 		if($scope.product['Address']=="")
 		{
-			$scope.onMouseLeave_AAddress_Result="Address is required";
+			$scope.onMouseLeave_AAddress_Result="Address required";
 			b=1;
 		}
 		else
@@ -593,7 +593,7 @@ $scope.onMouseLeave_Submit=function($event)
 		
 		if($scope.product['Start_Date']=="")
 		{
-			$scope.onMouseLeave_AStart_Date_Result="Start Date is required";
+			$scope.onMouseLeave_AStart_Date_Result="Start Date required";
 			b=1;
 			
 		}
@@ -606,7 +606,7 @@ $scope.onMouseLeave_Submit=function($event)
 	{
 			if($scope.product['Location']=="")
 	    	{
-	    		$scope.onMouseLeave_BCityName_Result = "Location is required";
+	    		$scope.onMouseLeave_BCityName_Result = "Location required";
 	    		b=1;
 	    	}
 		    else
@@ -616,7 +616,7 @@ $scope.onMouseLeave_Submit=function($event)
 		
 			if($scope.product['Start_Date']=="")
 			{
-				$scope.onMouseLeave_BStart_Date_Result="Start Date is required";
+				$scope.onMouseLeave_BStart_Date_Result="Start Date required";
 				b=1;
 				
 			}
@@ -629,7 +629,7 @@ $scope.onMouseLeave_Submit=function($event)
 	{
 			if($scope.product['Start_Date']=="")
 			{
-				$scope.onMouseLeave_CStart_Date_Result="Start Date is required";
+				$scope.onMouseLeave_CStart_Date_Result="Start Date required";
 				b=1;
 			}
 			else
@@ -651,7 +651,7 @@ $scope.onMouseLeave_Submit=function($event)
 	}
 	/*if($scope.product['End_Date']=="")
 	{
-		$scope.onMouseLeave_End_Date_Result="End Date is required";
+		$scope.onMouseLeave_End_Date_Result="End Date required";
 		b=1;
 	}
 	else
@@ -693,6 +693,7 @@ $scope.onMouseLeave_Submit=function($event)
                     subproduct: $scope.product,
                     options:$scope.Option,
                    };
+                   alert(Details.product.End_Time);
 		 $http({
 		  method:'POST',
 		  url:'https://splitnsave.pythonanywhere.com/api/createpost',
@@ -704,7 +705,7 @@ $scope.onMouseLeave_Submit=function($event)
 };
 	var successcallback = function (response) {
 				$log.info(response);
-				alert("Done");
+				alert("Ad Posted Successfully");
 				location.reload();
             	};
 	var errorcallback = function(reason){
