@@ -79,7 +79,7 @@ $scope.cambiaridioma=function(userid)
 //$scope.Users=Users;
 $scope.chatposition = function(username)
 {
-  if(username=='Chaitu')
+  if(username==$cookies.get('username'))
   {
     return 'col-md-7 pull-right'
   }
