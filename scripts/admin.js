@@ -67,8 +67,8 @@ myapp.controller("Main", function($scope, $cookies, $http, $log) {
     $scope.removeuser = function(user) {
         var index = $scope.Users.indexOf(user);
         $scope.Users.splice(index, 1);
-        post['User_Id'] = user.User_Id;
-        alert(post['User_Id']);
+        post['User_Id']=user.User_Id;
+        //alert(post['User_Id']);
         $http({
                 method: 'POST',
                 url: 'https://splitnsave.pythonanywhere.com/api/deleteuser',
@@ -86,9 +86,9 @@ myapp.controller("Main", function($scope, $cookies, $http, $log) {
     $scope.removepost = function(post) {
         var index = $scope.Posts.indexOf(post);
         $scope.Posts.splice(index, 1);
-        post['Product_Id'] = post.Product_Id;
-        alert(post['Product_Id']);
-        $http({
+        post['Product_Id']=post.Product_Id;
+        //alert(post['Product_Id']);
+            $http({
                 method: 'POST',
                 url: 'https://splitnsave.pythonanywhere.com/api/deleteproduct',
                 data: JSON.stringify(post),
@@ -104,3 +104,4 @@ myapp.controller("Main", function($scope, $cookies, $http, $log) {
     };
 
 });
+
