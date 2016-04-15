@@ -62,8 +62,8 @@ $scope.cambiaridioma=function(userid)
         data:JSON.stringify(input),
        })
               .then(chatsuccesscallback,chaterrorcallback);*/
-              
-  myLoop ();
+
+  
 }
    var chatsuccesscallback = function (response) {
               $log.info(response);
