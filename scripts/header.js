@@ -70,7 +70,6 @@ $scope.if_logged_in= function()
 {
     if($cookies.get('Email')!=null)
     {
-        alert("Hey");
         return true;
     }
     else
