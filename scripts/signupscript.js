@@ -410,7 +410,7 @@ function  compare(birthdate)
 	var d = q.getDay();
 	var y = q.getYear();
 
-	var date = new Date(y,m,d);
+	var date = new Date(d,m,y);
 	if(mydate < data)
 	{
 		return true;
