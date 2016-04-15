@@ -96,10 +96,12 @@ e.which = 13; //choose the one you want
 e.keyCode = 13;
 $("#theInputToTest").trigger(e);
 window.setInterval(function() {
+   input['Email']=$cookies.get('Email');
+  input['User_Id']=$cookies.get('usermsg');
   $http({
         method:'POST',
         url:'https://splitnsave.pythonanywhere.com/api/getchats',
-        data:JSON.stringify(send),
+        data:JSON.stringify(input),
        })
               .then(sendsuccesscallback,senderrorcallback);
 }, 10000);
