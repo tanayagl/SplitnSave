@@ -36,7 +36,7 @@
             <div class="col-md-4">
                 <p class="lead" ng-click="gotoprofile(input.User_Id)" style="cursor:pointer">{{input.First_Name}}</p>
                 <img ng-src="{{input.Image_Link}}" alt="Scott Stevens" class="img-responsive img-circle" style="height:200px;width:200px;cursor:pointer" ng-click="gotoprofile(input.User_Id)" />
-                <span class="rating" style="padding-top:5px">
+                <span class="rating" style="margin-top:10px">
                 <input id="rating5" type="radio" name="rating" value="5" ng-checked="expression(5)" disabled>
                 <label for="rating5">5</label>
                 <input id="rating4" type="radio" name="rating" value="4" ng-checked="expression(4)" disabled>
@@ -60,7 +60,7 @@
                 <h4 class="pull-right">Rs {{product.Price}}</h4>
                 <div class="row">
                     <div class="col-md-2">
-                        <a class="btn btn-sm btn-success" style="margin-bottom:10px;margin-top:10px;width:50%;" ng-click="addrequest(input.Status_Confirm)" ng-show="showrequest()">{{requesttext(input.Status_Confirm)}}</a>
+                        <a class="btn btn-sm btn-success" style="margin-bottom:10px;margin-top:10px" ng-click="addrequest(input.Status_Confirm)" ng-show="showrequest()">{{requesttext(input.Status_Confirm)}}</a>
                     </div>
                     <div class="col-md-2">
                         <a class="btn btn-sm btn-danger" ng-click="addreport(input.Status_Report)" ng-show="showreport()">{{reporttext(input.Status_Report)}}</a>
