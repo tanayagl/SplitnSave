@@ -63,7 +63,8 @@ $scope.cambiaridioma=function(userid)
        })
               .then(chatsuccesscallback,chaterrorcallback);
 
-  
+  var elem = document.getElementById('data');
+  elem.scrollTop = elem.scrollHeight+10;
 }
    var chatsuccesscallback = function (response) {
               $log.info(response);
@@ -95,9 +96,13 @@ e.which = 13; //choose the one you want
 e.keyCode = 13;
 $("#theInputToTest").trigger(e);
 window.setInterval(function() {
-  var elem = document.getElementById('data');
-  elem.scrollTop = elem.scrollHeight+10;
-}, 1000);
+  $http({
+        method:'POST',
+        url:'https://splitnsave.pythonanywhere.com/api/addchat',
+        data:JSON.stringify(send),
+       })
+              .then(sendsuccesscallback,senderrorcallback);
+}, 10000);
 $scope.send = function()
 {
   if($scope.sendmessage!=null)
@@ -164,4 +169,3 @@ $scope.search = function (item) {
             };
 });
 
-  
