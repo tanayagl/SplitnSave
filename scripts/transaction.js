@@ -1,39 +1,4 @@
-var Products=[{
-    Product_Name:"Book",
-    Product_Image:"https:image.freepik.com/free-icon/shopping-cart-with-product-inside_318-59544.png",
-    Product_Id:"1",
-    Location:"Ahmedabad",
-    Post_Date:"12/3/2016",
-    Price:"300",
-    Sharer:[
-    {First_Name:"Chaitanya",Last_Name:"Shah",User_Id:"1",User_Image:"http://simpleicon.com/wp-content/uploads/user1.png",Rating:0},
-    {First_Name:"Chaitanya",Last_Name:"Shah",User_Id:"1",User_Image:"http://simpleicon.com/wp-content/uploads/user1.png",Rating:"1"}
-    ]
-  },
-    {
-    Product_Name:"Book",
-    Product_Image:"https:image.freepik.com/free-icon/shopping-cart-with-product-inside_318-59544.png",
-    Product_Id:"1",
-    Location:"Ahmedabad",
-    Post_Date:"12/3/2016",
-    Price:"300",
-    Sharer:[
-    {First_Name:"Chaitanya",Last_Name:"Shah",User_Id:"1",User_Image:"http://simpleicon.com/wp-content/uploads/user1.png",Rating:"3"},
-    {First_Name:"Chaitanya",Last_Name:"Shah",User_Id:"1",User_Image:"http://simpleicon.com/wp-content/uploads/user1.png",Rating:"3"}
-    ]
-    },
-     {
-    Product_Name:"Book",
-    Product_Image:"https:image.freepik.com/free-icon/shopping-cart-with-product-inside_318-59544.png",
-    Product_Id:"1",
-    Location:"Ahmedabad",
-    Post_Date:"12/3/2016",
-    Price:"300",
-    Sharer:[
-    {First_Name:"Chaitanya",Last_Name:"Shah",User_Id:"1",User_Image:"http://simpleicon.com/wp-content/uploads/user1.png",Rating:"1"},
-    {First_Name:"Chaitanya",Last_Name:"Shah",User_Id:"1",User_Image:"http://simpleicon.com/wp-content/uploads/user1.png",Rating:"1"}
-    ]
-    }];
+var Products=[];
 var myapp = angular.module("myModule",['ngCookies']);
 
 myapp.controller("Main",function($scope,$cookies,$http,$log){
