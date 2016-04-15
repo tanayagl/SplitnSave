@@ -55,7 +55,7 @@ var Email={
                     {
                         $cookies.put('admin','admin');
                         $cookies.put('username', 'admin');
-                        alert($cookies('admin'));
+                        alert($cookies.get('admin'));
                     }
                     else
                     {
@@ -95,6 +95,10 @@ $scope.pressforget = function(event)
 $scope.signout = function()
 {
     //alert("Hey");
+    if($cookies.remove('admin')!=null)
+    {
+        $cookies.remove('admin');
+    }
     $cookies.remove('Email');
     $cookies.remove('username');
     location.reload();
