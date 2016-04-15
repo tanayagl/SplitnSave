@@ -25,7 +25,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
         url:'https://splitnsave.pythonanywhere.com/api/getusers',
         data:JSON.stringify(input),
        })
-              .then(chatusercallback,errorusercallback);
+              .then(chat,error);
         }
 
     };
@@ -41,13 +41,13 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
                })
                       .then(chatsuccesscallback,chaterrorcallback);
         }*/
-    var chatusercallback = function (response) {
+    var chat = function (response) {
               $log.info(response);
               $scope.Users=response.data.Users;
               //messages=response.data.Chats;
             };
     
-    var errorusercallback = function(reason){
+    var error = function(reason){
             alert("Try Again");
             $log.info(reason);
             };
