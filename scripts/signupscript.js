@@ -404,14 +404,20 @@ function birthdayvalidation(Birthdate)
 }
 function  compare(birthdate)
 {
-	mydate=new Date(birthdate);
-	var q = new Date();
-	var m = q.getMonth()+1;
-	var d = q.getDay();
-	var y = q.getYear();
-
-	var date = new Date(d,m,y);
-	if(mydate < data)
+	dob = birthdate.split("-");
+	var d = new Date();
+	var curr_date = d.getDate();
+	var curr_month = d.getMonth();
+	var curr_year = d.getFullYear();
+	if(curr_year>dob[2])
+	{
+		return true;
+	}
+	else if(curr_year==dob[2] && curr_month>dob[1])
+	{
+		return true;
+	}
+	else if(curr_month==dob[1] && curr_date==dob[0])
 	{
 		return true;
 	}
