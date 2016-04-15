@@ -51,16 +51,10 @@ var Email={
                     $cookies.put('Email', user['Email']);
                     $cookies.put('username', response.data.First_Name);
                     $scope.username=$cookies.get('username');
-                    if($cookies.get('page')!=null)
-                    {
-                         window.location.href=$cookies.get('page');
-                         $cookies.remove('page');
-                    }
-                    else
-                    {
+                    
 
                             location.reload();
-                    }
+                    
                 }
                 else
                 {
@@ -104,7 +98,6 @@ $scope.postad = function()
     else
     {
           $('.bs-example-modal-sm').modal('show');
-          $cookies.put('page','post_product.html');
     }
 };
 
