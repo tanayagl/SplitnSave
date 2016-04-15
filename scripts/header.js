@@ -70,6 +70,7 @@ $scope.if_logged_in= function()
 {
     if($cookies.get('Email')!=null)
     {
+        alert("Hey");
         return true;
     }
     else
@@ -84,7 +85,7 @@ $scope.pressforget = function(event)
 }
 $scope.signout = function()
 {
-    alert("Hey");
+    //alert("Hey");
     $cookies.remove('Email');
     $cookies.remove('username');
     location.reload();
