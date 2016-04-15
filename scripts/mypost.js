@@ -197,7 +197,7 @@ var successcallback = function (response) {
 		}
 		else
 		{
-			return 'Accepted';
+			return 'Confirm';
 		}
 	};
 	$scope.gotoproduct = function(productid)
