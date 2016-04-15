@@ -1,58 +1,3 @@
-var  messages=[
-     {
-        'username': 'Chaitanya',
-        'content': 'Hi!'
-      },
-      {
-        'username': 'Elisa',
-        'content': 'Whats up?'
-      },
-      {
-        'username': 'Chaitanya',
-        'content': 'I found this nice AngularJS Directive'
-      },
-      {
-        'username': 'Elisa',
-        'content': 'Looks Great!'
-      }
-    ];
-var Users =[
-  {
-    First_Name:"Chaitanya",
-    Last_Name:"Shah",
-    Image_Link:"http://simpleicon.com/wp-content/uploads/user1.png",
-    User_Id:"1",
-    Date:"30/3/2016",
-  },
-  {
-    First_Name:"Zarna",
-    Last_Name:"Parekh",
-    Image_Link:"http://simpleicon.com/wp-content/uploads/user1.png",
-    User_Id:"2",
-    Date:"30/03/2016",
-  },
-  {
-    First_Name:"Devarsh",
-    Last_Name:"Shah",
-    Image_Link:"http://simpleicon.com/wp-content/uploads/user1.png",
-    User_Id:"3",
-    Date:"30/03/2016",
-  },
-  {
-    First_Name:"Henil",
-    Last_Name:"Shah",
-    Image_Link:"http://simpleicon.com/wp-content/uploads/user1.png",
-    User_Id:"4",
-    Date:"30/03/2016",
-  },
-  {
-    First_Name:"Riddhesh",
-    Last_Name:"Markandeya",
-    Image_Link:"http://simpleicon.com/wp-content/uploads/user1.png",
-    User_Id:"5",
-    Date:"30/03/2016",
-  }
-  ];
   var input={
   };
   var send={
@@ -75,23 +20,24 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
       {
            $scope.show=true;
            input['Email']=$cookies.get('Email');
-           if($cookies.get('usermsg')!=null)
-           {
-
-           input['User_Id']=$cookies.get('usermsg');
            $http({
         method:'POST',
-        url:'https://splitnsave.pythonanywhere.com/api/getchats',
+        url:'https://splitnsave.pythonanywhere.com/api/getusers',
         data:JSON.stringify(input),
        })
-              .then(chatsuccesscallback,chaterrorcallback);
-          }
-        }
-        else
-        {
-
+              .then(chatusercallback,chatusercallback);
         }
     };
+    var chatusercallback = function (response) {
+              $log.info(response);
+              $scope.Users=response.data.Users;
+              //messages=response.data.Chats;
+            };
+    
+    var chatusercallback = function(reason){
+            alert("Try Again");
+            $log.info(reason);
+            };
    var chatsuccesscallback = function (response) {
               $log.info(response);
               $scope.Users=response.data.Users;
@@ -144,10 +90,6 @@ $scope.send = function()
               .then(sendsuccesscallback,senderrorcallback);
   }
   $scope.sendmessage="";
-}
-$scope.cambiaridioma = function(User_Id)
-{
-  
 }
 var sendsuccesscallback = function (response) {
               $log.info(response);
