@@ -107,7 +107,7 @@ window.setInterval(function() {
        })
               .then(chatsuccesscallback,chaterrorcallback);
           }
-}, 10000);
+}, 5000);
 $scope.send = function()
 {
   if($scope.sendmessage!=null)
