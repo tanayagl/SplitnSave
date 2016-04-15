@@ -105,7 +105,7 @@ window.setInterval(function() {
         url:'https://splitnsave.pythonanywhere.com/api/getchats',
         data:JSON.stringify(input),
        })
-              .then(sendsuccesscallback,senderrorcallback);
+              .then(chatsuccesscallback,haterrorcallback);
           }
 }, 10000);
 $scope.send = function()
