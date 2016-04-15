@@ -51,7 +51,7 @@ var Email={
                 {
                     $('.bs-example-modal-sm').modal('hide');
                     $cookies.put('Email', user['Email']);
-                    if(user[Email]=='admin@gmail.com')
+                    if(user['Email']=='admin@gmail.com')
                     {
                         $cookies.put('admin','admin');
                         $cookies.put('username', 'admin');
