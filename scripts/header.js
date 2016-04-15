@@ -51,9 +51,16 @@ var Email={
                 {
                     $('.bs-example-modal-sm').modal('hide');
                     $cookies.put('Email', user['Email']);
+                    if(user[Email]=='admin@gmail.com')
+                    {
+                        $cookies.put('admin','admin');
+                        $cookies.put('username', 'admin');
+                    }
+                    else
+                    {
                     $cookies.put('username', response.data.First_Name);
+                    }
                     $scope.username=$cookies.get('username');
-                    
 
                             location.reload();
                     

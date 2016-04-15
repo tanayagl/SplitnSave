@@ -346,6 +346,13 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 				$scope.onMouseLeave_CStart_Date_Result="Invalid Start Date";
 				$scope.onMouseLeave_DStart_Date_Result="Invalid Start Date";
 			}
+			else if ((compare($scope.product['Start_Date'])))
+			{
+				$scope.onMouseLeave_AStart_Date_Result="Invalid Start Date";
+				$scope.onMouseLeave_BStart_Date_Result="Invalid Start Date";
+				$scope.onMouseLeave_CStart_Date_Result="Invalid Start Date";
+				$scope.onMouseLeave_DStart_Date_Result="Invalid Start Date";
+			}
 			else
 			{
 				$scope.onMouseLeave_AStart_Date_Result="";
@@ -725,4 +732,28 @@ function birthdayvalidation(Birthdate)
     else {
         return false;
     }
+}
+function  compare(birthdate)
+{
+	dob = birthdate.split("-");
+	var d = new Date();
+	var curr_date = d.getDate();
+	var curr_month = d.getMonth();
+	var curr_year = d.getFullYear();
+	if(curr_year>dob[2])
+	{
+		return true;
+	}
+	else if(curr_year==dob[2] && curr_month>dob[1])
+	{
+		return true;
+	}
+	else if(curr_month==dob[1] && curr_date==dob[0])
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
