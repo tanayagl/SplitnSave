@@ -29,7 +29,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
         }
 
     };
-    if($cookies.get('usermsg')!=null)
+    /*if($cookies.get('usermsg')!=null)
         {
           input['Email']=$cookies.get('Email');
           input['User_Id']=$cookies.get('usermsg')
@@ -40,7 +40,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
                 data:JSON.stringify(input),
                })
                       .then(chatsuccesscallback,chaterrorcallback);
-        }
+        }*/
     var chatusercallback = function (response) {
               $log.info(response);
               $scope.Users=response.data.Users;
