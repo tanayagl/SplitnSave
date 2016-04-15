@@ -101,7 +101,7 @@ $scope.show=false;
 		  url:'https://splitnsave.pythonanywhere.com/api/notifications',
 		  data:JSON.stringify(Email),
 		 })
-            .then(successcallback,errorcallback);
+            .then(successnotification,errornotification);
          }
 
   
@@ -113,10 +113,20 @@ var successcallback = function (response) {
                	$log.info(response);
                	$scope.Users=response.data.users;
                	$scope.input=response.data.details;
-               	$scope.Notifications= response.data.notifications;
                	$scope.show=true;
             	};
 	var errorcallback = function(reason){
+				alert("Server Problem");
+				$log.info(reason);
+				};
+var successnotification = function (response) {
+               	$log.info(response);
+               	$scope.Confirmed=response.data.Confirmed;
+               	$scope.Accepted=response.data.Accepted;
+               	$scope.Requested=response.data.Requested;
+               	$scope.show=true;
+            	};
+var errornotification = function(reason){
 				alert("Server Problem");
 				$log.info(reason);
 				};
@@ -157,9 +167,9 @@ $scope.changeColor = function(person, bool) {
 $scope.changeGlyphicon = function(Type){
 	if(Type=='1')
 	{
-		return "glyphicon glyphicon-envelope";
+		return "glyphicon glyphicon-user";
 	}
-	else if(Type=="4")
+	else if(Type=="3")
 	{
 		return "glyphicon glyphicon-shopping-cart";
 	}
@@ -168,11 +178,18 @@ $scope.changeGlyphicon = function(Type){
 		return "glyphicon glyphicon-user";
 	}
 };
-$scope.deleteNotifications = function(notification)
+$scope.gotorequest = function(notification)
 {
-	var index = $scope.Notifications.indexOf(notification);
-  	$scope.Notifications.splice(index, 1);     
-};
+	window.location.href="my_posts.html";
+}
+$scope.gotoaccept(notification)=function(notification)
+{
+	window.location.href="product_detail.html";
+}
+$scope.gotoconfirm = function(notification)
+{
+	window.location.href="transactions.html";
+}
  $scope.onMouseLeave_Submit = function ($event) {
 	
 };
