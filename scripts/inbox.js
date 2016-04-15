@@ -56,19 +56,21 @@ $scope.cambiaridioma=function(userid)
   input['Email']=$cookies.get('Email');
   input['User_Id']=userid;
   $cookies.put('usermsg',userid);
-  $http({
+  /*$http({
         method:'POST',
         url:'https://splitnsave.pythonanywhere.com/api/getchats',
         data:JSON.stringify(input),
        })
-              .then(chatsuccesscallback,chaterrorcallback);
-
+              .then(chatsuccesscallback,chaterrorcallback);*/
+              
+  myLoop ();
 }
    var chatsuccesscallback = function (response) {
               $log.info(response);
               //$scope.Users=response.data.Users;
               //messages=response.data.Chats;
               $scope.messages=response.data.Chats;
+            
             };
     
     var chaterrorcallback = function(reason){
@@ -108,15 +110,15 @@ $scope.send = function()
   send['User_Id']=$cookies.get('usermsg');
   send['Message']=$scope.sendmessage;
   //alert($cookies.get('Email'));
-   /*$http({
+   $http({
         method:'POST',
         url:'https://splitnsave.pythonanywhere.com/api/addchat',
         data:JSON.stringify(send),
        })
-              .then(sendsuccesscallback,senderrorcallback);*/
+              .then(sendsuccesscallback,senderrorcallback);
   }
   $scope.sendmessage="";
-  myLoop ();
+ 
 }
 var sendsuccesscallback = function (response) {
               $log.info(response);
