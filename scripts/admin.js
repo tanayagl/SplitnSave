@@ -12,7 +12,7 @@ $scope.show = false;
 		if($cookies.get('Email') == null) {
  		window.location.replace("signup.html");
 		}
-		else if($cookies.get('admin') == null)
+		else if($cookies.get('admin') != null)
 		{	
 		 window.location.replace("homepage.html");
         }
