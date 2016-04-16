@@ -101,6 +101,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- ________________APARTMENTS___________________ -->
                 <div id="Apartments" ng-show="checkApartments()">
                     <div class="col-md-2" ng-show="checkproduct(product.IN_Time_Value)">
                         <div class="panel panel-info">
@@ -203,6 +204,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- _______________________CABS_______________________________ -->
                 <div id="Cabs" ng-show="checkCabs()">
                     <div class="col-md-2" ng-show="checkproduct(product.CarService)">
                         <div class="panel panel-info">
@@ -255,6 +257,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- ___________________BOOKS__________________ -->
                 <div id="Books" ng-show="checkBooks()">
                     <div class="col-md-2" ng-show="checkproduct(product.Location)">
                         <div class="panel panel-info">
@@ -347,6 +350,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- __________________LAUNDRY________________________ -->
                 <div id="Laundry" ng-show="checkLaundry()">
                     <div class="col-md-2" ng-show="checkproduct(product.Start_Date)">
                         <div class="panel panel-info">
@@ -380,7 +384,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-hide="checkBooks()">
                 <h2 style="text-align:center">{{Amenities}}</h2>
             </div>
             <div class="row">
