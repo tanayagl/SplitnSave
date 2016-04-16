@@ -157,7 +157,6 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
                     Email: $cookies.get('Email'),
                     Product_Id: $cookies.get('productid'),
                    };
-       // $cookies.remove('Email');
 		 $http({
 		  method:'POST',
 		  url:'https://splitnsave.pythonanywhere.com/api/productdetail',
@@ -198,6 +197,7 @@ var loginerrorcallback = function(reason){
 		Status_Confirm:'0',
 		Status_Report:'0'
 	  };*/
+
 	$scope.gotoprofile = function(userid)
 	{
 		$cookies.put('otheruserid',userid);
@@ -217,6 +217,13 @@ var loginerrorcallback = function(reason){
 		{
 			return false;
 		}
+	}
+	$scope.checkImage = function()
+	{
+		if (product.Image_Link=="")
+			return "Image not Available"
+		else
+			return true
 	}
 	$scope.checkproduct = function(string)
 	{
