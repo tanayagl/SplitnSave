@@ -404,6 +404,7 @@ function birthdayvalidation(Birthdate)
 }
 function  compare(birthdate)
 {
+	alert("Hey");
 	dob = birthdate.split("-");
 	var d = new Date();
 	var curr_date = d.getDate();
