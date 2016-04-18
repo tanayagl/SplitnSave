@@ -96,12 +96,12 @@ $scope.show=false;
 		  data:JSON.stringify(Email),
 		 })
             .then(successcallback,errorcallback);
-        /*   $http({
+          $http({
 		  method:'POST',
 		  url:'https://splitnsave.pythonanywhere.com/api/notifications',
 		  data:JSON.stringify(Email),
 		 })
-            .then(successnotification,errornotification);*/
+            .then(successnotification,errornotification);
          }
 
   

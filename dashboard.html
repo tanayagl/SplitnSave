@@ -54,6 +54,44 @@
               </div>
             </div>
         </div>
+          <div class="col-sm-5 col-md-5">
+          <div class="panel panel-default">
+            <div class="panel-heading">Requests</div>
+            <div class="panel-body" style="max-height:270px;overflow-y: scroll;">
+              <ul class="list-group" ng-repeat="notification in Requested">
+                <li class="list-group-item"  ng-click="gotonotification(notification)">
+                <div class="row">
+                  {{notification.Message}}
+                 </div>
+                </li>
+              </ul>
+            </div>
+            </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">Confirmation</div>
+            <div class="panel-body" style="max-height:270px;overflow-y: scroll;">
+              <ul class="list-group" ng-repeat="notification in Confirmed">
+                <li class="list-group-item"  ng-click="gotonotification(notification)">
+                <div class="row">
+                  {{notification.Message}}
+                 </div>
+                </li>
+              </ul>
+            </div>
+            </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">Acceptance</div>
+            <div class="panel-body" style="max-height:270px;overflow-y: scroll;">
+              <ul class="list-group" ng-repeat="notification in Accepted">
+                <li class="list-group-item"  ng-click="gotonotification(notification)">
+                <div class="row">
+                  {{notification.Message}}
+                 </div>
+                </li>
+              </ul>
+            </div>
+            </div>
+        </div>
         
         
         <div class="col-sm-4 col-md-4">
