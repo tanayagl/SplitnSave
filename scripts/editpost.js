@@ -196,6 +196,7 @@ var getsuccesscallback = function (response) {
 				$scope.rootproduct=product;
 				category['Category']=response.data.Category_Id;
 				$scope.category=category;
+				$scope.Product_Id=response.data.Product_Id;
 				//alert(category['Category']);
 				//alert(response.data.product['Product_Id']);
 				$scope.show=true;
@@ -586,6 +587,7 @@ $scope.onMouseLeave_Submit=function($event)
                     product: $scope.rootproduct,
                     subproduct: $scope.product,
                     options:$scope.Option,
+                    Product_Id:$scope.Product_Id
                    };
                    //alert(Details.product.End_Time);
 		 $http({
