@@ -102,8 +102,18 @@ myapp.controller("Main", function($scope, $cookies, $http, $log) {
     $cookies.remove('admin');
     $cookies.remove('Email');
     $cookies.remove('username');
-    location.reload();
+    window.location.replace("homepage.html");
 };
+    $scope.gotoproduct = function(productid)
+    {
+        $cookies.put('productid',productid);
+        window.location.href="product_detail.html";
+    }
+    $scope.gotoprofile = function(userid)
+    {
+        $cookies.put('otheruserid',userid);
+        window.location.href="userprofile.html";
+    }
     var postsuccesscallback = function(response) {
         $log.info(response);
     };

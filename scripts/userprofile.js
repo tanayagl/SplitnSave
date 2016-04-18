@@ -70,6 +70,10 @@ var successcallback = function (response) {
     	{
     		return false;
     	}
+        else if($scope.get("admin")!=null)
+        {
+            return false;
+        }
     	else
     	{
     		return true;
@@ -81,6 +85,10 @@ var successcallback = function (response) {
     	{
     		return false;
     	}
+        else if($scope.get("admin")!=null)
+        {
+            return false;
+        }
     	else
     	{
     		return true;

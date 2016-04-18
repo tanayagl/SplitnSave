@@ -340,6 +340,10 @@ var loginerrorcallback = function(reason){
 		{
 			return false;
 		}
+		else if($scope.get("admin")!=null)
+		{
+			return false;
+		}
 		else if($scope.input['Status_Confirm']=='0' &&  product.Sharers_Left==0)
 		{
 			return false;
@@ -352,6 +356,10 @@ var loginerrorcallback = function(reason){
 	$scope.showreport = function()
 	{
 		if(input.Email==$cookies.get('Email'))
+		{
+			return false;
+		}
+		else if($scope.get("admin")!=null)
 		{
 			return false;
 		}
