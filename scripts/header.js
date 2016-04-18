@@ -88,6 +88,17 @@ $scope.if_logged_in= function()
         return false;
     }
 };
+$scope.admin= function()
+{
+    if($cookies.get("admin")!=null)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
 $scope.pressforget = function(event)
 {
      $('.bs-example-modal-sm').modal('hide');
@@ -96,7 +107,7 @@ $scope.pressforget = function(event)
 $scope.signout = function()
 {
     //alert("Hey");
-    if($cookies.remove('admin')!=null)
+    if($cookies.get('admin')!=null)
     {
         $cookies.remove('admin');
     }

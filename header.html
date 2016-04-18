@@ -28,14 +28,15 @@
                 <li ng-show="if_logged_in()">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" style="margin-right:5px"></span><span style="margin-right:10px">{{username}}</span><!--<span class="caret"></span>--></a>
                     <ul class="dropdown-menu">
-                        <li><a href="dashboard.html">Dashboard</a></li>
-                        <li><a href="editprofile.html">Edit Profile</a></li>
-                        <li><a href="my_posts.html">My Posts</a></li>
-                        <li><a href="transactions.html">Transaction History</a></li>
-                        <li><a href="inboxtemp.html">Messages</a></li>
+                        <li><a href="dashboard.html" ng-show="admin()">Dashboard</a></li>
+                        <li><a href="editprofile.html" ng-show="admin()">Edit Profile</a></li>
+                        <li><a href="my_posts.html" ng-show="admin()">My Posts</a></li>
+                        <li><a href="transactions.html" ng-show="admin()">Transaction History</a></li>
+                        <li><a href="inboxtemp.html" ng-show="admin()">Messages</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="account_settings.html">Settings</a></li>
+                        <li><a href="account_settings.html" ng-show="admin()">Settings</a></li>
                         <li role="separator" class="divider"></li>
+                        <li><a href="admin.html" ng-show="!admin()">Admin Panel<OUTPUT></OUTPUT></a></li>
                         <li><a href="" ng-click="signout()">Sign Out<OUTPUT></OUTPUT></a></li>
                     </ul>
                 </li>
