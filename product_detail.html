@@ -319,20 +319,25 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2" ng-show="checkproduct(product.Tag1)">
+                    <div class="col-md-2" ng-show="checkproduct(product.Tag1) || checkproduct(product.Tag2) || checkproduct(product.Tag3)">
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                <h4 class="panel-title">Tag1</h4>
+                                <h4 class="panel-title">Tag</h4>
                             </div>
                             <div class="panel-body">
-                                {{product.Tag1}}
+                                <ul style="list-style:none">
+                                    <li ng-show="checkproduct(product.Tag1)">{{product.Tag1}}</li>
+                                    <li ng-show="checkproduct(product.Tag1)">{{product.Tag2}}</li>
+                                    <li ng-show="checkproduct(product.Tag3)">{{product.Tag3}}</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+                    <!--  
                     <div class="col-md-2" ng-show="checkproduct(product.Tag2)">
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                <h4 class="panel-title">Tag2</h4>
+                                <h4 class="panel-title">Tag</h4>
                             </div>
                             <div class="panel-body">
                                 {{product.Tag2}}
@@ -348,7 +353,7 @@
                                 {{product.Tag3}}
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <!-- __________________LAUNDRY________________________ -->
                 <div id="Laundry" ng-show="checkLaundry()">
