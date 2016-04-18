@@ -209,18 +209,6 @@ var geterrorcallback = function(reason){
 	//$scope.category=category;
 	//$scope.rootproduct=product;
 	//$scope.product=Apartments;
-	var a=category.Category;
-	$scope.checkApartments=function()
-	{
-		if(category.Category==1)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	};
 	$scope.checkCabs=function()
 	{
 		if(category.Category==2)
@@ -232,7 +220,18 @@ var geterrorcallback = function(reason){
 			return false;
 		}
 	};
-	$scope.checkBooks = function()
+	$scope.checkApartments=function()
+	{
+		if(category.Category==1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	};
+	$scope.checkBooks=function()
 	{
 		if(category.Category==3)
 		{
@@ -242,7 +241,7 @@ var geterrorcallback = function(reason){
 		{
 			return false;
 		}
-	}
+	};
 	$scope.checkLaundry=function()
 	{
 		if(category.Category==4)
@@ -256,7 +255,7 @@ var geterrorcallback = function(reason){
 	};
 	$scope.titltext = function()
 	{
-		if(a==2)
+		if(category.Category==2)
 		{
 			return "Destionation";
 		}
@@ -267,11 +266,45 @@ var geterrorcallback = function(reason){
 	};
 	
 	$scope.onMouseLeave_Sharers_Result ="";
+
+	$scope.onMouseLeave_Category=function($event)
+	{
+		if(category.Category==1)
+		{
+			$scope.Option=option1;
+			$scope.product=Apartments;
+			$scope.onMouseLeave_Category_Result="";
+		}
+		else if(category.Category==2)
+		{
+			$scope.product=Cabs;
+			$scope.Option=option2;
+			$scope.onMouseLeave_Category_Result="";
+		}
+		else if(category.Category==3)
+		{
+			$scope.product=Books;
+			$scope.Option=[];
+			$scope.onMouseLeave_Category_Result="";
+		}
+		else if(category.Category==4)
+		{
+			$scope.product=Laundry;
+			$scope.Option=option4;
+			$scope.onMouseLeave_Category_Result="";
+		}
+		else
+		{
+			$scope.product=product;
+			$scope.Option=[];
+			$scope.onMouseLeave_Category_Result="Category required";
+		}
+	}
 	$scope.onMouseLeave_Title=function($event)
 	{
-		if(product['Title']=="")
+		if($scope.rootproduct['Title']=="")
     	{
-    	$scope.onMouseLeave_Title_Result = "Title is required";
+    	$scope.onMouseLeave_Title_Result = "Title required";
     	}
 	    else
 	    {
@@ -280,13 +313,12 @@ var geterrorcallback = function(reason){
 	}
 	$scope.onMouseLeave_Price=function($event)
 	{
-		if(product['Price']=="")
+		if($scope.rootproduct['Price']=="")
     	{
-    	$scope.onMouseLeave_Price_Result = "Price is required";
+    	$scope.onMouseLeave_Price_Result = "Price required";
     	}
     	else if(!(isNumber(product['Price'])))
 	    {
-	    	
 			$scope.onMouseLeave_Price_Result = "Price is should be digit";
 	    }
 	    else
@@ -294,20 +326,20 @@ var geterrorcallback = function(reason){
 	    	$scope.onMouseLeave_Price_Result = "";
 	    }
 	}
-	$scope.onMouseLeave_CityName=function($event)
+	/*$scope.onMouseLeave_CityName=function($event)
 	{
 		if(product['Location']=="")
     	{
-    		$scope.onMouseLeave_CityName_Result = "Location is required";
+    		$scope.onMouseLeave_CityName_Result = "Location required";
     	}
 	    else
 	    {
 	    	$scope.onMouseLeave_CityName_Result = "";
 	    }
-	}
+	}*/
 	$scope.onMouseLeave_Sharers=function($event)
 	{
-		 if(product['Sharers']=="")
+		 if($scope.rootproduct['Sharers']=="")
 	    {
 	    	$scope.onMouseLeave_Sharers_Result = "Sharers are required";
 	    	
@@ -323,117 +355,92 @@ var geterrorcallback = function(reason){
 	}
 	$scope.onMouseLeave_Address=function($event)
 	{
-		if($scope.product['Address']=="")
-		{
-			$scope.onMouseLeave_Address_Result="Address is required";
-		}
-		else
-		{
-			$scope.onMouseLeave_Address_Result="";
-		}
-	}
+			if($scope.product['Address']=="")
+			{
+				$scope.onMouseLeave_AAddress_Result="Address required";
+			}
+			else
+			{
+				$scope.onMouseLeave_AAddress_Result="";
+			}
+	};
 	$scope.onMouseLeave_Start_Date=function($event)
 	{
-		if($scope.product['Start_Date']=="")
-		{
-			$scope.onMouseLeave_Start_Date_Result="Start Date is required";
-			
-		}
-		else
-		{
-			$scope.onMouseLeave_Start_Date_Result="";
-		}
+			if($scope.product['Start_Date']=="")
+			{
+				$scope.onMouseLeave_AStart_Date_Result="Start Date required";
+				$scope.onMouseLeave_BStart_Date_Result="Start Date required";
+				$scope.onMouseLeave_CStart_Date_Result="Start Date required";
+			}
+			else if ((birthdayvalidation($scope.product['Start_Date'])))
+			{
+				$scope.onMouseLeave_AStart_Date_Result="Invalid Start Date";
+				$scope.onMouseLeave_BStart_Date_Result="Invalid Start Date";
+				$scope.onMouseLeave_CStart_Date_Result="Invalid Start Date";
+				$scope.onMouseLeave_DStart_Date_Result="Invalid Start Date";
+			}
+			else if ((compare($scope.product['Start_Date'])))
+			{
+				$scope.onMouseLeave_AStart_Date_Result="Invalid Start Date";
+				$scope.onMouseLeave_BStart_Date_Result="Invalid Start Date";
+				$scope.onMouseLeave_CStart_Date_Result="Invalid Start Date";
+				$scope.onMouseLeave_DStart_Date_Result="Invalid Start Date";
+			}
+			else
+			{
+				$scope.onMouseLeave_AStart_Date_Result="";
+				$scope.onMouseLeave_BStart_Date_Result="";
+				$scope.onMouseLeave_CStart_Date_Result="";
+				$scope.onMouseLeave_DStart_Date_Result="";
+			}
 	}
-	$scope.onMouseLeave_End_Date=function($event)
+	$scope.onMouseLeave_CityName=function($event)
 	{
-		if($scope.product['End_Date']=="")
-		{
-			$scope.onMouseLeave_End_Date_Result="End Date is required";
-		}
-		else
-		{
-			$scope.onMouseLeave_End_Date_Result="";
-		}
-	}
-	$scope.onMouseLeave_Weights=function($event)
-	{
-		if($scope.product['Weights']=="")
-		{
-			$scope.onMouseLeave_Weights_Result="Weights are required";
-		}
-		else
-		{
-			$scope.onMouseLeave_Weights_Result="";
-		}
-	}
-	$scope.onMouseLeave_Profile=function($event)
-	{
-			if(!$('input[type="file"]').val()) {
-		}
-		else
-		{
-			var files = document.getElementById("image").files;
-			var file_name=files[0].name;
-		    var split=file_name.split(".");
-		    var extenstion = split[split.length-1];
-		    if(!(extenstion=="gif" || extenstion=="png" || extenstion=="jpg" || extenstion=="jpeg"))
-		    {
-		    	$scope.onMouseLeave_Profile_Result="It's not an image";
-		    	
-		    }
+		if($scope.product['Location']=="")
+	    	{
+	    		$scope.onMouseLeave_ACityName_Result = "Location required";
+	    		$scope.onMouseLeave_BCityName_Result = "Location required";	
+	    	}
 		    else
 		    {
-		    	$scope.onMouseLeave_Profile_Result="";	
+		    	$scope.onMouseLeave_ACityName_Result = "";
+		    	$scope.onMouseLeave_BCityName_Result = "";
 		    }
-		}
 	}
+	$scope.onMouseLeave_Weights = function($event)
+		{
+			if($scope.product['Weights']=="")
+			{
+				$scope.onMouseLeave_DWeights_Result= "Weights required"
+			}
+			else if(!(isNumber($scope.product['Weights'])))
+			{
+				$scope.onMouseLeave_DWeights_Result= "Weights should be integer"
+			}
+			else 
+			{
+				$scope.onMouseLeave_DWeights_Result= "";
+			}
+		};
 $scope.onMouseLeave_Submit=function($event)
 {
-	var b=0;
-	 if(!$('input[type="file"]').val()) {
-	}
-	else
-	{
-		var files = document.getElementById("image").files;
-		var file_name=files[0].name;
-	    var split=file_name.split(".");
-	    var extenstion = split[split.length-1];
-	    if(!(extenstion=="gif" || extenstion=="png" || extenstion=="jpg" || extenstion=="jpeg"))
-	    {
-	    	$scope.onMouseLeave_Profile_Result="It's not an image";
-	    	b=1;	
-	    }
-	    else
-	    {
-	    	$scope.onMouseLeave_Profile_Result="";	
-	    }
-	}
-	if(category['Category']=="")
+	b=0;
+    if($scope.rootproduct['Title']=="")
     {
-    	$scope.onMouseLeave_Category_Result = "Category is required";
-    	b=1;
-    }
-    else
-    {
-    	$scope.onMouseLeave_Category_Result = "";
-    }
-    if(product['Title']=="")
-    {
-    	$scope.onMouseLeave_Title_Result = "Title is required";
-    	b=1;
-    	
+    	$scope.onMouseLeave_Title_Result = "Title required";
+    	b=1;	
     }
     else
     {
     	$scope.onMouseLeave_Title_Result = "";
     }
-    if(product['Price']=="")
+    if($scope.rootproduct['Price']=="")
     {
-    	$scope.onMouseLeave_Price_Result = "Price is required";
+    	$scope.onMouseLeave_Price_Result = "Price required";
     	b=1;
     	
     }
-    else if(!(isNumber(product['Price'])))
+    else if(!(isNumber($scope.rootproduct['Price'])))
     {
 		$scope.onMouseLeave_Price_Result = "Price is should be digit";
 		b=1;
@@ -442,13 +449,13 @@ $scope.onMouseLeave_Submit=function($event)
     {
     	$scope.onMouseLeave_Price_Result="";	
     }
-    if(product['Sharers']=="")
+    if($scope.rootproduct['Sharers']=="")
     {
     	$scope.onMouseLeave_Sharers_Result = "Sharers are required";
     	b=1;
     	
     }
-    else if(!(isNumber(product['Sharers'])))
+    else if(!(isNumber($scope.rootproduct['Sharers'])))
     {
     	$scope.onMouseLeave_Sharers_Result = "Sharers should be integer";
     	b=1;
@@ -457,38 +464,88 @@ $scope.onMouseLeave_Submit=function($event)
     {
     	$scope.onMouseLeave_Sharers_Result ="";
     }
-    if($scope.product['Location']=="")
-    	{
-    		$scope.onMouseLeave_CityName_Result="City Name is required";
-    		b=1;
-    	}
-    else
-    	{
-    		$scope.onMouseLeave_CityName_Result="";
-    	}
-	if($scope.product['Address']=="")
-	{
-		$scope.onMouseLeave_Address_Result="Address is required";
-		b=1;
-	}
-	else
-	{
-		$scope.onMouseLeave_Address_Result="";
-	}
-	
-	if($scope.product['Start_Date']=="")
-	{
-		$scope.onMouseLeave_Start_Date_Result="Start Date is required";
-		b=1;
+    if(category.Category==1)
+    {
+	    if($scope.product['Location']=="")
+	    	{
+	    		$scope.onMouseLeave_ACityName_Result="City Name required";
+	    		b=1;
+	    	}
+	    else
+	    	{
+	    		$scope.onMouseLeave_CityName_Result="";
+	    	}
+		if($scope.product['Address']=="")
+		{
+			$scope.onMouseLeave_AAddress_Result="Address required";
+			b=1;
+		}
+		else
+		{
+			$scope.onMouseLeave_AAddress_Result="";
+		}
 		
+		if($scope.product['Start_Date']=="")
+		{
+			$scope.onMouseLeave_AStart_Date_Result="Start Date required";
+			b=1;
+			
+		}
+		else
+		{
+			$scope.onMouseLeave_AStart_Date_Result="";
+		}
 	}
-	else
+	if(category.Category==2)
 	{
-		$scope.onMouseLeave_Start_Date_Result="";
+			if($scope.product['Location']=="")
+	    	{
+	    		$scope.onMouseLeave_BCityName_Result = "Location required";
+	    		b=1;
+	    	}
+		    else
+		    {
+		    	$scope.onMouseLeave_BCityName_Result = "";
+		    }
+		
+			if($scope.product['Start_Date']=="")
+			{
+				$scope.onMouseLeave_BStart_Date_Result="Start Date required";
+				b=1;
+				
+			}
+			else
+			{
+				$scope.onMouseLeave_BStart_Date_Result="";
+			}
 	}
-	if($scope.product['End_Date']=="")
+	if(category.Category==3)
 	{
-		$scope.onMouseLeave_End_Date_Result="End Date is required";
+			if($scope.product['Start_Date']=="")
+			{
+				$scope.onMouseLeave_CStart_Date_Result="Start Date required";
+				b=1;
+			}
+			else
+			{
+				$scope.onMouseLeave_CStart_Date_Result="";
+			}
+	}
+	if(category.Category==4)
+	{
+		if($scope.product['Weights']=="")
+			{
+				$scope.onMouseLeave_DWeights_Result= "Weights required"
+				b=1;
+			}
+			else
+			{
+				$scope.onMouseLeave_DWeights_Result= "";
+			}
+	}
+	/*if($scope.product['End_Date']=="")
+	{
+		$scope.onMouseLeave_End_Date_Result="End Date required";
 		b=1;
 	}
 	else
@@ -504,35 +561,86 @@ $scope.onMouseLeave_Submit=function($event)
 	{
 		$scope.onMouseLeave_Weights_Result="";
 	}
+	alert(b);*/
     if(b==0)
-    {
+   	{
+   	if(category.Category==1)
+   	{
+   		$scope.rootproduct['Image_Link']="https://s22.postimg.org/4a6fip2jl/unnamed.jpg";
+   	}
+   	else if(category.Category==2)
+   	{
+   		$scope.rootproduct['Image_Link']="https://tctechcrunch2011.files.wordpress.com/2015/01/olacabs-picture.jpg";
+   	}
+   	else if(category.Category==3)
+   	{
+   		$scope.rootproduct['Image_Link']="http://mediad.publicbroadcasting.net/p/shared/npr/styles/medium/nprshared/201412/371673336.jpg";
+   	}
+   	else
+   	{
+   		$scope.rootproduct['Image_Link']="https://s23.postimg.org/eqn1rzsfv/laundry.jpg";
+   	}
     var Details={
                     Email: $cookies.get('Email'),
                     Category_Id: category.Category,
                     product: $scope.rootproduct,
                     subproduct: $scope.product,
                     options:$scope.Option,
-                    Product_Id:$cookies.get('editproduct'),
                    };
-        // alert(Details['subproduct']['IN_Time_Value']);
+                   //alert(Details.product.End_Time);
 		 $http({
 		  method:'POST',
 		  url:'https://splitnsave.pythonanywhere.com/api/editdata',
 		  data:JSON.stringify(Details),
 		 })
             .then(successcallback,errorcallback);
-    
-     }
+    }
+
 };
 	var successcallback = function (response) {
 				$log.info(response);
+				alert("Ad Posted Successfully");
+				location.reload();
             	};
 	var errorcallback = function(reason){
 				alert("Server Problem");
 				$log.info(reason);
 				};
-	
+	});
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
-});
+function birthdayvalidation(Birthdate)
+{
+	 var pattern = /^([0-9]{2})-([0-9]{2})-([0-9]{4})$/;
+	 if (!pattern.test(Birthdate)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+function  compare(birthdate)
+{
+	dob = birthdate.split("-");
+	var d = new Date();
+	var curr_date = d.getDate();
+	var curr_month = d.getMonth();
+	var curr_year = d.getFullYear();
+	if(curr_year>dob[2])
+	{
+		return true;
+	}
+	else if(curr_year==dob[2] && curr_month>dob[1])
+	{
+		return true;
+	}
+	else if(curr_month==dob[1] && curr_date>dob[0])
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
