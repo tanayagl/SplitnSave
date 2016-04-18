@@ -11,7 +11,11 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
     }
     else
     { 
-    
+        if($cookies.get('transactions')!=null)
+        {
+          $scope.searchText=$cookies.get('transactions');
+          $cookies.remove('transactions');
+        }
     var Email={
                     Email: $cookies.get('Email'),
                    };
