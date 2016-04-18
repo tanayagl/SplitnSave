@@ -44,13 +44,14 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 		if($cookies.get('Email') == null) {
  		window.location.replace("homepage.html");
 		}
-		if($cookies.get('myposts')!=null)
-		{
-			$scope.searchText=$cookies.get('myposts');
-			$cookies.remove('myposts');
-		}
 		else
-		{	
+		{
+			alert($cookies.get('mypost'));
+				if($cookies.get('mypost')!=null)
+				{
+					$scope.searchText=$cookies.get('mypost');
+					$cookies.remove('mypost');
+				}
 		
 		var Email={
                     Email: $cookies.get('Email'),
