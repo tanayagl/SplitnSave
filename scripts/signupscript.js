@@ -432,6 +432,7 @@ function  compare(birthdate)
 	}
 }
 function hasLowerCase(str) {
+	alert(/[a-z]/.test(str));
     return (/[a-z]/.test(str));
 }
 function hasUperCase(str) {
