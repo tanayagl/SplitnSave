@@ -96,12 +96,12 @@ $scope.show=false;
 		  data:JSON.stringify(Email),
 		 })
             .then(successcallback,errorcallback);
-        /*   $http({
+          $http({
 		  method:'POST',
 		  url:'https://splitnsave.pythonanywhere.com/api/notifications',
 		  data:JSON.stringify(Email),
 		 })
-            .then(successnotification,errornotification);*/
+            .then(successnotification,errornotification);
          }
 
   
@@ -136,27 +136,6 @@ $scope.gotoprofile=function(userid)
 		$cookies.put('otheruserid',userid);
 		window.location.href="userprofile.html";
 	};
-$scope.gotonotification = function(notification)
-{
-	if(notification.Type==1)
-	{
-		alert("Chat with"+ notification.User_Id);
-	}
-	else if(notification.Type==2)
-	{
-		window.location.href="my_posts.html";
-	}
-	else if(notification.Type==3)
-	{
-		$cookies.put('productid',notification.Product_Id);
-		window.location.href="product_detail.html";
-	}
-	else
-	{
-		window.location.href="transactions.html";
-	}
-
-}
 $scope.changeColor = function(person, bool) {
     if(bool === true) {
         $scope.personColour = {background: 'red'};
@@ -164,35 +143,21 @@ $scope.changeColor = function(person, bool) {
         $scope.personColour = {background: 'white'}; //or, whatever the original color is
     }
 };
-$scope.changeGlyphicon = function(Type){
-	if(Type=='1')
-	{
-		return "glyphicon glyphicon-user";
-	}
-	else if(Type=="3")
-	{
-		return "glyphicon glyphicon-shopping-cart";
-	}
-	else
-	{
-		return "glyphicon glyphicon-user";
-	}
-};
 $scope.gotorequest = function(notification)
 {
+	$cookies.put('mypost',notification.Product_Name);
 	window.location.href="my_posts.html";
 }
 $scope.gotoaccept=function(notification)
 {
+	$cookies.put('productid',notification.Product_Id);
 	window.location.href="product_detail.html";
 }
 $scope.gotoconfirm = function(notification)
 {
+	$cookies.put('transactions',notification.Product_Name);
 	window.location.href="transactions.html";
 }
- $scope.onMouseLeave_Submit = function ($event) {
-	
-};
 var inputsuccesscallback = function (response) {
 			$log.info(response);
 			alert("Hey");

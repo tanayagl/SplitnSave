@@ -4,6 +4,7 @@ var myapp = angular.module("myModule", ['ngCookies']);
 myapp.controller("Main", function($scope, $cookies, $http, $log) {
     $scope.show = false;
     $scope.init = function() {
+        alert($cookies.get('admin');
         //$cookies.put('Email', "devarshsheth13@gmail.com");
         //$cookies.put('username', "Admin");
         //$cookies.put('otheruserid',2);

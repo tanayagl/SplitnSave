@@ -45,7 +45,12 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
  		window.location.replace("homepage.html");
 		}
 		else
-		{	
+		{
+				if($cookies.get('mypost')!=null)
+				{
+					$scope.searchText=$cookies.get('mypost');
+					$cookies.remove('mypost');
+				}
 		
 		var Email={
                     Email: $cookies.get('Email'),
@@ -219,7 +224,7 @@ var successcallback = function (response) {
             if ($scope.searchText == undefined) {
                 return true;
             } else {
-                if (item.Title.toLowerCase()
+                if (item.Product_Name.toLowerCase()
                     .indexOf($scope.searchText.toLowerCase()) != -1) {
                     return true;
                 }
