@@ -21,6 +21,7 @@ myapp.controller("Main", function($scope, $cookies, $http, $log) {
 
 
     };
+    $scope.username=$cookies.get('username');
     var adminsuccesscallback = function(response) {
         $log.info(response);
         $scope.show = true;
