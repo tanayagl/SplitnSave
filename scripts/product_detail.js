@@ -138,7 +138,6 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 		//$cookies.put('username', "Chaitanya");
 		//$cookies.put('productid','2');
 		//$cookies.remove('productid');
-		alert($cookies.get('admin'));
 		var Email;
 		if($cookies.get('Email')==null)
 		{
@@ -341,7 +340,7 @@ var loginerrorcallback = function(reason){
 		{
 			return false;
 		}
-		else if($scope.get("admin")!=null)
+		else if($cookies.get("admin")!=null)
 		{
 			return false;
 		}
@@ -360,7 +359,7 @@ var loginerrorcallback = function(reason){
 		{
 			return false;
 		}
-		else if($scope.get("admin")!=null)
+		else if($cookies.get("admin")!=null)
 		{
 			return false;
 		}

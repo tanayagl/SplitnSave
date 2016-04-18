@@ -70,7 +70,7 @@ var successcallback = function (response) {
     	{
     		return false;
     	}
-        else if($scope.get("admin")!=null)
+        else if($cookies.get("admin")!=null)
         {
             return false;
         }
@@ -85,7 +85,7 @@ var successcallback = function (response) {
     	{
     		return false;
     	}
-        else if($scope.get("admin")!=null)
+        else if($scope.cookies("admin")!=null)
         {
             return false;
         }
