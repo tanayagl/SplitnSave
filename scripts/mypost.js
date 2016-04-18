@@ -46,7 +46,6 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 		}
 		else
 		{
-			alert($cookies.get('mypost'));
 				if($cookies.get('mypost')!=null)
 				{
 					$scope.searchText=$cookies.get('mypost');
@@ -225,7 +224,7 @@ var successcallback = function (response) {
             if ($scope.searchText == undefined) {
                 return true;
             } else {
-                if (item.Title.toLowerCase()
+                if (item.Product_Name.toLowerCase()
                     .indexOf($scope.searchText.toLowerCase()) != -1) {
                     return true;
                 }

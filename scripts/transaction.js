@@ -30,6 +30,17 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
          }
   
 };
+   $scope.search = function(item) {
+            if ($scope.searchText == undefined) {
+                return true;
+            } else {
+                if (item.Product_Name.toLowerCase()
+                    .indexOf($scope.searchText.toLowerCase()) != -1) {
+                    return true;
+                }
+            }
+            return false;
+        };
 //$scope.Products=Products;
 //alert(Products[0].Sharer[0].Rating);
 var successcallback = function (response) {
