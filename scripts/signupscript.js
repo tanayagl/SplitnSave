@@ -147,7 +147,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	}
 	else if(!(hasLowerCase(input['Password']) && hasUperCase(input['Password']) && hasNumberCase(input['Password'])))
 	{
-		$scope.onMouseLeave_Password_Result = "Password must be alpha numeric";
+		$scope.onMouseLeave_Password_Result = "Password should have at least one numeric, a Lowercase and a Uppercase";
 	}
 	else
 	{
