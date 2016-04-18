@@ -55,17 +55,14 @@ var Email={
                     {
                         $cookies.put('admin','admin');
                         $cookies.put('username', 'admin');
-                       // alert($cookies.get('admin');
-                        window.location.href="admin.html";
                     }
                     else
                     {
                     $cookies.put('username', response.data.First_Name);
-                    location.reload();
                     }
                     $scope.username=$cookies.get('username');
 
-                            
+                            location.reload();
                     
                 }
                 else
