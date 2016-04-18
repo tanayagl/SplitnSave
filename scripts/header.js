@@ -61,10 +61,11 @@ var Email={
                     else
                     {
                     $cookies.put('username', response.data.First_Name);
+                    location.reload();
                     }
                     $scope.username=$cookies.get('username');
 
-                            location.reload();
+                            
                     
                 }
                 else
