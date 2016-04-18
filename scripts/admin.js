@@ -4,7 +4,6 @@ var myapp = angular.module("myModule", ['ngCookies']);
 myapp.controller("Main", function($scope, $cookies, $http, $log) {
     $scope.show = false;
     $scope.init = function() {
-        alert($cookies.get('admin');
         //$cookies.put('Email', "devarshsheth13@gmail.com");
         //$cookies.put('username', "Admin");
         //$cookies.put('otheruserid',2);
@@ -96,6 +95,14 @@ myapp.controller("Main", function($scope, $cookies, $http, $log) {
             })
             .then(postsuccesscallback, posterrorcallback);
     };
+    $scope.signout = function()
+    {
+    //alert("Hey");
+    $cookies.remove('admin');
+    $cookies.remove('Email');
+    $cookies.remove('username');
+    location.reload();
+};
     var postsuccesscallback = function(response) {
         $log.info(response);
     };

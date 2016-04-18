@@ -55,14 +55,16 @@ var Email={
                     {
                         $cookies.put('admin','admin');
                         $cookies.put('username', 'admin');
+                        $scope.username=$cookies.get('username');
+                        window.location.replace("admin.html");
+                          
                     }
                     else
                     {
                     $cookies.put('username', response.data.First_Name);
+                      location.reload();
                     }
-                    $scope.username=$cookies.get('username');
-
-                            location.reload();
+                    
                     
                 }
                 else
