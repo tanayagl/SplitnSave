@@ -747,7 +747,7 @@ function  compare(birthdate)
 	{
 		return true;
 	}
-	else if(curr_month==dob[1] && curr_date==dob[0])
+	else if(curr_month==dob[1] && curr_date>dob[0])
 	{
 		return true;
 	}
