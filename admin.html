@@ -44,6 +44,7 @@
                 <li>
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" style="margin-right:5px"></span><span style="margin-right:10px">{{username}}</span><!--<span class="caret"></span>--></a>
                     <ul class="dropdown-menu">
+                         <li><a href="admin.html">Admin Panel<OUTPUT></OUTPUT></a></li>
                         <li><a href="" ng-click="signout()">Sign Out<OUTPUT></OUTPUT></a></li>
                     </ul>
                 </li>
@@ -76,7 +77,7 @@
                 <ul class="list-group" id="contact-list">
                     <li class="list-group-item" data-target="" data-toggle="modal" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-repeat="user in Users | filter:searchuser" ng-class="{red: hover}" ng-show="showuser(user)" ng-click="gotoprofile(user.User_Id)">
                         <div class="col-xs-12 col-sm-4 md-6">
-                            <img ng-src="{{user.Image_Link}}" alt="Scott Stevens"  class="img-responsive img-circle" />
+                            <img ng-src="{{user.Image_Link}}" alt="image unavilable"  class="img-responsive img-circle" />
                         </div>
                         <div class="col-xs-12 col-sm-8 md-6">
                             <span class="name">{{user.First_Name}} {{user.Last_Name}}</span><br/>
@@ -122,7 +123,7 @@
                 <ul class="list-group" id="contact-list">
                     <li class="list-group-item" data-target="" data-toggle="modal" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-repeat="post in Posts | filter:searchpost" ng-class="{red: hover}" ng-click="gotoproduct(post.Product_Id)">
                         <div class="col-xs-12 col-sm-4 md-6">
-                            <img ng-src="{{post.Image_Link}}" alt="Scott Stevens"  class="img-responsive img-circle" />
+                            <img ng-src="{{post.Image_Link}}" alt="image unavilable"  class="img-responsive img-circle" />
                         </div>
                         <div class="col-xs-12 col-sm-8 md-6">
                             <span class="name">{{post.Title}}</span><br/>
