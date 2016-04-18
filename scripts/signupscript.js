@@ -229,7 +229,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	{
 	$scope.onMouseLeave_DOB_Result = "Birthdate required";
 	}
-	else if((birthdayvalidation(input['Birthdate'])))
+	else if((birthdayvalidation(input['Birthdate'])) &&  compare(input['Birthdate']))
 	{
 	$scope.onMouseLeave_DOB_Result="Invalid Birthdate";
 	}
@@ -411,18 +411,18 @@ function  compare(birthdate)
 	var curr_year = d.getFullYear();
 	if(curr_year>dob[2])
 	{
-		return true;
+		return false;
 	}
 	else if(curr_year==dob[2] && curr_month>dob[1])
 	{
-		return true;
+		return false;
 	}
 	else if(curr_month==dob[1] && curr_date==dob[0])
 	{
-		return true;
+		return false;
 	}
 	else
 	{
-		return false;
+		return true;
 	}
 }
