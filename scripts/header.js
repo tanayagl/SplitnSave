@@ -55,6 +55,7 @@ var Email={
                     {
                         $cookies.put('admin','admin');
                         $cookies.put('username', 'admin');
+                        window.location.href="admin.html"
                     }
                     else
                     {

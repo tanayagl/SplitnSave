@@ -27,11 +27,35 @@
     <![endif]-->
   </head>
 <body ng-controller="Main" ng-show="show" data-ng-init="init()">
-<div class="header" style="margin-bottom:100px" ng-include="'header.html'" ng-controller="Header">
-  
-</div>
-<div class="login" ng-include="'login.html'">
-</div>
+<nav class="navbar navbar-fixed-top navbar-inverse" style="margin-bottom:10px" ng-controller="Header">
+    <div class="cotainer-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navlinks" aria-exapanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="homepage.html">Split n Save</a>
+        </div>
+
+      <!--<button type="button" class="btn navbar-btn" style="display:inline-block;background-color: white;color:black;">Post an Ad</button>-->
+          
+        <div class="collapse navbar-collapse" id="navlinks">
+            <ul class="nav navbar-nav navbar-right">
+                <!--USER DROPDOWN  -->
+                <li ng-show="if_logged_in()">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" style="margin-right:5px"></span><span style="margin-right:10px">{{username}}</span><!--<span class="caret"></span>--></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="" ng-click="signout()">Sign Out<OUTPUT></OUTPUT></a></li>
+                    </ul>
+                </li>
+                
+                <!--_____-->
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <div class="container clearfix">
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6 pull-left" id="contact-list">
