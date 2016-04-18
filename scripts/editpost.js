@@ -601,7 +601,7 @@ $scope.onMouseLeave_Submit=function($event)
 };
 	var successcallback = function (response) {
 				$log.info(response);
-				alert("Ad Posted Successfully");
+				alert("Edit Posted Successfully");
 				location.reload();
             	};
 	var errorcallback = function(reason){
