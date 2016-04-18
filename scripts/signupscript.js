@@ -145,7 +145,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	{
 	$scope.onMouseLeave_Password_Result = "Password length must be at least 6.";
 	}
-	else if(hasLowerCase(input['Password']) && hasUperCase(input['Password']) && hasNumberCase(input['Password']))
+	else if(!(hasLowerCase(input['Password']) && hasUperCase(input['Password']) && hasNumberCase(input['Password'])))
 	{
 		$scope.onMouseLeave_Password_Result = "Password must be alpha numeric";
 	}
@@ -432,7 +432,6 @@ function  compare(birthdate)
 	}
 }
 function hasLowerCase(str) {
-	alert(/[a-z]/.test(str));
     return (/[a-z]/.test(str));
 }
 function hasUperCase(str) {
