@@ -182,7 +182,7 @@ $scope.gotorequest = function(notification)
 {
 	window.location.href="my_posts.html";
 }
-$scope.gotoaccept(notification)=function(notification)
+$scope.gotoaccept=function(notification)
 {
 	window.location.href="product_detail.html";
 }
