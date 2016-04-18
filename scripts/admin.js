@@ -8,7 +8,7 @@ myapp.controller("Main", function($scope, $cookies, $http, $log) {
         //$cookies.put('username', "Admin");
         //$cookies.put('otheruserid',2);
         if ($cookies.get('Email') == null) {
-            window.location.replace("signup.html");
+            window.location.replace("homepage.html");
         } else if ($cookies.get('admin') == null) {
             window.location.replace("homepage.html");
         } else {
@@ -21,7 +21,7 @@ myapp.controller("Main", function($scope, $cookies, $http, $log) {
 
 
     };
-    $scope.username=$cookies.get('username');
+   
     var adminsuccesscallback = function(response) {
         $log.info(response);
         $scope.show = true;
@@ -96,14 +96,7 @@ myapp.controller("Main", function($scope, $cookies, $http, $log) {
             })
             .then(postsuccesscallback, posterrorcallback);
     };
-    $scope.signout = function()
-    {
-    //alert("Hey");
-    $cookies.remove('admin');
-    $cookies.remove('Email');
-    $cookies.remove('username');
-    window.location.replace("homepage.html");
-};
+   
     $scope.gotoproduct = function(productid)
     {
         $cookies.put('productid',productid);
