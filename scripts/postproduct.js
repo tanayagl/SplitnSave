@@ -156,7 +156,6 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 		//$cookies.put('Email', "devarshsheth13@gmail.com");
 		//$cookies.put('username', "Devarsh");
 		if($cookies.get('Email') == null) {
-		alert($cookies.get('Email'));
  		window.location.replace("homepage.html");
 		}
 		else
@@ -748,7 +747,7 @@ function  compare(birthdate)
 	{
 		return true;
 	}
-	else if(curr_month==dob[1] && curr_date==dob[0])
+	else if(curr_month==dob[1] && curr_date>dob[0])
 	{
 		return true;
 	}

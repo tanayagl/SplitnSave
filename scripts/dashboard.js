@@ -72,10 +72,10 @@ var Notifications=[{
 		User_Id:"1"
 	  }];
 var input={
-	First_Name:"Riddhesh",
+	/*First_Name:"Riddhesh",
 	Last_Name:"Markandeya",
 	User_Id:'3',
-	Image_Link:"http://simpleicon.com/wp-content/uploads/user1.png"
+	Image_Link:"http://simpleicon.com/wp-content/uploads/user1.png"*/
 };
 myapp.controller("Main",function($scope,$http,$cookies,$log){
 $scope.show=false;
@@ -90,13 +90,13 @@ $scope.show=false;
 		var Email={
                     Email: $cookies.get('Email'),
                    };
-		/* $http({
+		 $http({
 		  method:'POST',
 		  url:'https://splitnsave.pythonanywhere.com/api/dashboard',
 		  data:JSON.stringify(Email),
 		 })
             .then(successcallback,errorcallback);
-           $http({
+        /*   $http({
 		  method:'POST',
 		  url:'https://splitnsave.pythonanywhere.com/api/notifications',
 		  data:JSON.stringify(Email),
@@ -182,7 +182,7 @@ $scope.gotorequest = function(notification)
 {
 	window.location.href="my_posts.html";
 }
-$scope.gotoaccept(notification)=function(notification)
+$scope.gotoaccept=function(notification)
 {
 	window.location.href="product_detail.html";
 }
