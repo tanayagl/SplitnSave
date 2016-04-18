@@ -15,10 +15,11 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
  $scope.Category="Category";
  $scope.searchText="";
  $scope.Search = "Select Category";
-    $scope.loadsearch = function(soc,Category) {
-            $scope.Search = soc;
-            $scope.Category=Category;
-        };
+$scope.loadsearch = function(soc,Category) {
+        $scope.Search = soc;
+        $scope.Category=Category;
+        $(".search-field").prop('disabled', false);
+    };
 $scope.search = function()
 {
     if($scope.Category=='Apartments')

@@ -117,7 +117,6 @@ $scope.postad = function()
 $scope.forget_check = function(event)
 {
         Email['Email']=user['Email'];
-         //alert(Email['Email']);
         $http({
           method:'POST',
           url:'https://splitnsave.pythonanywhere.com/api/signupcheck',
@@ -131,7 +130,7 @@ var emailsuccesscallback = function (response) {
                 $log.info(response);
                     if(a==0)
                     {
-                        $scope.onMouseLeave_Email_Result="Email Id is not exists";
+                        $scope.onMouseLeave_Email_Result="Email Id does not exist";
                     }
                     else
                     {

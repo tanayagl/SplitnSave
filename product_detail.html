@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Split'n'Save</title>
+    <title>Product Details</title>
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -51,7 +51,7 @@
             </div>
             <div class="col-md-8">
                 <div class="thumbnail">
-                    <img class="img-responsive" ng-src="{{product.Image_Link}}" alt="">
+                    <img class="img-responsive" ng-src="{{product.Image_Link}}" alt="Image unavailable">
                 </div>
             </div>
         </div>
@@ -101,6 +101,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- ________________APARTMENTS___________________ -->
                 <div id="Apartments" ng-show="checkApartments()">
                     <div class="col-md-2" ng-show="checkproduct(product.IN_Time_Value)">
                         <div class="panel panel-info">
@@ -203,6 +204,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- _______________________CABS_______________________________ -->
                 <div id="Cabs" ng-show="checkCabs()">
                     <div class="col-md-2" ng-show="checkproduct(product.CarService)">
                         <div class="panel panel-info">
@@ -255,6 +257,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- ___________________BOOKS__________________ -->
                 <div id="Books" ng-show="checkBooks()">
                     <div class="col-md-2" ng-show="checkproduct(product.Location)">
                         <div class="panel panel-info">
@@ -347,6 +350,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- __________________LAUNDRY________________________ -->
                 <div id="Laundry" ng-show="checkLaundry()">
                     <div class="col-md-2" ng-show="checkproduct(product.Start_Date)">
                         <div class="panel panel-info">
@@ -380,7 +384,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-hide="checkBooks()">
                 <h2 style="text-align:center">{{Amenities}}</h2>
             </div>
             <div class="row">
