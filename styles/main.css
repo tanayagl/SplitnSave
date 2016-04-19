@@ -37,9 +37,9 @@ html {
     background: #b3d4fc;
     text-shadow: none;
 }
-.required:after {
+.after {
   content: '*';
-  color: #EF5F5F;
+  color: red;
 }
 
 /*
