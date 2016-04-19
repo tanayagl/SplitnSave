@@ -41,7 +41,16 @@ html {
   content: '*';
   color: red;
  float: right;
- margin-top: 0px;
+ margin-top: -30px;
+ margin-right: 4px;
+}
+.before {
+  content: '*';
+  color: red;
+ float: right;
+ margin-top: :0px;
+ margin-bottom: -30px;
+ margin-right: 20px;
 }
 
 /*

@@ -14,7 +14,29 @@ html {
     width: 100%;
     height: auto;
 }
-
+.after {
+  content: '*';
+  color: red;
+ float: right;
+ margin-top: -30px;
+ margin-right: 4px;
+}
+.before {
+  content: '*';
+  color: red;
+ float: right;
+ margin-top: :0px;
+ margin-bottom: -30px;
+ margin-right: 20px;
+}
+.medium {
+  content: '*';
+  color: red;
+ float: right;
+ margin-top: :0px;
+ margin-right: 20px;
+  margin-top: :0px;
+}
 h1,
 h2,
 h3,

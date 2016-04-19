@@ -36,6 +36,7 @@
                 <div class="form-group">
                     <div class="col-md-4 col-sm-3"></div>
                     <div class="col-md-4 col-sm-6">
+                          <span class="before">*</span>
                         <!--<label for="exampleInputEmail1">First Name</label>-->
                         <select class="form-control" ng-model="category.Category" ng-change="onMouseLeave_Category($event)">
                             <option value="">Select Category</option>
@@ -54,6 +55,8 @@
                     <div class="col-md-4 col-sm-6">
                         <!--<label for="exampleInputEmail1">Last Name</label>-->
                         <input type="text" class="form-control" id="Text input" placeholder="{{titltext()}}" ng-model="rootproduct.Title" ng-change="onMouseLeave_Title($event)">
+                        <span class="after">*</span>
+                        </input>
                         <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Title_Result}}</div>
                     </div>
                 </div>
@@ -70,6 +73,8 @@
                 <div class="form-group col-md-4 col-sm-6">
                     <!--<label for="exampleInputPassword1">Password</label>-->
                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Price (Rs.)" ng-model="rootproduct.Price" ng-change="onMouseLeave_Price($event)">
+                    <span class="after">*</span>
+                    </input>
                     <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Price_Result}}</div>
                 </div>
             </div>
@@ -77,6 +82,8 @@
                 <div class="col-md-3 sm-2"></div>
                 <div class="col-md-3 sm-3" style="margin-bottom:10px">
                     <input type="number" min="0" class="form-control" id="exampleInputPassword1" placeholder="Number of Sharer" ng-model="rootproduct.Sharers" ng-change="onMouseLeave_Sharers($event)">
+                    <span class="after">*</span>
+                    </input>
                     <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Sharers_Result}}</div>
                 </div>
                 <div class="col-md-3 sm-5">
@@ -97,6 +104,8 @@
                         </div>
                         <div class="col-md-8">
                             <input type='text' class="form-control" placeholder="dd-mm-yyyy" ng-model="product.Start_Date" ng-change="onMouseLeave_Start_Date($event)">
+                            <span class="after">*</span>
+                            </input>
                         </div>
                         <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_AStart_Date_Result}}</div>
                     </div>
@@ -106,6 +115,8 @@
                         </div>
                         <div class="col-md-8">
                             <input type='text' class="form-control" ng-model="product.End_Date" ng-change="onMouseLeave_End_Date($event)">
+                            <span class="after">*</span>
+                            </input>
                         </div>
                          <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_AEnd_Date_Result}}</div>
                   </div>
@@ -154,11 +165,16 @@
                     <div class="col-md-4 col-sm-6">
                         <!--<label for="exampleInputPassword1">Location</label>-->
                         <input type="text" class="form-control" id="exampleInputPassword1" placeholder="City name" ng-model="product.Location" ng-change="onMouseLeave_CityName($event)">
+                        <span class="after">*</span>
+                        </input>
                         <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_ACityName_Result}}</div>
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <!--<label for="exampleInputPassword1">Email Address</label>-->
-                        <textarea rows="4" placeholder="Full Address" style="width:100%" ng-model="product.Address" ng-change="onMouseLeave_Address($event)"></textarea>
+                          <span class="medium">*</span>
+                        <textarea rows="4" placeholder="Full Address" style="width:100%" ng-model="product.Address" ng-change="onMouseLeave_Address($event)">
+                        </textarea>
+
                         <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_AAddress_Result}}</div>
                     </div>
                 </div>
@@ -170,6 +186,8 @@
                     <div class="col-md-3 sm-3"></div>
                     <div class="col-md-6 sm-6">
                         <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Location of Departure" ng-model="product.Location" ng-change="onMouseLeave_CityName($event)">
+                        <span class="after">*</span>
+                        </input>
                     </div>
                     <div class="col-md-3 sm-3"></div>
                     <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_BCityName_Result}}</div>
@@ -184,10 +202,12 @@
                                         <label>Departure Date</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <input type='text' class="form-control" placeholder="dd-mm-yyyy" ng-model="product.Start_Date" ng-change="onMouseLeave_Start_Date($event)" />
+                                        <input type='text' class="form-control" placeholder="dd-mm-yyyy" ng-model="product.Start_Date" ng-change="onMouseLeave_Start_Date($event)">
+                                         <span class="after">*</span>
+                                         </input>
                                     </div>
+                                     <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_BStart_Date_Result}}</div>
                                 </div>
-                                <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_BStart_Date_Result}}</div>
                             </div>
                             <div class="col-md-6 sm-6" style="margin-bottom: 10px;">
                                 <div class="row">
@@ -246,7 +266,9 @@
                                 <label>Start Date</label>
                             </div>
                             <div class="col-md-7">
-                                <input type='text' class="form-control" placeholder="dd-mm-yyyy" ng-model="product.Start_Date" ng-change="onMouseLeave_Start_Date($event)" />
+                                <input type='text' class="form-control" placeholder="dd-mm-yyyy" ng-model="product.Start_Date" ng-change="onMouseLeave_Start_Date($event)">
+                                <span class="after">*</span>
+                                </input>
                             </div>
                         </div>
                         <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_CStart_Date_Result}}</div>
@@ -358,6 +380,8 @@
                     <div class="col-md-6 sm-6">
                         <input type="text" class="form-control" placeholder="Minimum Required Weight (in kg)
 " ng-model="product.Weights" ng-change="onMouseLeave_Weights($event)">
+                        <span class="after">*</span>
+                        </input>
                     </div>
                     <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_DWeights_Result}}</div>
                     <div class="col-md-3 sm-3"></div>
