@@ -99,6 +99,10 @@ $scope.admin= function()
         return true;
     }
 }
+var e = jQuery.Event("keypress");
+e.which = 13; //choose the one you want
+e.keyCode = 13;
+$(".submit").trigger(e);
 $scope.pressforget = function(event)
 {
      $('.bs-example-modal-sm').modal('hide');
