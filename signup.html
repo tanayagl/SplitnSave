@@ -65,10 +65,11 @@
               <div class="col-md-2"></div>
               <div class="col-md-4" style="margin-bottom: 10px">
                 <!--<label for="exampleInputEmail1">First Name</label>-->
-                
+
                 <input type="text" class="form-control required" id="First_Name" placeholder="First Name"  ng-model="user.First_Name" ng-change="onMouseLeave_First_Name($event)" ng-blur="onMouseLeave_First_Name($event)">
-                 <span class="after">*</span>
+               
                 </input>
+                  <span class="after">*</span>
                 <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_First_Name_Result}}</div>
               </div>
               <div class="col-md-4">
