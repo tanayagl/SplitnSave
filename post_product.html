@@ -173,9 +173,8 @@
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <!--<label for="exampleInputPassword1">Email Address</label>-->
-                          
+                          <span class="medium">*</span>
                         <textarea rows="4" placeholder="Full Address" style="width:100%" ng-model="product.Address" ng-change="onMouseLeave_Address($event)">
-                        <span class="after">*</span>
                         </textarea>
 
                         <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_AAddress_Result}}</div>
@@ -402,13 +401,13 @@
                 <div class="col-md-2 col-sm-1"></div>
             </div>
             <div class="row">
-                    <div class="col-md-2 col-sm-1"></div>
-                    <div class="col-md-3">
+                    <div class="col-md-5 col-sm-1"></div>
+                    <div class="col-md-5">
                         <label>
-                            <input type="text" class="form-control" placeholder="Other Options..." ng-model=>
+                            <input type="text" class="form-control" placeholder="Other Options...">
                         </label>
                     </div>
-                </div>
+            </div>
             <div class="row">
                 <div class="col-md-5"></div>
                 <button type="submit" class="btn btn-default" style="background-color: black;color: white;width: 150px;" ng-click="onMouseLeave_Submit($event)">Submit</button>
