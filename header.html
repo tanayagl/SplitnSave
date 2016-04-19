@@ -19,7 +19,7 @@
                 <li><a href="laundry.html">Laundry</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="options btn navbar-btn" style="margin-right:10px;margin-left:10px;color:white;background-color:transparent;border:2px solid white;max-width:100px;" ng-click="postad()">Post an Ad
+                <li class="options btn navbar-btn" style="margin-right:10px;margin-left:10px;color:white;background-color:transparent;border:2px solid white;max-width:100px;" ng-click="postad()" ng-show="admin()">Post an Ad
                 <!-- <button type="button" class=" " ng-click="postad()" style="">Post an Ad</button> -->
                 </li>
                 <li ng-show="!if_logged_in()"><a href="" ng-click="signup()"  ng-controller="Main"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>

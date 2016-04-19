@@ -37,6 +37,21 @@ html {
     background: #b3d4fc;
     text-shadow: none;
 }
+.after {
+  content: '*';
+  color: red;
+ float: right;
+ margin-top: -30px;
+ margin-right: 4px;
+}
+.before {
+  content: '*';
+  color: red;
+ float: right;
+ margin-top: :0px;
+ margin-bottom: -30px;
+ margin-right: 20px;
+}
 
 /*
  * A better looking default horizontal rule

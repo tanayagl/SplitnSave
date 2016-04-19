@@ -65,12 +65,18 @@
               <div class="col-md-2"></div>
               <div class="col-md-4" style="margin-bottom: 10px">
                 <!--<label for="exampleInputEmail1">First Name</label>-->
-                <input type="text" class="form-control" id="First_Name" placeholder="First Name"  ng-model="user.First_Name" ng-change="onMouseLeave_First_Name($event)" ng-blur="onMouseLeave_First_Name($event)">
+
+                <input type="text" class="form-control required" id="First_Name" placeholder="First Name"  ng-model="user.First_Name" ng-change="onMouseLeave_First_Name($event)" ng-blur="onMouseLeave_First_Name($event)">
+                <span class="after">*</span>
+                </input>
+
                 <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_First_Name_Result}}</div>
               </div>
               <div class="col-md-4">
                 <!--<label for="exampleInputEmail1">Last Name</label>-->
                 <input type="text" class="form-control" id="Last_Name" placeholder="Last Name"  ng-model="user.Last_Name" ng-blur="onMouseLeave_Last_Name($event)" ng-change="onMouseLeave_Last_Name($event)">
+                 <span class="after">*</span>
+                </input>
                  <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Last_Name_Result}}</div>
               </div>
             </div>
@@ -80,6 +86,8 @@
             <div class="form-group col-md-8">
               <!--<label for="exampleInputPassword1">Email Address</label>-->
               <input type="text" class="form-control" id="Email" placeholder="Email address" ng-model="user.Email" ng-blur="onMouseLeave_Email($event)" ng-change="onMouseChange_Email($event)">
+               <span class="after">*</span>
+              </input>
               <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Email_Result}}</div>
             </div>
           </div>
@@ -89,6 +97,8 @@
               <!--<label for="exampleInputPassword1">Password</label>-->
               <input type="password" class="form-control" id="Password" placeholder="Password"  ng-model="user.Password" 
               ng-blur="onMouseLeave_Password($event)" ng-change="onMouseChange_Password($event)">
+               <span class="after">*</span>
+              </input>
                <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Password_Result}}</div>
             </div>
           </div>
@@ -97,6 +107,8 @@
             <div class="form-group col-md-8">
               <!--<label for="exampleInputPassword1">Confirm Password</label>-->
               <input type="password" class="form-control" id="Re_Password" placeholder="Confirm Password"  ng-model="user.Re_Password" ng-blur="onMouseLeave_Re_Password($event)" ng-change="onMouseChange_Re_Password($event)">
+               <span class="after">*</span>
+               </input>
                <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Re_Password_Result}}</div>
             </div>
           </div>
@@ -105,12 +117,15 @@
             <div class="form-group col-md-8">
               <!--<label for="exampleInputPassword1">Contact Number</label>-->
               <input type="text" class="form-control" id="ContactNumber" placeholder="Contact Number" ng-model="user.ContactNumber" ng-blur="onMouseLeave_ContactNumber($event)" ng-change="onMouseLeave_ContactNumber($event)">
+               <span class="after">*</span>
+              </input>
               <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_ContactNumber_Result}}</div>
             </div>
           </div>
           <div class="row" style="margin-bottom: 10px">
           <div class="col-md-2"></div>
             <div class="form-group col-md-8">
+              <span class="before">*</span>
               <!--<label for="exampleInputPassword1">Location</label>-->
                <select class="form-control" id="CityName" ng-model="user.City_Name" 
               ng-blur="onMouseLeave_CityName($event)" ng-change="onMouseLeave_CityName($event)">
@@ -118,6 +133,7 @@
                 <option value="Gandhinagar">Gandhinagar</option>
                 <option value="Ahmedabad">Ahmedabad</option>
                 <option value="Others">Others</option>
+                 
               </select>
                <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_CityName_Result}}</div>
             </div>
@@ -125,11 +141,13 @@
           <div class="row" style="margin-bottom: 10px">
           <div class="col-md-2"></div>
             <div class="form-group col-md-8">
+              <span class="before">*</span>
               <select class="form-control" id="Gender" ng-model="user.Gender" 
               ng-blur="onMouseLeave_Gender($event)" ng-change="onMouseLeave_Gender($event)">
                 <option value="" disabled selected>Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
+                
               </select>
               <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Gender_Result}}</div>
             </div>
@@ -139,12 +157,15 @@
             <div class="form-group col-md-8">
               <!--<label for="exampleInputPassword1">Email Address</label>-->
               <input type="text" class="form-control" id="Email" placeholder="Birthdate (dd-mm-yyyy)" ng-model="user.Birthdate" ng-blur="onMouseChange_DOB($event)" ng-change="onMouseChange_DOB($event)">
+               <span class="after">*</span>
+                </input>
               <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_DOB_Result}}</div>
             </div>
           </div>
           <div class="row" style="margin-bottom: 10px;">
           <div class="col-md-2"></div>
             <div class="form-group col-md-8">
+              <span class="before">*</span>
               <select class="form-control" ng-model="user.Profession_Name" 
               ng-blur="onMouseLeave_Profession_Name($event)" ng-change="onMouseLeave_Profession_Name($event)">
                 <option value="" disabled selected>Profession</option>
@@ -152,12 +173,14 @@
                 <option value="Professor">Professor</option>
                 <option value="Others">Others</option>
               </select>
+
                <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Profession_Name_Result}}</div>
             </div>
           </div>
           <div class="row" style="margin-bottom: 10px;">
           <div class="col-md-2"></div>
             <div class="form-group col-md-8">
+              <span class="before">*</span>
               <select class="form-control" ng-model="user.Institute_Name" 
               ng-blur="onMouseLeave_Institute_Name($event)" ng-change="onMouseLeave_Institute_Name($event)">
                 <option value="" disabled selected>Institute</option>

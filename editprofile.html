@@ -43,6 +43,8 @@
                 <div class="input-group">
                   <span class="input-group-addon" style="width: 120px;" id="basic-addon1">First Name</span>
                   <input type="text" class="form-control" ng-model="user.First_Name" ng-blur="onMouseLeave_First_Name($event)" ng-change="onMouseLeave_First_Name($event)"  aria-describedby="sizing-addon1" >
+                  <span class="after">*</span>
+                </input>
                 </div>
                 <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_First_Name_Result}}</div>
               </div>
@@ -50,6 +52,8 @@
                 <div class="input-group">
                   <span class="input-group-addon" style="width: 120px;" id="basic-addon1">Last Name</span>
                   <input type="text" class="form-control" ng-model="user.Last_Name" aria-describedby="sizing-addon1" ng-blur="onMouseLeave_Last_Name($event)" ng-change="onMouseLeave_Last_Name($event)">
+                  <span class="after">*</span>
+                </input>
                 </div>
                 <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Last_Name_Result}}</div>
               </div>
@@ -60,6 +64,8 @@
                 <div class="input-group">
                   <span class="input-group-addon" style="width: 120px;" id="basic-addon1">Phone Number</span>
                   <input type="text" class="form-control" ng-model="user.ContactNumber" aria-describedby="sizing-addon1" ng-blur="onMouseLeave_ContactNumber($event)" ng-change="onMouseLeave_ContactNumber($event)">
+                  <span class="after">*</span>
+                </input>
                 </div>
                 <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_ContactNumber_Result}}</div>
               </div>
@@ -70,6 +76,7 @@
                 <div class="input-group">
                     <span class="input-group-addon" style="width: 120px;" id="basic-addon1">Location</span>
                     <input type="text" class="form-control Location" aria-label="..." ng-model="user.CityName"  disabled>
+                     <span class="after">*</span>
                     <div class="input-group-btn location">
                         <ul class="dropdown-menu">
                             <li><a href="">Gandhinagar</a></li>
@@ -86,6 +93,7 @@
                 <div class="input-group">
                     <span class="input-group-addon" style="width: 120px;" id="basic-addon1">Gender</span>
                     <input type="text" class="form-control Gender" aria-label="..." ng-model="user.Gender"  disabled>
+                     <span class="after">*</span>
                     <div class="input-group-btn gender">
                         <ul class="dropdown-menu">
                             <li><a href="">Male</a></li>
@@ -102,6 +110,8 @@
                 <div class="input-group">
                   <span class="input-group-addon" style="width: 120px;" id="basic-addon1">Birthdate</span>
                   <input type="text" class="form-control" ng-model="user.Birthdate" aria-describedby="sizing-addon1" ng-blur="onMouseChange_DOB($event)" ng-change="onMouseChange_DOB($event)">
+                  <span class="after">*</span>
+                </input>
                 </div>
                 <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_DOB_Result}}</div>
               </div>
@@ -111,6 +121,7 @@
                 <div class="input-group">
                     <span class="input-group-addon" style="width: 120px;" id="basic-addon1">Profession</span>
                     <input type="text" class="form-control Profession" aria-label="..." ng-model="user.Profession_Name"  disabled>
+                     <span class="after">*</span>
                     <div class="input-group-btn profession">
                         <ul class="dropdown-menu">
                             <li><a href="">Student</a></li>
@@ -127,6 +138,7 @@
                   <div class="input-group">
                     <span class="input-group-addon" style="width: 120px;" id="basic-addon1">Institute</span>
                     <input type="text" class="form-control Institute" aria-label="..." ng-model="user.Institute_Name"  disabled>
+                    <span class="after">*</span>
                     <div class="input-group-btn institute">
                         <ul class="dropdown-menu">
                             <li><a href="">DA-IICT</a></li>
