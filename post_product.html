@@ -97,8 +97,8 @@
             <!-- ___________________APARTMENTS____________________ -->
             <div id="Apartments" ng-show="checkApartments()">
                 <div class="row" style="margin-bottom: 10px;">
-                    <div class="col-md-4 col-sm-3"></div>
-                    <div class="col-md-4">
+                    <div class="col-md-3 col-sm-3"></div>
+                    <div class="col-md-3">
                         <div class="col-md-4" style="margin-bottom: 10px;">
                             <label>Start Date</label>
                         </div>
@@ -109,7 +109,7 @@
                         </div>
                         <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_AStart_Date_Result}}</div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="col-md-4" style="margin-bottom: 10px;">
                             <label>Duration in months</label>
                         </div>
@@ -161,7 +161,9 @@
                         
                     </div>
                 </div>
+            </div>
                 <div class="row" style="margin-bottom: 10px;">
+                    <div class="col-md-2"></div>
                     <div class="col-md-4 col-sm-6">
                         <!--<label for="exampleInputPassword1">Location</label>-->
                         <input type="text" class="form-control" id="exampleInputPassword1" placeholder="City name" ng-model="product.Location" ng-change="onMouseLeave_CityName($event)">
@@ -179,7 +181,6 @@
                     </div>
                 </div>
             </div>
-        </div>
             <!-- _____________________CABS_____________________ -->
             <div id="Cabs" ng-show="checkCabs()">
                 <div class="row" style="margin-bottom: 10px;">
