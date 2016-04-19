@@ -19,11 +19,11 @@
                 <li><a href="laundry.html">Laundry</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="options btn navbar-btn" style="margin-right:10px;margin-left:10px;color:white;background-color:transparent;border:2px solid white;" ng-click="postad()">Post an Ad
+                <li class="options btn navbar-btn" style="margin-right:10px;margin-left:10px;color:white;background-color:transparent;border:2px solid white;max-width:100px;" ng-click="postad()">Post an Ad
                 <!-- <button type="button" class=" " ng-click="postad()" style="">Post an Ad</button> -->
                 </li>
                 <li ng-show="!if_logged_in()"><a href="" ng-click="signup()"  ng-controller="Main"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-                <li ng-show="!if_logged_in()" data-toggle="modal" data-target=".bs-example-modal-sm"><a href=""><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
+                <li ng-show="!if_logged_in()" style="margin-right:10px;"data-toggle="modal" data-target=".bs-example-modal-sm"><a href=""><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 <!--USER DROPDOWN  -->
                 <li ng-show="if_logged_in()">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" style="margin-right:5px"></span><span style="margin-right:10px">{{username}}</span><!--<span class="caret"></span>--></a>
