@@ -68,7 +68,23 @@ input[type="text"]:disabled {
     background-color: white;
 }
 
-#books .col-md-2 {
+}
+#Books .col-md-2,
+#Apartments .col-md-2,
+#Cabs .col-md-2,
+#Laundry .col-md-2
+{
     float: left;
+    height: 150px;
+}
+
+.panel-heading
+{
+    height:50px;
+}
+
+.panel-body
+{
+    height:50px;
 }
 
