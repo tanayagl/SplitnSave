@@ -40,8 +40,8 @@ html {
 .after {
   content: '*';
   color: red;
-  margin-bottom: 0px;
-  margin-left: -20px;
+ float: right;
+ margin-top: 0px;
 }
 
 /*
