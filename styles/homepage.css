@@ -85,8 +85,9 @@ header .intro-text {
 .categories h2
 {
 	position: relative;
-	top: 100px;
+	top: 95px;
 	color:white;
+    font-size: 35px;
 	-webkit-filter: brightness(1);
 	/* border:2px solid white; */
 	/* left:50%; */
