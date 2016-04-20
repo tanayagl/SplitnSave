@@ -89,10 +89,14 @@ var successcallback = function (response) {
         {
             return false;
         }
-    	else
+    	else if(Status==1)
     	{
-    		return true;
+    		return false;
     	}
+        else
+        {
+            return true;
+        }
     }
     $scope.reportstatus = function(Status)
     {
