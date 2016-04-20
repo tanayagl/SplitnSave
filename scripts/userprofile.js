@@ -66,25 +66,33 @@ var successcallback = function (response) {
 	};
     $scope.reportbutton = function(Status)
     {
-    	if(Status==2)
-    	{
-    		return true;
-    	}
-    	else
+    	if(Status==0)
     	{
     		return false;
+    	}
+        else if($cookies.get("admin")!=null)
+        {
+            return false;
+        }
+    	else
+    	{
+    		return true;
     	}
     }
     $scope.chatbutton = function(Status)
     {
-    	if(Status==2)
+    	if(Status==0)
     	{
-    		return true;
+    		return false;
     	}
-        else
+        else if($scope.cookies("admin")!=null)
         {
             return false;
         }
+    	else
+    	{
+    		return true;
+    	}
     }
     $scope.reportstatus = function(Status)
     {
