@@ -89,13 +89,13 @@ var successcallback = function (response) {
         {
             return false;
         }
-    	else if(Status==1)
+    	else if(Status==2)
     	{
-    		return false;
+    		return true;
     	}
         else
         {
-            return true;
+            return false;
         }
     }
     $scope.reportstatus = function(Status)
