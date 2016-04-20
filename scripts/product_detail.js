@@ -344,10 +344,6 @@ var loginerrorcallback = function(reason){
 		{
 			return false;
 		}
-		else if($scope.input['Status_Confirm']=='0' &&  product.Sharers_Left==0)
-		{
-			return false;
-		}
 		else
 		{
 			return true;
