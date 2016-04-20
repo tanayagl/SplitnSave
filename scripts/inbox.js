@@ -31,26 +31,6 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
     };
     var i;
     $scope.chatname="Split 'n' Save";
-    if($cookies.get('usermsg')!=null)
-        {
-          input['Email']=$cookies.get('Email');
-          input['User_Id']=$cookies.get('usermsg');
-           for(i=0;i<$scope.Users.length;i++)
-              {
-                if($scope.Users[i].User_Id==$cookies.get('usermsg'))
-                {
-                   $scope.chatname=$scope.Users[i].First_Name;
-                   break;
-                }
-              }
-         // $cookies.put('usermsg',userid);
-          $http({
-                method:'POST',
-                url:'https://splitnsave.pythonanywhere.com/api/getchats',
-                data:JSON.stringify(input),
-               })
-                      .then(chatsuccesscallback,chaterrorcallback);
-        }
     var chat = function (response) {
               $log.info(response);
               $scope.Users=response.data.Users;
@@ -68,14 +48,7 @@ $scope.cambiaridioma=function(userid)
   input['Email']=$cookies.get('Email');
   input['User_Id']=userid;
   $cookies.put('usermsg',userid);
-      for(i=0;i<$scope.Users.length;i++)
-              {
-                if($scope.Users[i].User_Id==userid)
-                {
-                   $scope.chatname=$scope.Users[i].First_Name;
-                   break;
-                }
-              }
+      
   $http({
         method:'POST',
         url:'https://splitnsave.pythonanywhere.com/api/getchats',
@@ -91,6 +64,14 @@ $scope.cambiaridioma=function(userid)
               //$scope.Users=response.data.Users;
               //messages=response.data.Chats;
               $scope.messages=response.data.Chats;
+              for(i=0;i<$scope.Users.length;i++)
+              {
+                if($scope.Users[i].User_Id==$cookies.get('usermsg'))
+                {
+                   $scope.chatname=$scope.Users[i].First_Name;
+                   break;
+                }
+              }
               
             };
     
