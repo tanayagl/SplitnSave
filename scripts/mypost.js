@@ -202,7 +202,7 @@ var successcallback = function (response) {
 		}
 		else
 		{
-			return 'Confirm';
+			return 'Confirmed';
 		}
 	};
 	$scope.gotoproduct = function(productid)

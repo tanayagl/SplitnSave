@@ -29,6 +29,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
         }
 
     };
+    $scope.chatname="Split 'n' Save";
    /* if($cookies.get('usermsg')!=null)
         {
           input['Email']=$cookies.get('Email');
@@ -71,7 +72,15 @@ $scope.cambiaridioma=function(userid)
               //$scope.Users=response.data.Users;
               //messages=response.data.Chats;
               $scope.messages=response.data.Chats;
-            
+              var i;
+              for(i=0;i<$scope.Users.length;i++)
+              {
+                if($scope.Users[i].User_Id==userid)
+                {
+                   $scope.chatname=$scope.Users[i].First_Name;
+                   break;
+                }
+              }
             };
     
     var chaterrorcallback = function(reason){
