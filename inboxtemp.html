@@ -46,6 +46,7 @@
                     </div>
                     </div>
                      <ul class="list-group" id="contact-list">
+                        <form>
                     <li class="list-group-item" data-target="" data-toggle="modal"  ng-click="cambiaridioma(user.User_Id)" ng-repeat="user in Users | filter:search" ng-class="{red: hover || click}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-focus="click = true" ng-blur="click = false">
                         <div class="col-xs-12 col-sm-4 md-6">
                             <img ng-src="{{user.Image_Link}}" alt="Scott Stevens"  class="img-responsive img-circle" />
@@ -55,6 +56,7 @@
                         </div>
                          <div class="clearfix"></div>
                     </li>
+                </form>
                 </ul>
                 </div>
             </div>
