@@ -72,7 +72,7 @@ var successcallback = function (response) {
     	}
     	else
     	{
-    		return true;
+    		return false;
     	}
     }
     $scope.chatbutton = function(Status)
