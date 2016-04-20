@@ -29,7 +29,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
         }
 
     };
-    $scope.chatname="Split 'n' Save";
+    //$scope.chatname="Split 'n' Save";
    /* if($cookies.get('usermsg')!=null)
         {
           input['Email']=$cookies.get('Email');
