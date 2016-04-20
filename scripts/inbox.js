@@ -22,7 +22,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
            input['Email']=$cookies.get('Email');
            $http({
         method:'POST',
-        url:'https://splitnsave.pythonanywhere.com/api/getusers',
+        url:'https://splitnsave.pythonanywhere.com/api/dashboard',
         data:JSON.stringify(input),
        })
               .then(chat,error);
@@ -33,7 +33,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
     $scope.chatname="Split 'n' Save";
     var chat = function (response) {
               $log.info(response);
-              $scope.Users=response.data.Users;
+              $scope.Users=response.data.users;
               //messages=response.data.Chats;
             };
     
