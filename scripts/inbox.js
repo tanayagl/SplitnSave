@@ -29,11 +29,20 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
         }
 
     };
-    //$scope.chatname="Split 'n' Save";
-   /* if($cookies.get('usermsg')!=null)
+    var i;
+    $scope.chatname="Split 'n' Save";
+    if($cookies.get('usermsg')!=null)
         {
           input['Email']=$cookies.get('Email');
-          input['User_Id']=$cookies.get('usermsg')
+          input['User_Id']=$cookies.get('usermsg');
+           for(i=0;i<$scope.Users.length;i++)
+              {
+                if($scope.Users[i].User_Id==$cookies.get('usermsg'))
+                {
+                   $scope.chatname=$scope.Users[i].First_Name;
+                   break;
+                }
+              }
          // $cookies.put('usermsg',userid);
           $http({
                 method:'POST',
@@ -41,7 +50,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
                 data:JSON.stringify(input),
                })
                       .then(chatsuccesscallback,chaterrorcallback);
-        }*/
+        }
     var chat = function (response) {
               $log.info(response);
               $scope.Users=response.data.Users;
@@ -52,7 +61,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
             alert("Try Again");
             $log.info(reason);
             };
-var i;
+
           
 $scope.cambiaridioma=function(userid)
 {
