@@ -154,7 +154,7 @@ var successcallback = function (response) {
     var index = $scope.Products.indexOf(product);
     if($scope.Products[index].Sharers_Left < 0)
     {
-    	 if ($window.confirm("you have chosen to share your product with "+ $scope.Products[index].Sharers+Math.abs($scope.Products[index].Sharers_Left) + " people while your post says"+ $scope.Products[index].Sharers + " people. Are you sure you want to confirm the deal?")) {
+    	 if ($window.confirm("you have chosen to share your product with "+ ($scope.Products[index].Sharers+Math.abs($scope.Products[index].Sharers_Left)) + " people while your post says "+ $scope.Products[index].Sharers + " people. Are you sure you want to confirm the deal?")) {
 
     	 		$scope.Products.splice(index, 1);
   		var Product_Id={
