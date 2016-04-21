@@ -3,7 +3,7 @@ var user={
 		//Old_Password:"123456",
 		//New_Password:"",
 	  };
-myapp.controller("Main",function($scope,$cookies,$http,$log){
+myapp.controller("Main",function($scope,$cookies,$http,$log,$window){
 	$scope.show=false;
 	$scope.init = function() {
 		//$cookies.put('Email', "devarshsheth13@gmail.com");
