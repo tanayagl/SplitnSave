@@ -165,23 +165,23 @@ var Apartments = [{
       }]
 }];
 var filteroption=[{
-         Option_Name:"Smoking",
+         Option_Name:"No Smoking",
          Option_Value:0
       },
       {
-         Option_Name:"Kids",
+         Option_Name:"No Kids",
          Option_Value:0
       },
       {
-         Option_Name:"Luggage",
+         Option_Name:"No Luggage",
          Option_Value:0
       },
       {
-       Option_Name:"Pets",
+       Option_Name:"No Pets",
          Option_Value:0
       },
       {
-         Option_Name:"Music",
+         Option_Name:"No Music",
          Option_Value:0
       },
       {
