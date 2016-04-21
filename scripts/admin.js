@@ -1,7 +1,7 @@
 var post = {};
 var myapp = angular.module("myModule", ['ngCookies']);
 
-myapp.controller("Main", function($scope, $cookies, $http, $log) {
+myapp.controller("Main", function($scope, $cookies, $http, $log , $window) {
     $scope.show = false;
     $scope.init = function() {
         //$cookies.put('Email', "devarshsheth13@gmail.com");
@@ -66,16 +66,21 @@ myapp.controller("Main", function($scope, $cookies, $http, $log) {
         }
     };
     $scope.removeuser = function(user) {
-        var index = $scope.Users.indexOf(user);
-        $scope.Users.splice(index, 1);
-        post['User_Id']=user.User_Id;
-        //alert(post['User_Id']);
-        $http({
-                method: 'POST',
-                url: 'https://splitnsave.pythonanywhere.com/api/deleteuser',
-                data: JSON.stringify(post),
-            })
-            .then(usersuccesscallback, usererrorcallback);
+        if ($window.confirm("Are you sure you want to delete this user? If yes then press Ok otherwise press Cancel")) {
+            var index = $scope.Users.indexOf(user);
+            $scope.Users.splice(index, 1);
+            post['User_Id']=user.User_Id;
+            //alert(post['User_Id']);
+            $http({
+                    method: 'POST',
+                    url: 'https://splitnsave.pythonanywhere.com/api/deleteuser',
+                    data: JSON.stringify(post),
+                })
+                .then(usersuccesscallback, usererrorcallback);
+                    
+                } else {
+                   
+                }
     };
     var usersuccesscallback = function(response) {
         $log.info(response);
@@ -85,16 +90,23 @@ myapp.controller("Main", function($scope, $cookies, $http, $log) {
         $log.info(reason);
     };
     $scope.removepost = function(post) {
-        var index = $scope.Posts.indexOf(post);
-        $scope.Posts.splice(index, 1);
-        post['Product_Id']=post.Product_Id;
-        //alert(post['Product_Id']);
-            $http({
-                method: 'POST',
-                url: 'https://splitnsave.pythonanywhere.com/api/deleteproduct',
-                data: JSON.stringify(post),
-            })
-            .then(postsuccesscallback, posterrorcallback);
+        if ($window.confirm("Are you sure you want to delete this post? If yes then press Ok otherwise press Cancel")) {
+            var index = $scope.Posts.indexOf(post);
+            $scope.Posts.splice(index, 1);
+            post['Product_Id']=post.Product_Id;
+            //alert(post['Product_Id']);
+                $http({
+                    method: 'POST',
+                    url: 'https://splitnsave.pythonanywhere.com/api/deleteproduct',
+                    data: JSON.stringify(post),
+                })
+                .then(postsuccesscallback, posterrorcallback);
+                
+                    
+            } else {
+                   
+                }
+        
     };
    
     $scope.gotoproduct = function(productid)

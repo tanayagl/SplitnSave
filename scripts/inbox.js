@@ -22,28 +22,18 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
            input['Email']=$cookies.get('Email');
            $http({
         method:'POST',
-        url:'https://splitnsave.pythonanywhere.com/api/getusers',
+        url:'https://splitnsave.pythonanywhere.com/api/dashboard',
         data:JSON.stringify(input),
        })
               .then(chat,error);
         }
 
     };
-   /* if($cookies.get('usermsg')!=null)
-        {
-          input['Email']=$cookies.get('Email');
-          input['User_Id']=$cookies.get('usermsg')
-         // $cookies.put('usermsg',userid);
-          $http({
-                method:'POST',
-                url:'https://splitnsave.pythonanywhere.com/api/getchats',
-                data:JSON.stringify(input),
-               })
-                      .then(chatsuccesscallback,chaterrorcallback);
-        }*/
+    var i;
+    $scope.chatname="Split 'n' Save";
     var chat = function (response) {
               $log.info(response);
-              $scope.Users=response.data.Users;
+              $scope.Users=response.data.users;
               //messages=response.data.Chats;
             };
     
@@ -51,11 +41,14 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
             alert("Try Again");
             $log.info(reason);
             };
+
+          
 $scope.cambiaridioma=function(userid)
 {
   input['Email']=$cookies.get('Email');
   input['User_Id']=userid;
   $cookies.put('usermsg',userid);
+      
   $http({
         method:'POST',
         url:'https://splitnsave.pythonanywhere.com/api/getchats',
@@ -71,7 +64,15 @@ $scope.cambiaridioma=function(userid)
               //$scope.Users=response.data.Users;
               //messages=response.data.Chats;
               $scope.messages=response.data.Chats;
-            
+              for(i=0;i<$scope.Users.length;i++)
+              {
+                if($scope.Users[i].User_Id==$cookies.get('usermsg'))
+                {
+                   $scope.chatname=$scope.Users[i].First_Name;
+                   break;
+                }
+              }
+              
             };
     
     var chaterrorcallback = function(reason){

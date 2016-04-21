@@ -1,6 +1,6 @@
 var myapp = angular.module("myModule",['ngCookies']);
 
-myapp.controller("Main",function($scope,$cookies,$http,$log){
+myapp.controller("Main",function($scope,$cookies,$http,$log,$window){
 	var Products=[{
 		Product_Name:"Book",
 		Product_Image:"https:image.freepik.com/free-icon/shopping-cart-with-product-inside_318-59544.png",
@@ -80,11 +80,14 @@ var successcallback = function (response) {
 	//$scope.Products=Products;
 	$scope.deletePost = function(product)
 	{
-	var index = $scope.Products.indexOf(product);
-  	$scope.Products.splice(index, 1);
-  	var Product_Id={
+		if ($window.confirm("Are you sure you want to delete this Post? If yes then press Ok otherwise press Cancel")) {
+
+    	 		var index = $scope.Products.indexOf(product);
+  				$scope.Products.splice(index, 1);
+  				var Product_Id={
                     Product_Id: product.Product_Id,
                    };
+                   
         // $cookies.remove('Email');
 		 $http({
 		  method:'POST',
@@ -92,6 +95,11 @@ var successcallback = function (response) {
 		  data:JSON.stringify(Product_Id),
 		 })
             .then(deletesuccesscallback,deleteerrorcallback);
+                    
+                } else {
+                   
+                }
+	
     
          
 	};
@@ -152,6 +160,28 @@ var successcallback = function (response) {
     $scope.confirmdeal = function(product)
     {
     var index = $scope.Products.indexOf(product);
+    if($scope.Products[index].Sharers_Left < 0)
+    {
+    	 if ($window.confirm("you have chosen to share your product with "+ ($scope.Products[index].Sharers+Math.abs($scope.Products[index].Sharers_Left)) + " people while your post says "+ $scope.Products[index].Sharers + " people. Are you sure you want to confirm the deal? If yes then press Ok otherwise press Cancel")) {
+
+    	 		$scope.Products.splice(index, 1);
+  		var Product_Id={
+                    Product_Id: product.Product_Id,
+                   };
+        // $cookies.remove('Email');
+		 $http({
+		  method:'POST',
+		  url:'https://splitnsave.pythonanywhere.com/api/confirmdeal',
+		  data:JSON.stringify(Product_Id),
+		 })
+            .then(confirmdealsuccesscallback,confirmdealerrorcallback);
+                    
+                } else {
+                   
+                }
+    }
+    else
+    {
   	$scope.Products.splice(index, 1);
   		var Product_Id={
                     Product_Id: product.Product_Id,
@@ -164,6 +194,7 @@ var successcallback = function (response) {
 		 })
             .then(confirmdealsuccesscallback,confirmdealerrorcallback);
     }
+}
     var confirmdealsuccesscallback = function (response) {
                 $log.info(response);
               };
@@ -202,7 +233,7 @@ var successcallback = function (response) {
 		}
 		else
 		{
-			return 'Confirm';
+			return 'Confirmed';
 		}
 	};
 	$scope.gotoproduct = function(productid)

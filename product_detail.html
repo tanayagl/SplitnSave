@@ -78,16 +78,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">No of Sharers Left</h4>
-                        </div>
-                        <div class="panel-body">
-                            {{product.Sharers_Left}}
-                        </div>
-                    </div>
-                </div>
                 <div class="col-md-2" ng-show="checkproduct(product.Gender)">
                     <div class="panel panel-info">
                         <div class="panel-heading">
@@ -116,7 +106,7 @@
                                 <h4 class="panel-title">Out Time</h4>
                             </div>
                             <div class="panel-body">
-                                {{product.Out_Time_Value}} {{timingtype(OUT_Time_Type)}}
+                                {{product.OUT_Time_Value}} {{timingtype(OUT_Time_Type)}}
                             </div>
                         </div>
                     </div>
@@ -350,6 +340,16 @@
                             </div>
                             <div class="panel-body">
                                 {{product.Start_Time}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-show="checkproduct(product.Location)">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Location</h4>
+                            </div>
+                            <div class="panel-body">
+                                {{product.Location}}
                             </div>
                         </div>
                     </div>

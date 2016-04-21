@@ -102,7 +102,8 @@ var product={
 	Image_Link:"",
 	Sharers:"",
 	Gender:"",
-	Image_Link:""
+	Image_Link:"",
+	Location:"",
 };
 var category={
 	Category:""
@@ -147,6 +148,7 @@ var Laundry={
 	End_Date:"",
 	End_Time:"",
 	Weights:"",
+	Location:"",
 	optionname: "Suitable Clothes and Service"
 };
 var myapp = angular.module("myModule",['ngCookies']);
@@ -362,15 +364,17 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 	}
 	$scope.onMouseLeave_CityName=function($event)
 	{
-		if($scope.product['Location']=="")
+		if($scope.rootproduct['Location']=="")
 	    	{
 	    		$scope.onMouseLeave_ACityName_Result = "Location required";
 	    		$scope.onMouseLeave_BCityName_Result = "Location required";	
+	    		$scope.onMouseLeave_DCityName_Result = "Location required";	
 	    	}
 		    else
 		    {
 		    	$scope.onMouseLeave_ACityName_Result = "";
 		    	$scope.onMouseLeave_BCityName_Result = "";
+		    	$scope.onMouseLeave_DCityName_Result = "";	
 		    }
 	}
 	$scope.onMouseLeave_Weights = function($event)
@@ -578,7 +582,7 @@ $scope.onMouseLeave_Submit=function($event)
     }
     if(category.Category==1)
     {
-	    if($scope.product['Location']=="")
+	    if($scope.rootproduct['Location']=="")
 	    	{
 	    		$scope.onMouseLeave_ACityName_Result="City Name required";
 	    		b=1;
@@ -610,7 +614,7 @@ $scope.onMouseLeave_Submit=function($event)
 	}
 	if(category.Category==2)
 	{
-			if($scope.product['Location']=="")
+			if($scope.rootproduct['Location']=="")
 	    	{
 	    		$scope.onMouseLeave_BCityName_Result = "Location required";
 	    		b=1;
@@ -647,12 +651,21 @@ $scope.onMouseLeave_Submit=function($event)
 	{
 		if($scope.product['Weights']=="")
 			{
-				$scope.onMouseLeave_DWeights_Result= "Weights required"
+				$scope.onMouseLeave_DWeights_Result= "Weights required";
 				b=1;
 			}
 			else
 			{
 				$scope.onMouseLeave_DWeights_Result= "";
+			}
+		if($scope.rootproduct['Location']=="")
+			{
+				$scope.onMouseLeave_DCityName_Result= "Location required";
+				b=1;
+			}
+			else
+			{
+				$scope.onMouseLeave_DCityName_Result= "";
 			}
 	}
 	/*if($scope.product['End_Date']=="")

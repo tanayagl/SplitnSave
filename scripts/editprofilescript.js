@@ -141,6 +141,7 @@ var successcallback = function (response) {
 		 	return true;
 		 };
 	var inputsuccesscallback = function (response) {
+			alert("Edit Profile Successfully");
 			$log.info(response);
             };
 	var inputerrorcallback = function(reason){

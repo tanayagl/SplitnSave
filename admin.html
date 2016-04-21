@@ -49,12 +49,12 @@
                     </div>
                 </div>
                 <ul class="list-group" id="contact-list">
-                    <li class="list-group-item" data-target="" data-toggle="modal" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-repeat="user in Users | filter:searchuser" ng-class="{red: hover}" ng-show="showuser(user)" ng-click="gotoprofile(user.User_Id)">
+                    <li class="list-group-item" data-target="" data-toggle="modal" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-repeat="user in Users | filter:searchuser" ng-class="{red: hover}" ng-show="showuser(user)" >
                         <div class="col-xs-12 col-sm-4 md-6">
-                            <img ng-src="{{user.Image_Link}}" alt="image unavilable"  class="img-responsive img-circle" />
+                            <img ng-src="{{user.Image_Link}}" alt="image unavailable"  class="img-responsive img-circle" ng-click="gotoprofile(user.User_Id)" />
                         </div>
                         <div class="col-xs-12 col-sm-8 md-6">
-                            <span class="name">{{user.First_Name}} {{user.Last_Name}}</span><br/>
+                            <span class="name" ng-click="gotoprofile(user.User_Id)">{{user.First_Name}} {{user.Last_Name}}</span><br/>
                              <div class="panel panel-warning" style="width:70%">
                               <!--<div class="panel-heading">
                                 <span class="glyphicon glyphicon-ban-circle">&nbsp;Total Reports {{post.Report_Number}}</span> 
@@ -95,12 +95,12 @@
                     </div>
                 </div>
                 <ul class="list-group" id="contact-list">
-                    <li class="list-group-item" data-target="" data-toggle="modal" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-repeat="post in Posts | filter:searchpost" ng-class="{red: hover}" ng-click="gotoproduct(post.Product_Id)">
+                    <li class="list-group-item" data-target="" data-toggle="modal" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-repeat="post in Posts | filter:searchpost" ng-class="{red: hover}" >
                         <div class="col-xs-12 col-sm-4 md-6">
-                            <img ng-src="{{post.Image_Link}}" alt="image unavilable"  class="img-responsive img-circle" />
+                            <img ng-src="{{post.Image_Link}}" alt="image unavailable"  class="img-responsive img-circle" ng-click="gotoproduct(post.Product_Id)" />
                         </div>
                         <div class="col-xs-12 col-sm-8 md-6">
-                            <span class="name">{{post.Title}}</span><br/>
+                            <span class="name" ng-click="gotoproduct(post.Product_Id)">{{post.Title}}</span><br/>
                              <div class="panel panel-warning" style="width:70%">
                               <!--<div class="panel-heading">
                                 <span class="glyphicon glyphicon-ban-circle">&nbsp;Total Reports {{post.Report_Number}}</span> 

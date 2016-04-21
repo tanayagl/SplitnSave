@@ -160,6 +160,7 @@
                         
                     </div>
                 </div>
+            </div>
                 <div class="row" style="margin-bottom: 10px;">
                     <div class="col-md-2">
                     </div>
@@ -176,7 +177,6 @@
                         <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_AAddress_Result}}</div>
                     </div>
                 </div>
-            </div>
         </div>
             <!-- _____________________CABS_____________________ -->
             <div id="Cabs" ng-show="checkCabs()">
@@ -372,15 +372,23 @@
                     <div class="col-md-2"></div>
                 </div>
                 <div class="row" style="margin-bottom: 10px;">
-                    <div class="col-md-3 sm-3"></div>
-                    <div class="col-md-6 sm-6">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4 col-sm-6">
+                        <!--<label for="exampleInputPassword1">Location</label>-->
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="City name" ng-model="product.Location" ng-change="onMouseLeave_CityName($event)">
+                        <span class="after">*</span>
+                        </input>
+                        <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_DCityName_Result}}</div>
+                    </div>
+                    <div class="col-md-4 sm-6">
                         <input type="text" class="form-control" placeholder="Minimum Required Weight (in kg)
 " ng-model="product.Weights" ng-change="onMouseLeave_Weights($event)">
                         <span class="after">*</span>
                         </input>
+                        <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_DWeights_Result}}</div>
                     </div>
-                    <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_DWeights_Result}}</div>
-                    <div class="col-md-3 sm-3"></div>
+                    
+                    <div class="col-md-2"></div>
                 </div>
             </div>
             <div class="row">
