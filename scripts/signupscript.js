@@ -70,7 +70,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	}
 	else if(!(validateEmail(input['Email'])))
 	{
-	$scope.onMouseLeave_Email_Result = "Invalid Email"
+	$scope.onMouseLeave_Email_Result = "Email is not in valid format"
 	}
 	else      //Send Email to backend to check email id is already exist or not
 	{
@@ -106,7 +106,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 				$log.info(response);
 					if(a!=0)
 					{
-						$scope.onMouseLeave_Email_Result="Email Id already exists";
+						$scope.onMouseLeave_Email_Result="Email is already in use"	;
 					}
 					else
 					{
