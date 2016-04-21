@@ -78,7 +78,7 @@ var successcallback = function (response) {
 	{
 	$scope.onMouseLeave_DOB_Result = "Birthdate required";
 	}
-	else if((birthdayvalidation(input['Birthdate'])))
+	else if((birthdayvalidation(input['Birthdate'])) ||  compare(input['Birthdate']))
 	{
 	$scope.onMouseLeave_DOB_Result="Invalid Birthdate";
 	}
@@ -152,6 +152,31 @@ var successcallback = function (response) {
 function validateEmail(email) { 
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
+}
+function  compare(birthdate)
+{
+	//alert("Hey");
+	dob = birthdate.split("-");
+	var d = new Date();
+	var curr_date = d.getDate();
+	var curr_month = d.getMonth();
+	var curr_year = d.getFullYear();
+	if(dob[2]>curr_year)
+	{
+		return true;
+	}
+	else if(curr_year==dob[2] && dob[1]>curr_month)
+	{
+		return true;
+	}
+	else if(curr_month==dob[1] && dob[0]>curr_date)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);

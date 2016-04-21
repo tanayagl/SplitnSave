@@ -112,6 +112,8 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
                     item.product.Author_First_Name.toLowerCase()
                     .indexOf($scope.searchText.toLowerCase()) != -1 ||
                     item.product.Author_Last_Name.toLowerCase()
+                    .indexOf($scope.searchText.toLowerCase()) != -1 ||
+                    (item.product.Author_First_Name.toLowerCase().concat(" ",item.product.Author_Last_Name.toLowerCase()))
                     .indexOf($scope.searchText.toLowerCase()) != -1) {
                     return true;
                 }
