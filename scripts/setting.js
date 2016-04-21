@@ -144,17 +144,25 @@ var errorcallback = function(reason){
 		}
 		else
 		{
-			var input={
+			if ($window.confirm("Are you sure you want to delete your account? If yes then press Ok otherwise press Cancel")) {
+
+    	 		var input={
                     Email: $cookies.get('Email'),
                    };
-		 $http({
-				  method:'POST',
-				  url:'https://splitnsave.pythonanywhere.com/api/deleteaccount',
-				  data:JSON.stringify(input),
-				 })
-            .then(deletesuccesscallback,deleteerrorcallback);
+				 $http({
+						  method:'POST',
+						  url:'https://splitnsave.pythonanywhere.com/api/deleteaccount',
+						  data:JSON.stringify(input),
+						 })
+		            .then(deletesuccesscallback,deleteerrorcallback);
+				
+                    
+                } else {
+                   
+                }
+			
 		}
-	}
+	};
 	$scope.onMouseClick_Changes = function ($event) {
 	var v=[1,1,1];
 	if(user['Type_Password']=="")
