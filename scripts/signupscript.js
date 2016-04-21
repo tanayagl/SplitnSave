@@ -129,7 +129,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	}
 	else if((input['ContactNumber'].length!=10))
 	{
-	$scope.onMouseLeave_ContactNumber_Result = "Contact Number should be in 10 digits";
+	$scope.onMouseLeave_ContactNumber_Result = "Contact number should be of 10 digits";
 	}
 	else
 	{
@@ -147,7 +147,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	}
 	else if(!(hasLowerCase(input['Password']) && hasUperCase(input['Password']) && hasNumberCase(input['Password'])))
 	{
-		$scope.onMouseLeave_Password_Result = "The password should contain at least one numeral, one lowercase letter and one uppercase letter.";
+		$scope.onMouseLeave_Password_Result = "The password should contain at least one numeral, one lowercase letter and one uppercase letter";
 	}
 	else
 	{
