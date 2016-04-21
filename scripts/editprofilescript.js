@@ -56,7 +56,7 @@ var successcallback = function (response) {
 	$scope.onMouseLeave_First_Name = function ($event) {
 	if(input['First_Name']=="")
 	{
-	$scope.onMouseLeave_First_Name_Result = "First Name required";
+	$scope.onMouseLeave_First_Name_Result = "First Name is required";
 	}
 	else
 	{
@@ -66,7 +66,7 @@ var successcallback = function (response) {
 	$scope.onMouseLeave_Last_Name = function ($event) {
 	if(input['Last_Name']=="")
 	{
-	$scope.onMouseLeave_Last_Name_Result = "Last Name required";
+	$scope.onMouseLeave_Last_Name_Result = "Last Name is required";
 	}
 	else
 	{
@@ -76,7 +76,7 @@ var successcallback = function (response) {
     $scope.onMouseChange_DOB = function ($event) {
 	if(input['Birthdate']=="")
 	{
-	$scope.onMouseLeave_DOB_Result = "Birthdate required";
+	$scope.onMouseLeave_DOB_Result = "Birthdate is required";
 	}
 	else if((birthdayvalidation(input['Birthdate'])) ||  compare(input['Birthdate']))
 	{
@@ -90,7 +90,7 @@ var successcallback = function (response) {
 	$scope.onMouseLeave_ContactNumber = function ($event) {
 	if(input['ContactNumber']=="")
 	{
-	$scope.onMouseLeave_ContactNumber_Result = "Contact Number required";
+	$scope.onMouseLeave_ContactNumber_Result = "Contact Number is required";
 	}
 	else if(!(isNumber(input['ContactNumber'])))
 	{
@@ -98,7 +98,7 @@ var successcallback = function (response) {
 	}
 	else if((input['ContactNumber']).length!=10)
 	{
-	$scope.onMouseLeave_ContactNumber_Result = "Contact Number should be in 10 digits";
+	$scope.onMouseLeave_ContactNumber_Result = "Contact Number should be of 10 digits";
 	}
 	else
 	{
