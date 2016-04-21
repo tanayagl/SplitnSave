@@ -54,7 +54,7 @@ var errorcallback = function(reason){
 	}
 	else if(user['Type_Password']!=user['Old_Password'])
 	{
-	$scope.onMouseLeave_Type_Password_Result="Old password is not matched";
+	$scope.onMouseLeave_Type_Password_Result="Old password entered is incorrect";
 	}
 	else
 	{
@@ -102,7 +102,7 @@ var errorcallback = function(reason){
 	}
 	else if(user['New_Password']!=user['Confirm_Password'])
 	{
-	$scope.onMouseLeave_Confirm_Password_Result="Confirm Password is not matched";
+	$scope.onMouseLeave_Confirm_Password_Result="Confirm password must match new password";
 	}
 	else
 	{
@@ -171,7 +171,7 @@ var errorcallback = function(reason){
 	}
 	else if(user['Type_Password']!=user['Old_Password'])
 	{
-	$scope.onMouseLeave_Type_Password_Result="Old password is not matched";
+	$scope.onMouseLeave_Type_Password_Result="Old password entered is incorrect";
 	}
 	else
 	{
@@ -197,7 +197,7 @@ var errorcallback = function(reason){
 	}
 	else if(user['New_Password']!=user['Confirm_Password'])
 	{
-	$scope.onMouseLeave_Confirm_Password_Result="Confirm Password is not matched";
+	$scope.onMouseLeave_Confirm_Password_Result="Confirm password must match new password’";
 	}
 	else
 	{
