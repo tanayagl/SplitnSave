@@ -147,6 +147,7 @@ var Laundry={
 	End_Date:"",
 	End_Time:"",
 	Weights:"",
+	Location:"",
 	optionname: "Suitable Clothes and Service"
 };
 var myapp = angular.module("myModule",['ngCookies']);
@@ -366,11 +367,13 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 	    	{
 	    		$scope.onMouseLeave_ACityName_Result = "Location required";
 	    		$scope.onMouseLeave_BCityName_Result = "Location required";	
+	    		$scope.onMouseLeave_DCityName_Result = "Location required";	
 	    	}
 		    else
 		    {
 		    	$scope.onMouseLeave_ACityName_Result = "";
 		    	$scope.onMouseLeave_BCityName_Result = "";
+		    	$scope.onMouseLeave_DCityName_Result = "";	
 		    }
 	}
 	$scope.onMouseLeave_Weights = function($event)
@@ -647,12 +650,21 @@ $scope.onMouseLeave_Submit=function($event)
 	{
 		if($scope.product['Weights']=="")
 			{
-				$scope.onMouseLeave_DWeights_Result= "Weights required"
+				$scope.onMouseLeave_DWeights_Result= "Weights required";
 				b=1;
 			}
 			else
 			{
 				$scope.onMouseLeave_DWeights_Result= "";
+			}
+		if($scope.product['Location']=="")
+			{
+				$scope.onMouseLeave_DCityName_Result= "Location required";
+				b=1;
+			}
+			else
+			{
+				$scope.onMouseLeave_DCityName_Result= "";
 			}
 	}
 	/*if($scope.product['End_Date']=="")
