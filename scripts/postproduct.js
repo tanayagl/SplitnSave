@@ -102,7 +102,8 @@ var product={
 	Image_Link:"",
 	Sharers:"",
 	Gender:"",
-	Image_Link:""
+	Image_Link:"",
+	Location:"",
 };
 var category={
 	Category:""
@@ -363,7 +364,7 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
 	}
 	$scope.onMouseLeave_CityName=function($event)
 	{
-		if($scope.product['Location']=="")
+		if($scope.rootproduct['Location']=="")
 	    	{
 	    		$scope.onMouseLeave_ACityName_Result = "Location required";
 	    		$scope.onMouseLeave_BCityName_Result = "Location required";	
@@ -581,7 +582,7 @@ $scope.onMouseLeave_Submit=function($event)
     }
     if(category.Category==1)
     {
-	    if($scope.product['Location']=="")
+	    if($scope.rootproduct['Location']=="")
 	    	{
 	    		$scope.onMouseLeave_ACityName_Result="City Name required";
 	    		b=1;
@@ -613,7 +614,7 @@ $scope.onMouseLeave_Submit=function($event)
 	}
 	if(category.Category==2)
 	{
-			if($scope.product['Location']=="")
+			if($scope.rootproduct['Location']=="")
 	    	{
 	    		$scope.onMouseLeave_BCityName_Result = "Location required";
 	    		b=1;
@@ -657,7 +658,7 @@ $scope.onMouseLeave_Submit=function($event)
 			{
 				$scope.onMouseLeave_DWeights_Result= "";
 			}
-		if($scope.product['Location']=="")
+		if($scope.rootproduct['Location']=="")
 			{
 				$scope.onMouseLeave_DCityName_Result= "Location required";
 				b=1;
