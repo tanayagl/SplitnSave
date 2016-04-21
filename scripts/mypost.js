@@ -152,6 +152,28 @@ var successcallback = function (response) {
     $scope.confirmdeal = function(product)
     {
     var index = $scope.Products.indexOf(product);
+    if($scope.Products[index].Sharers_Left < 0)
+    {
+    	 if ($window.confirm("you have chosen to share your product with "+ $scope.Products[index].Sharers+Math.abs($scope.Products[index].Sharers_Left) + " people while your post says"+ $scope.Products[index].Sharers + " people. Are you sure you want to confirm the deal?")) {
+
+    	 		$scope.Products.splice(index, 1);
+  		var Product_Id={
+                    Product_Id: product.Product_Id,
+                   };
+        // $cookies.remove('Email');
+		 $http({
+		  method:'POST',
+		  url:'https://splitnsave.pythonanywhere.com/api/confirmdeal',
+		  data:JSON.stringify(Product_Id),
+		 })
+            .then(confirmdealsuccesscallback,confirmdealerrorcallback);
+                    
+                } else {
+                   
+                }
+    }
+    else
+    {
   	$scope.Products.splice(index, 1);
   		var Product_Id={
                     Product_Id: product.Product_Id,
@@ -164,6 +186,7 @@ var successcallback = function (response) {
 		 })
             .then(confirmdealsuccesscallback,confirmdealerrorcallback);
     }
+}
     var confirmdealsuccesscallback = function (response) {
                 $log.info(response);
               };
