@@ -309,7 +309,7 @@
                     <div class="col-md-2" ng-show="checkproduct(product.Tag1) || checkproduct(product.Tag2) || checkproduct(product.Tag3)">
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                <h4 class="panel-title">Tag</h4>
+                                <h4 class="panel-title">Tags</h4>
                             </div>
                             <div class="panel-body">
                                 <ul style="list-style:none">
@@ -365,7 +365,10 @@
                     </div>
                 </div>
             </div>
-            <div class="row" ng-hide="checkBooks()">
+            <div class="row" ng-hide="checkBooks() || checkCabs()">
+                <h2 style="text-align:center">{{Amenities}}</h2>
+            </div>
+            <div class="row" ng-show="checkCabs()">
                 <h2 style="text-align:center">{{Amenities}}</h2>
             </div>
             <div class="row">

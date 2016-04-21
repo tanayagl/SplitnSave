@@ -5,7 +5,7 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">Login</h4>
             </div>
-            <div class="modal-body" ng-model="user">
+            <div class="modal-body" ng-model="user" ng-keyup="$event.keyCode == 13 && login_check($event)">
                 <ul>
                     <label for="usr">Email:</label>
                     <div class="form-group">
@@ -17,16 +17,23 @@
                         <input type="password" class="form-control" id="pwd" ng-model="user.Password" ng-blur="onMouseLeave_Password($event)" ng-change="onMouseLeave_Password($event)">
                         <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_Password_Result}}</div>
                     </div>
-                    <a data-toggle="modal" style="text-decoration:none;cursor:default" ng-click="pressforget($event)"><span> Forgot Password ?</span> </a>
                     <div style="text-align:center">
                         <button type="submit" ng-click="login_check($event)" class="btn btn-danger submit" style="width:90%">Login</button>
+                    </div>
+                    <div class="row" style="margin-top:5px;text-align:center">
+                        <div class="col-md-12">
+                            <a data-toggle="modal" style="text-decoration:none;cursor:default" ng-click="pressforget($event)"><span> Forgot Password ?</span></a>
+                        </div>
+                        <div class="col-md-12">
+                            <a href="signup.html">Sign Up </a>
+                        </div>
                     </div>
                 </ul>
             </div>
         </div>
     </div>
 </div>
- <div class="modal fade bs-example1-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" ng-controller="Header">
+<div class="modal fade bs-example1-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" ng-controller="Header">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
