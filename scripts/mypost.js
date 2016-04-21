@@ -1,6 +1,6 @@
 var myapp = angular.module("myModule",['ngCookies']);
 
-myapp.controller("Main",function($scope,$cookies,$http,$log){
+myapp.controller("Main",function($scope,$cookies,$http,$log,$window){
 	var Products=[{
 		Product_Name:"Book",
 		Product_Image:"https:image.freepik.com/free-icon/shopping-cart-with-product-inside_318-59544.png",
