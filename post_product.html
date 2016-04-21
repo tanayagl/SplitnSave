@@ -36,7 +36,7 @@
                 <div class="form-group">
                     <div class="col-md-4 col-sm-3"></div>
                     <div class="col-md-4 col-sm-6">
-                          <span class="before">*</span>
+                        <span class="before">*</span>
                         <!--<label for="exampleInputEmail1">First Name</label>-->
                         <select class="form-control" ng-model="category.Category" ng-change="onMouseLeave_Category($event)">
                             <option value="">Select Category</option>
@@ -65,7 +65,7 @@
                 <div class="col-md-4 col-sm-3"></div>
                 <div class="col-md-4 col-sm-6">
                     <!--<label for="exampleInputPassword1">Email Address</label>-->
-                    <textarea rows="4" placeholder="Description" style="width:100%" ng-model="rootproduct.Description"></textarea>
+                    <textarea rows="4" class = "form-control" placeholder="Description" style="width:100%" ng-model="rootproduct.Description"></textarea>
                 </div>
             </div>
             <div class="row" style="margin-bottom: 10px;">
@@ -118,50 +118,48 @@
                             <span class="after">*</span>
                             </input>
                         </div>
-                         <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_AEnd_Date_Result}}</div>
-                  </div>
-            </div>
-            <div class="row" style="margin-bottom:10px">
-              <div class="col-md-3 col-sm-2"></div>
-              <div class="col-md-2 col-sm-3" style="margin-bottom:10px">
-                <input type="number" min="0" class="form-control" id="Text input" placeholder="No of Rooms" ng-model="product.Rooms">
-              </div>
-              <div class="col-md-2 col-sm-3" style="margin-bottom:10px">
-                <input type="number" min="0" class="form-control" id="Text input" placeholder="No of Bed-Rooms" ng-model="product.Bed_Rooms">
-              </div>
-              <div class="col-md-2 col-sm-3">
-                <input type="number" min="0" class="form-control" id="Text input" placeholder="No of Bath-Rooms" ng-model="product.Bath_Rooms">
-              </div>
-              <div class="col-md-3 col-sm-1"></div>
-            </div>
-            <div class="row" style="margin-bottom:10px">
-              <div class="col-md-2"></div>
-              <div class="col-md-2 col-sm-3" style="margin-bottom:10px">
-                <select class="form-control" ng-model="product.BathRoom_Type">
-                  <option value="">BathRoom Type</option>
-                  <option value="Joint">Joint</option>
-                  <option value="Seprate">Separate</option>
-                </select>
-              </div>
-              <div class="col-md-3 col-sm-4" style="margin-bottom:10px">
-                <div class="col-md-6">
-                  <label>In Time: </label>
-                </div>
-                <div class="col-md-6" style="margin-bottom:10px">
-                <input type="text" class="form-control" id="Text input" placeholder="10 PM" ng-model="product.IN_Time_Value">
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-4">
-                <div class="col-md-6">
-                  <label>Out Time: </label>
-                </div>
-                <div class="col-md-6">
-                <input type="text" class="form-control" id="Text input" placeholder="6 AM" ng-model="product.OUT_Time_Value">
-
-                        
+                        <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_AEnd_Date_Result}}</div>
                     </div>
                 </div>
-            </div>
+                <div class="row" style="margin-bottom:10px">
+                    <div class="col-md-3 col-sm-2"></div>
+                    <div class="col-md-2 col-sm-3" style="margin-bottom:10px">
+                        <input type="number" min="0" class="form-control" id="Text input" placeholder="No of Rooms" ng-model="product.Rooms">
+                    </div>
+                    <div class="col-md-2 col-sm-3" style="margin-bottom:10px">
+                        <input type="number" min="0" class="form-control" id="Text input" placeholder="No of Bed-Rooms" ng-model="product.Bed_Rooms">
+                    </div>
+                    <div class="col-md-2 col-sm-3">
+                        <input type="number" min="0" class="form-control" id="Text input" placeholder="No of Bath-Rooms" ng-model="product.Bath_Rooms">
+                    </div>
+                    <div class="col-md-3 col-sm-1"></div>
+                </div>
+                <div class="row" style="margin-bottom:10px">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2 col-sm-3" style="margin-bottom:10px">
+                        <select class="form-control" ng-model="product.BathRoom_Type">
+                            <option value="">BathRoom Type</option>
+                            <option value="Joint">Joint</option>
+                            <option value="Seprate">Separate</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 col-sm-4" style="margin-bottom:10px">
+                        <div class="col-md-6">
+                            <label>In Time: </label>
+                        </div>
+                        <div class="col-md-6" style="margin-bottom:10px">
+                            <input type="text" class="form-control" id="Text input" placeholder="10 PM" ng-model="product.IN_Time_Value">
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                        <div class="col-md-6">
+                            <label>Out Time: </label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="Text input" placeholder="6 AM" ng-model="product.OUT_Time_Value">
+                        </div>
+                    </div>
+                </div>
                 <div class="row" style="margin-bottom: 10px;">
                     <div class="col-md-2"></div>
                     <div class="col-md-4 col-sm-6">
@@ -173,10 +171,9 @@
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <!--<label for="exampleInputPassword1">Email Address</label>-->
-                          <span class="medium">*</span>
-                        <textarea rows="4" placeholder="Full Address" style="width:100%" ng-model="product.Address" ng-change="onMouseLeave_Address($event)">
+                        <textarea rows="4" class = "form-control"placeholder="Full Address" style="width:100%" ng-model="product.Address" ng-change="onMouseLeave_Address($event)" for="inputWarning">
                         </textarea>
-
+                        <span class="after_area">*</span>
                         <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_AAddress_Result}}</div>
                     </div>
                 </div>
@@ -204,10 +201,10 @@
                                     </div>
                                     <div class="col-md-8">
                                         <input type='text' class="form-control" placeholder="dd-mm-yyyy" ng-model="product.Start_Date" ng-change="onMouseLeave_Start_Date($event)">
-                                         <span class="after">*</span>
-                                         </input>
+                                        <span class="after">*</span>
+                                        </input>
                                     </div>
-                                     <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_BStart_Date_Result}}</div>
+                                    <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_BStart_Date_Result}}</div>
                                 </div>
                             </div>
                             <div class="col-md-6 sm-6" style="margin-bottom: 10px;">
@@ -392,7 +389,6 @@
                         </input>
                         <div class="error" style="color:red;font-family:verdana;font-size: 13px">{{onMouseLeave_DWeights_Result}}</div>
                     </div>
-                   
                     <div class="col-md-2"></div>
                 </div>
             </div>
@@ -409,12 +405,12 @@
                 <div class="col-md-2 col-sm-1"></div>
             </div>
             <div class="row">
-                    <div class="col-md-5 col-sm-1"></div>
-                    <div class="col-md-5">
-                        <label>
-                            <input type="text" class="form-control" placeholder="Other Options...">
-                        </label>
-                    </div>
+                <div class="col-md-5 col-sm-1"></div>
+                <div class="col-md-5">
+                    <label>
+                        <input type="text" class="form-control" placeholder="Other Options...">
+                    </label>
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-5"></div>
