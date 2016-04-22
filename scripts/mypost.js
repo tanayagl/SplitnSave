@@ -151,6 +151,7 @@ var successcallback = function (response) {
 	};
 	var sendsuccesscallback = function (response) {
                 $log.info(response);
+                 location.reload();
               };
   	var senderrorcallback = function(reason){
         alert("Reload Again");
@@ -197,6 +198,7 @@ var successcallback = function (response) {
 }
     var confirmdealsuccesscallback = function (response) {
                 $log.info(response);
+                 location.reload();
               };
   	var confirmdealerrorcallback = function(reason){
         alert("Reload Again");
