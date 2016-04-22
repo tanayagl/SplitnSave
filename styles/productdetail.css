@@ -78,12 +78,12 @@ input[type="text"]:disabled {
     height: 150px;
 }
 
-.panel-heading
+.details .panel-heading
 {
     height:50px;
 }
 
-.panel-body
+.details .panel-body
 {
     height:50px;
 }

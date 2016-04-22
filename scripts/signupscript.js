@@ -46,7 +46,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	$scope.onMouseLeave_First_Name = function ($event) {
 	if(input['First_Name']=="")
 	{
-	$scope.onMouseLeave_First_Name_Result = "First Name required";
+	$scope.onMouseLeave_First_Name_Result = "First Name is required";
 	}
 	else
 	{
@@ -56,7 +56,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	$scope.onMouseLeave_Last_Name = function ($event) {
 	if(input['Last_Name']=="")
 	{
-	$scope.onMouseLeave_Last_Name_Result = "Last Name required";
+	$scope.onMouseLeave_Last_Name_Result = "Last Name is required";
 	}
 	else
 	{
@@ -66,11 +66,11 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	$scope.onMouseChange_Email = function ($event) {
 	if(input['Email']=="")
 	{
-	$scope.onMouseLeave_Email_Result = "Email required";
+	$scope.onMouseLeave_Email_Result = "Email is required";
 	}
 	else if(!(validateEmail(input['Email'])))
 	{
-	$scope.onMouseLeave_Email_Result = "Invalid Email"
+	$scope.onMouseLeave_Email_Result = "Email is not in valid format"
 	}
 	else      //Send Email to backend to check email id is already exist or not
 	{
@@ -80,7 +80,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	$scope.onMouseLeave_Email = function ($event) {
 	if(input['Email']=="")
 	{
-	$scope.onMouseLeave_Email_Result = "Email required";
+	$scope.onMouseLeave_Email_Result = "Email is required";
 	}
 	else if(!(validateEmail(input['Email'])))
 	{
@@ -106,7 +106,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 				$log.info(response);
 					if(a!=0)
 					{
-						$scope.onMouseLeave_Email_Result="Email Id already exists";
+						$scope.onMouseLeave_Email_Result="Email is already in use"	;
 					}
 					else
 					{
@@ -121,7 +121,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	$scope.onMouseLeave_ContactNumber = function ($event) {
 	if(input['ContactNumber']=="")
 	{
-	$scope.onMouseLeave_ContactNumber_Result = "Contact Number required";
+	$scope.onMouseLeave_ContactNumber_Result = "Contact Number is required";
 	}
 	else if(!(isNumber(input['ContactNumber'])))
 	{
@@ -129,7 +129,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	}
 	else if((input['ContactNumber'].length!=10))
 	{
-	$scope.onMouseLeave_ContactNumber_Result = "Contact Number should be in 10 digits";
+	$scope.onMouseLeave_ContactNumber_Result = "Contact number should be of 10 digits";
 	}
 	else
 	{
@@ -139,7 +139,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	$scope.onMouseLeave_Password = function ($event) {
 	if(input['Password']=="")
 	{
-	$scope.onMouseLeave_Password_Result = "Password required";
+	$scope.onMouseLeave_Password_Result = "Password is required";
 	}
 	else if((input['Password'].length<6))
 	{
@@ -147,7 +147,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	}
 	else if(!(hasLowerCase(input['Password']) && hasUperCase(input['Password']) && hasNumberCase(input['Password'])))
 	{
-		$scope.onMouseLeave_Password_Result = "Password should have at least one numeric, a Lowercase and a Uppercase";
+		$scope.onMouseLeave_Password_Result = "The password should contain at least one numeral, one lowercase letter and one uppercase letter";
 	}
 	else
 	{
@@ -166,7 +166,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
     $scope.onMouseLeave_Re_Password = function ($event) {
 	if(input['Re_Password']=="")
 	{
-	$scope.onMouseLeave_Re_Password_Result = "Confirm Password required";
+	$scope.onMouseLeave_Re_Password_Result = "Confirm Password is required";
 	}
 	else if((input['Password']!=input['Re_Password']))
 	{
@@ -180,7 +180,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
      $scope.onMouseChange_Re_Password = function ($event) {
 	if(input['Re_Password']=="")
 	{
-	$scope.onMouseLeave_Re_Password_Result = "Confirm Password required";
+	$scope.onMouseLeave_Re_Password_Result = "Confirm Password is required";
 	}
 	else
 	{
@@ -190,7 +190,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
     $scope.onMouseLeave_CityName = function ($event) {
 	if(input['City_Name']=="")
 	{
-	$scope.onMouseLeave_CityName_Result = "Location required";
+	$scope.onMouseLeave_CityName_Result = "Location is required";
 	}
 	else
 	{
@@ -200,7 +200,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
     $scope.onMouseLeave_Gender = function ($event) {
 	if(input['Gender']=="")
 	{
-	$scope.onMouseLeave_Gender_Result = "Gender required";
+	$scope.onMouseLeave_Gender_Result = "Gender is required";
 	}
 	else
 	{
@@ -210,7 +210,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
     $scope.onMouseLeave_Profession_Name = function ($event) {
 	if(input['Profession_Name']=="")
 	{
-	$scope.onMouseLeave_Profession_Name_Result = "Profession required";
+	$scope.onMouseLeave_Profession_Name_Result = "Profession is required";
 	}
 	else
 	{
@@ -221,7 +221,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
     $scope.onMouseLeave_Institute_Name = function ($event) {
 	if(input['Institute_Name']=="")
 	{
-	$scope.onMouseLeave_Institute_Name_Result = "Institute required";
+	$scope.onMouseLeave_Institute_Name_Result = "Institute is required";
 	}
 	else
 	{
@@ -231,7 +231,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
    $scope.onMouseChange_DOB = function ($event) {
 	if(input['Birthdate']=="")
 	{
-	$scope.onMouseLeave_DOB_Result = "Birthdate required";
+	$scope.onMouseLeave_DOB_Result = "Birthdate is required";
 	}
 	else if((birthdayvalidation(input['Birthdate'])) ||  compare(input['Birthdate']))
 	{
@@ -250,17 +250,17 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
    	var success=1;
     if(input['First_Name']=="")
     {
-    	$scope.onMouseLeave_First_Name_Result = "First Name required";
+    	$scope.onMouseLeave_First_Name_Result = "First Name is required";
     	success=0;
     }
     if(input['Last_Name']=="")
     {
-    	$scope.onMouseLeave_Last_Name_Result = "Last Name required";
+    	$scope.onMouseLeave_Last_Name_Result = "Last Name is required";
     	success=0;
     }
     if(input['Email']=="")
     {
-    	$scope.onMouseLeave_Email_Result = "Email required";
+    	$scope.onMouseLeave_Email_Result = "Email is required";
     	success=0;
     }
     else if($scope.onMouseLeave_Email_Result=="")    //Send Email to backend to check email id is already exist or not
@@ -278,7 +278,7 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	}
     if(input['Password']=="")
     {
-    	$scope.onMouseLeave_Password_Result = "Password required";
+    	$scope.onMouseLeave_Password_Result = "Password is required";
     	success=0;
     }
     else if((input['Password'].length<6))
@@ -287,38 +287,38 @@ myapp.controller("Main",function($scope,$http,$log,$cookies,$location){
 	}
     if(input['Re_Password']=="")
     {
-    	$scope.onMouseLeave_Re_Password_Result = "Confirm Password required";
+    	$scope.onMouseLeave_Re_Password_Result = "Confirm Password is required";
     	success=0;
     }
     if(input['ContactNumber']=="")
     {
-    	$scope.onMouseLeave_ContactNumber_Result = "Contact Number required";
+    	$scope.onMouseLeave_ContactNumber_Result = "Contact Number is required";
     	success=0;
     }
     if(input['City_Name']=="")
     {
-    	$scope.onMouseLeave_CityName_Result = "Location required";
+    	$scope.onMouseLeave_CityName_Result = "Location is required";
     	success=0;
     }
     if(input['Gender']=="")
     {
-    	$scope.onMouseLeave_Gender_Result = "Gender required";
+    	$scope.onMouseLeave_Gender_Result = "Gender is required";
     	success=0;
     }
      if(input['Birthdate']=="")
     {
-    	$scope.onMouseLeave_DOB_Result = "Birthdate required";
+    	$scope.onMouseLeave_DOB_Result = "Birthdate is required";
     	success=0;
     }
   	
     if(input['Profession_Name']=="")
     {
-    	$scope.onMouseLeave_Profession_Name_Result = "Profession required";
+    	$scope.onMouseLeave_Profession_Name_Result = "Profession is required";
     	success=0;
     }
     if(input['Institute_Name']=="")
     {
-    	$scope.onMouseLeave_Institute_Name_Result = "Institute required";
+    	$scope.onMouseLeave_Institute_Name_Result = "Institute is required";
     	success=0;
     }
     if($scope.onMouseLeave_Institute_Name_Result=="" && $scope.onMouseLeave_Profession_Name_Result=="" &&  $scope.onMouseLeave_Gender_Result=="" && $scope.onMouseLeave_CityName_Result=="" && $scope.onMouseLeave_ContactNumber_Result=="" && $scope.onMouseLeave_Password_Result=="" && $scope.onMouseLeave_Re_Password_Result=="" && $scope.onMouseLeave_Email_Result=="" && $scope.onMouseLeave_First_Name_Result=="" && $scope.onMouseLeave_Last_Name_Result=="" && $scope.onMouseLeave_DOB_Result=="")
