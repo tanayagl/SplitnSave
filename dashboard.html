@@ -56,7 +56,7 @@
         </div>
           <div class="col-sm-5 col-md-5">
           <div class="panel panel-default">
-            <div class="panel-heading">Requests</div>
+            <div class="panel-heading">new requests</div>
             <div class="panel-body" style="max-height:270px;overflow-y: scroll;">
               <ul class="list-group" ng-repeat="notification in Requested">
                 <li class="list-group-item"  ng-click="gotorequest(notification)">
@@ -73,7 +73,7 @@
             </div>
             </div>
           <div class="panel panel-default">
-            <div class="panel-heading">Confirmation</div>
+            <div class="panel-heading">confirmed deals</div>
             <div class="panel-body" style="max-height:270px;overflow-y: scroll;">
               <ul class="list-group" ng-repeat="notification in Confirmed">
                 <li class="list-group-item"  ng-click="gotoconfirm(notification)">
@@ -90,7 +90,7 @@
             </div>
             </div>
           <div class="panel panel-default">
-            <div class="panel-heading">Acceptance</div>
+            <div class="panel-heading">accepted requests</div>
             <div class="panel-body" style="max-height:270px;overflow-y: scroll;">
               <ul class="list-group" ng-repeat="notification in Accepted">
                 <li class="list-group-item"  ng-click="gotoaccept(notification)">
