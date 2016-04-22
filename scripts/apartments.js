@@ -416,6 +416,8 @@ myapp.controller("Main",function($scope,$cookies,$http,$log){
                 return true;
             } else {
                 if (item.product.Title.toLowerCase()
+                    .indexOf($scope.searchText.toLowerCase()) != -1 ||
+                    item.product.Location.toLowerCase()
                     .indexOf($scope.searchText.toLowerCase()) != -1) {
                     return true;
                 }
