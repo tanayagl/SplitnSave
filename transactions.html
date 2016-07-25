@@ -45,7 +45,7 @@
     </div>
     </div>
     <div class="container clearfix" style="padding-bottom: 10px;padding-top: 10px;max-height:1000px;overflow-y: scroll" >
-       <div class="row" style="border:solid;border-color:#B8B8B8;border-width:0.5px;margin-bottom: 10px;padding-top: 10px;" ng-repeat="product in Products">
+       <div class="row" style="border:solid;border-color:#B8B8B8;border-width:0.5px;margin-bottom: 10px;padding-top: 10px;" ng-repeat="product in Products | filter:search">
           <div class="col-xs-12 col-sm-12 col-md-12" style="color:black;margin-bottom: 10px;">
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-2 pull-left"> 
